@@ -1,13 +1,13 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
 
-function App() {
 
+export default function App() {
   return (
-    <div className="container text-center mt-5">
-      <h1 className="text-primary">Hello, Bootstrap! 🚀</h1>
-      <button className="btn btn-success">Click Me</button>
-    </div>
-  )
+    <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+    </Router>
+  );
 }
-
-export default App
