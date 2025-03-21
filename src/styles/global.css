@@ -166,12 +166,14 @@
   .features-section {
     padding: 80px 15%;
     background-color: #f8f8f8;
+    height: 540px;
+
   }
   
   .features-section h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 500;
-    padding:20px;
+    padding:40px;
     color: #333;
   }
   
@@ -181,11 +183,11 @@
   }
   
   .features-section .row {
-    margin-top: 30px;
+    margin-top: 40px;
   }
   
   .features-section h4 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: bold;
     color: black;
   }
@@ -273,3 +275,66 @@
     font-size: 1rem;
     font-weight: bold;
   }
+  .section-4 {
+    background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+  height: 300vh; /* Kích thước chiều cao đầy đủ */
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  }
+  /* Career Stage Section */
+/* Career Stage Section */
+
+
+.career-stage h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  
+}
+
+/* Career Card Layout */
+.career-card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.career-card .row.no-gutters {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các phần tử xuống dòng */
+  gap: 20px; /* Khoảng cách giữa các phần tử */
+}
+
+.career-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%; /* Chiếm 100% chiều rộng của mỗi phần tử */
+}
+
+.career-card .card-body {
+  text-align: left;
+  position: absolute;
+}
+
+.career-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  
+}
+
+.career-card .card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .career-card .row.no-gutters {
+    flex-direction: column;
+  }
+
+  .career-card .card-img-top {
+    height: 250px;
+  }
+}
