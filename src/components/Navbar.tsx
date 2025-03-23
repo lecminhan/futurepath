@@ -3,15 +3,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom'; // Import Link từ react-router-dom
 import React, { useState } from 'react';
 export default function NavBar() {
-  const [hovered, setHovered] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null); // Trạng thái theo dõi liên kết nào đang hover
 
-  const style = {
-    textDecoration: 'none', // Xóa gạch chân
-    fontWeight: 'normal',    // Font bình thường
-    transition: 'all 0.3s ease-in-out', // Thêm transition cho hiệu ứng mượt mà
-    color: hovered ? 'lightblue' : 'white',  // Đổi màu khi hover
-    transform: hovered ? 'scale(1.1)' : 'scale(1)', // Tăng kích thước khi hover
-  };
+  const style  = (link: string) =>( {
+    textDecoration: 'none',
+    fontWeight: 'normal',
+    transition: 'all 0.3s ease-in-out',
+    color: 'white',
+    transform: hoveredLink === link ? 'scale(1.1)' : 'scale(1)',
+  });
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="px-3 w-100 fixed-top">
@@ -26,11 +26,23 @@ export default function NavBar() {
         {/* Navbar Links */}
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/" className="text-white">Homepage</Nav.Link>
-            <Link to='/quizzes'className='text-white nav-link'  
-                  style={style}
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}> Quizzes
+            <Link 
+             to="/" 
+             className="text-white nav-link"
+             style={style('homepage')} // Gán style cho liên kết Homepage
+             onMouseEnter={() => setHoveredLink('homepage')} // Khi hover vào Homepage
+             onMouseLeave={() => setHoveredLink(null)} // Khi rời khỏi Homepage
+            >
+              Homepage
+            </Link>
+            <Link 
+              to="/quizzes" 
+              className="text-white nav-link"
+              style={style('quizzes')} 
+              onMouseEnter={() => setHoveredLink('quizzes')} 
+              onMouseLeave={() => setHoveredLink(null)} 
+            >
+              Quizzes
             </Link>
             <Nav.Link href="/organizations" className="text-white">For Organizations</Nav.Link>
             <Nav.Link href="/degrees" className="text-white">Degrees</Nav.Link>

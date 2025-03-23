@@ -276,18 +276,21 @@
     font-weight: bold;
   }
   .section-4 {
-    background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
-  height: 300vh; /* Kích thước chiều cao đầy đủ */
+  background: linear-gradient(to bottom, #f9f9f9, #D1CABA);
+  height: auto; /* Kích thước chiều cao đầy đủ */
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+  }
+  .section-4 h1{
+    margin: 20px;
   }
   /* Career Stage Section */
 /* Career Stage Section */
 
 
-.career-stage h2 {
-  font-size: 2.5rem;
+.career-stage h1 {
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 30px;
   
@@ -308,7 +311,6 @@
 .career-card .card-img-top {
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
   width: 100%; /* Chiếm 100% chiều rộng của mỗi phần tử */
 }
 

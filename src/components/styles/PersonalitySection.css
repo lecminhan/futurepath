@@ -1,0 +1,51 @@
+/* Style cho Section */
+.personality-section {
+    position: relative;
+    padding: 50px 0;
+  }
+  
+  /* Style cho content */
+  .personality-section .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style cho image container */
+  .personality-section .image-container {
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  /* Hiệu ứng cho ảnh top và bottom khi hover */
+  .personality-section .top-image, .personality-section .bottom-image {
+    position: absolute;
+    left: -100px;
+    width: 100vw;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Thêm transition */
+  }
+  
+  /* Ảnh trên */
+  .personality-section .top-image {
+    top: -20px;
+  }
+  
+  /* Ảnh dưới */
+  .personality-section .bottom-image {
+    bottom: -20px;
+  }
+  
+  /* Khi hover vào ảnh, ảnh sẽ chạy qua lại */
+  .personality-section .image-container:hover .top-image {
+    transform: translateX(20px); /* Di chuyển ảnh lên phải */
+  }
+  
+  .personality-section .image-container:hover .bottom-image {
+    transform: translateX(-20px); /* Di chuyển ảnh xuống trái */
+  }
+  body, html {
+    overflow-x: hidden;
+  }
+  
