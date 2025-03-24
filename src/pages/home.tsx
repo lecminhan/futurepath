@@ -439,8 +439,8 @@ export default function Home() {
               <Card.Body>
                 <blockquote style={{ fontSize: '1.25rem', color: '#333' }}>
                 <FormatQuoteSharpIcon style={{ fontSize: '3rem',color:'#4A2B68'}} />
-                  <p style={{ fontStyle: 'italic' }}>
-                  We have been using CareerExplorer with our college students for years. Students express how much they learn from this assessment, both about their interests and themselves. 5 stars!
+                <p style={{ fontStyle: 'italic',textAlign:'justify' }}>
+                We have been using CareerExplorer with our college students for years. Students express how much they learn from this assessment, both about their interests and themselves. 5 stars!
                   </p>
                   <footer>— Suzanne</footer>
                 </blockquote>
@@ -454,8 +454,8 @@ export default function Home() {
               <Card.Body>
                 <blockquote style={{ fontSize: '1.25rem', color: '#333' }}>
                 <FormatQuoteSharpIcon style={{ fontSize: '3rem',color:'#4A2B68'}} />
-                  <p style={{ fontStyle: 'italic' }}>
-                    "Really cool. I can see my characteristics and all the jobs that I can obtain. I'm currently a student and I've always wondered what I would be good at. Now I can see options right in front of me."
+                <p style={{ fontStyle: 'italic',textAlign:'justify' }}>
+                "Really cool. I can see my characteristics and all the jobs that I can obtain. I'm currently a student and I've always wondered what I would be good at. Now I can see options right in front of me."
                   </p>
                   <footer>— JC</footer>
                 </blockquote>
@@ -469,8 +469,8 @@ export default function Home() {
               <Card.Body>
                 <blockquote style={{ fontSize: '1.25rem', color: '#333' }}>
                 <FormatQuoteSharpIcon style={{ fontSize: '3rem',color:'#4A2B68'}} />
-                  <p style={{ fontStyle: 'italic' }}>
-                    "This is a great tool! It is extremely accurate as well. I want to go to law school and get into politics to change the laws/policy in the U.S. regarding homelessness. I am finishing my Human Services Associate of Arts degree in January and plan on becoming a Homeless Advocate. Like I said, great test. Couldn't be any more accurate!"
+                <p style={{ fontStyle: 'italic',textAlign:'justify' }}>
+                "This is a great tool! It is extremely accurate as well. I want to go to law school and get into politics to change the laws/policy in the U.S. regarding homelessness. I am finishing my Human Services Associate of Arts degree in January and plan on becoming a Homeless Advocate. Like I said, great test. Couldn't be any more accurate!"
                   </p>
                   <footer>— Sabrena</footer>
                 </blockquote>
