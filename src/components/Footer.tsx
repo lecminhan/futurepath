@@ -1,29 +1,8 @@
 import '../styles/global.css'
 export default function Footer() {
     return (
-      <footer className="footer mt-5">
-        {/* Phần trên: Call to action */}
-        <div className="footer-top d-flex">
-          <div className="left-section">
-            <h2>Go ahead, Explore.</h2>
-            <p>Take the free assessment and uncover things you didn’t know about yourself.</p>
-            <button className="btn btn-light">Get Started Now</button>
-          </div>
-          <div className="right-section">
-            <blockquote>
-              <p>
-                <span className="quote-symbol">“</span> Whatever Sokanu is doing, it seems to be clicking with folks. 
-                More than 70% of those who start the test complete it right away.
-              </p>
-              <div className="quote-source">
-                <span>FASTCOMPANY</span> &nbsp; <span>Forbes</span> &nbsp; <span>RBC Royal Bank</span>
-              </div>
-            </blockquote>
-          </div>
-        </div>
-  
-        {/* Phần dưới: Liên kết */}
-        <div className="footer-bottom">
+      <footer className="footer ">
+        <div className="footer-bottom" style={{width:'100vw'}}>
           <div className="footer-links">
             <div>
               <h6>FOR INDIVIDUALS</h6>

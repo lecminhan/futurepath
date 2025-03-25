@@ -44,7 +44,15 @@ export default function NavBar() {
             >
               Quizzes
             </Link>
-            <Nav.Link href="/organizations" className="text-white">For Organizations</Nav.Link>
+            <Link 
+              to="/forogarnizations" 
+              className="text-white nav-link"
+              style={style('forogarnizations')} 
+              onMouseEnter={() => setHoveredLink('forogarnizations')} 
+              onMouseLeave={() => setHoveredLink(null)} 
+            >
+              For Organizations
+            </Link>
             <Nav.Link href="/degrees" className="text-white">Degrees</Nav.Link>
             <Nav.Link href="/community" className="text-white">Community</Nav.Link>
             <Nav.Link href="/more" className="text-white">More</Nav.Link>

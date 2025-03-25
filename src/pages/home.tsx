@@ -480,6 +480,26 @@ export default function Home() {
         </Row>
       </Container>
     </section>
+    <section>
+    <div className="footer-top d-flex" >
+          <div className="left-section">
+            <h2>Go ahead, Explore.</h2>
+            <p>Take the free assessment and uncover things you didn’t know about yourself.</p>
+            <button className="btn btn-light">Get Started Now</button>
+          </div>
+          <div className="right-section">
+            <blockquote>
+              <p>
+                <span className="quote-symbol">“</span> Whatever Sokanu is doing, it seems to be clicking with folks. 
+                More than 70% of those who start the test complete it right away.
+              </p>
+              <div className="quote-source">
+                <span>FASTCOMPANY</span> &nbsp; <span>Forbes</span> &nbsp; <span>RBC Royal Bank</span>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+        </section>
     </MainLayout>
 
   );
