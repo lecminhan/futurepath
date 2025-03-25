@@ -42,7 +42,6 @@ export default function Home() {
               <h4>Assessment</h4>
               <p>Refine your ideal experiences and top values, and learn what makes you tick.</p>
             </div>
-            
             {/* Feature 2 */}
             <div className="col-md-4">
               <h4>Matches</h4>
@@ -501,6 +500,7 @@ export default function Home() {
         </div>
         </section>
     </MainLayout>
+
 
   );
 }

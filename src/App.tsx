@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 import Quizzes from './pages/Quizzs';
 import ForOgarnizations from './pages/ForOgarnizations';
+import Home from './pages/home'
+import Login from './pages/login';
+import Register from './pages/register';
 
 export default function App() {
   return (
@@ -10,7 +12,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/quizzes" element={<Quizzes/>} />
           <Route path="/forogarnizations" element={<ForOgarnizations/>} />          
-        </Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </Router>
   );
 }

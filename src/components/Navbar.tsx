@@ -1,3 +1,4 @@
+
 import { Navbar, Nav, Container, Button } from 'react-bootstrap'
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom'; // Import Link từ react-router-dom
@@ -12,10 +13,10 @@ export default function NavBar() {
     color: 'white',
     transform: hoveredLink === link ? 'scale(1.1)' : 'scale(1)',
   });
-
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="px-3 w-100 fixed-top">
       <Container fluid> 
+
         <Navbar.Brand href="/" className="fw-bold text-white">
           Career<span className="text-primary">Explorer</span>
         </Navbar.Brand>
