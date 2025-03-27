@@ -341,3 +341,31 @@
     height: 250px;
   }
 }
+/* Hiệu ứng cho dropdown arrow */
+.dropdown-hover:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Hiệu ứng hover cho menu items */
+.dropdown-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+/* Đảm bảo dropdown không bị cắt */
+.dropdown-menu-custom {
+  will-change: transform, opacity; /* Tối ưu hiệu năng animation */
+}
+/* Tùy chỉnh transition mượt hơn */
+.MuiTextField-root {
+  transition: width 0.3s ease-in-out !important;
+}
+
+/* Thêm vào global.css */
+.MuiCollapse-wrapper {
+  overflow: visible !important;
+}
+
+.MuiCollapse-wrapperInner {
+  display: flex !important;
+  justify-content: flex-end;
+}

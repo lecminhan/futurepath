@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 
-const ForOgarnizations = () => {
+const Community = () => {
   return (
     <MainLayout>
      <></>   
@@ -9,4 +9,4 @@ const ForOgarnizations = () => {
   );
 };
 
-export default ForOgarnizations;
+export default Community;
