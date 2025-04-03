@@ -1,0 +1,963 @@
+/* Discord Community Page Styles */
+.discord-community-page {
+    background-color: #ffffff;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Animation for sections */
+.animate-section {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #d4a84b;
+    color: #333;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.discord-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+}
+
+.join-button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.join-button:hover {
+    background-color: #f0f0f0;
+}
+
+.members-count {
+    margin-left: 15px;
+    font-size: 0.9rem;
+}
+
+.hero-channels {
+    position: relative;
+    max-width: 400px;
+}
+
+.channel-tags {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.channel-tag {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.typing-indicator {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.profile-bubbles {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    display: flex;
+}
+
+.profile-bubble {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #d4a84b;
+    margin-left: -15px;
+    object-fit: cover;
+}
+
+/* What is Discord Section */
+.what-is-discord-section {
+    padding: 80px 0;
+    background-color: #fff;
+    color: #333;
+}
+
+.discord-explanation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.channel-list {
+    flex: 0 0 20%;
+    background-color: #2f3136;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.channel-item {
+    color: #8e9297;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.channel-item:hover {
+    background-color: #36393f;
+    color: #dcddde;
+}
+
+.discord-chat-preview {
+    flex: 0 0 40%;
+    background-color: #36393f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discord-info {
+    flex: 0 0 30%;
+    padding-left: 30px;
+}
+
+.discord-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.discord-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #666;
+    font-weight: 400;
+}
+
+.discord-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.channel-name {
+    padding: 15px;
+    background-color: #2f3136;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 1px solid #202225;
+}
+
+.chat-messages {
+    padding: 15px;
+}
+
+.chat-message {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.message-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #4f545c;
+}
+
+.message-content {
+    flex: 1;
+}
+
+.message-author {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: #a3a6aa;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.message-text {
+    color: #dcddde;
+    line-height: 1.4;
+}
+
+.message-reactions {
+    display: flex;
+    margin-top: 5px;
+}
+
+.reaction {
+    background-color: #2f3136;
+    border-radius: 4px;
+    padding: 0 5px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    color: #dcddde;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.message-link {
+    margin: 5px 0;
+}
+
+.message-link a {
+    color: #00b0f4;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.message-card {
+    background-color: #2f3136;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.card-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Career Launcher Section */
+.career-launcher-section {
+    padding: 80px 0;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.career-launcher-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.career-launcher-info {
+    flex: 1;
+    padding-left: 50px;
+    position: relative;
+}
+
+.career-launcher-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.2;
+}
+
+.career-launcher-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Career Question Section */
+.career-question-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.career-question-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.career-question-info {
+    flex: 1;
+    padding-right: 50px;
+    position: relative;
+}
+
+.section-number {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background-color: #d4a84b;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.career-question-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.career-question-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Common styles for info containers */
+.info-container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.info-container h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: auto;
+    max-height: 5.3rem;
+    /* Approximately 2 lines */
+}
+
+/* Study Tips Section */
+.study-tips-section {
+    padding: 80px 0;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.study-tips-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.study-tips-info {
+    flex: 1;
+    padding-right: 50px;
+    position: relative;
+}
+
+.study-tips-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.study-tips-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Steps Section */
+.steps-section {
+    padding: 80px 0;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+.steps-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.steps-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.step {
+    flex: 1 1 calc(25% - 30px);
+    min-width: 220px;
+    margin: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.step-icon {
+    margin-bottom: 20px;
+    position: relative;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discord-icon,
+.verification-image,
+.introduction-image,
+.community-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.discord-icon img,
+.verification-image img,
+.introduction-image img,
+.community-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.device-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.device-icons svg {
+    margin: 0 5px;
+}
+
+.step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.step-note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.link {
+    color: #d4a84b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Conversations Section */
+.conversations-section {
+    padding: 80px 0;
+    background-color: #f5f5f5;
+}
+
+.conversations-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.conversations-info {
+    flex: 1;
+    padding-left: 50px;
+    position: relative;
+}
+
+.conversations-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.conversations-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: #d4a84b;
+    color: #333;
+    position: relative;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 0 15px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.initials {
+    background-color: #d4a84b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.testimonial-author h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.member-badge {
+    background-color: #333;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background-color: #121212;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.faq-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.faq-item {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.expanded .faq-icon {
+    transform: rotate(90deg);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.faq-item.expanded .faq-answer {
+    padding: 0 20px 20px;
+    max-height: 300px;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    background-color: #6b5d44;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.cta-section .join-button {
+    margin: 0 auto;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #121212;
+    padding: 60px 0 30px;
+    color: #999;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    color: #fff;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+.footer-copyright {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Fix for the chat examples */
+.discord-chat-example {
+    flex: 0 0 55%;
+    min-width: 320px;
+    background-color: #36393f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Special styling for career launcher and study tips chats */
+.career-launcher-chat,
+.study-tips-chat {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fix for message avatars and content */
+.message-image img {
+    max-width: 100%;
+    border-radius: 4px;
+    background-color: #4f545c;
+}
+
+/* Fix for alternating sections */
+.career-question-content {
+    flex-direction: row-reverse;
+}
+
+.conversations-content {
+    flex-direction: row-reverse;
+}
+
+/* Add section 2 styling */
+.career-launcher-section .section-number {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    left: auto;
+    width: 40px;
+    height: 40px;
+    background-color: #d4a84b;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.career-launcher-info {
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .info-container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .discord-chat-example {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .career-launcher-content,
+    .career-question-content,
+    .study-tips-content,
+    .conversations-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .career-launcher-info,
+    .career-question-info,
+    .study-tips-info,
+    .conversations-info {
+        padding: 0 15px;
+        margin-bottom: 30px;
+        order: -1;
+        text-align: center;
+    }
+
+    .section-number {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 auto 15px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+    }
+
+    .discord-explanation,
+    .career-launcher-content,
+    .career-question-content,
+    .study-tips-content,
+    .conversations-content {
+        flex-direction: column;
+    }
+
+    .discord-info,
+    .career-launcher-info,
+    .career-question-info,
+    .study-tips-info,
+    .conversations-info {
+        padding: 0;
+        margin-bottom: 30px;
+        order: -1;
+        text-align: center;
+    }
+
+    .channel-list {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+        margin: 0 0 20px;
+    }
+
+    .career-launcher-section .section-number,
+    .career-question-section .section-number,
+    .study-tips-section .section-number,
+    .conversations-section .section-number {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto 15px;
+    }
+
+    .career-launcher-info,
+    .career-question-info,
+    .study-tips-info,
+    .conversations-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .step {
+        flex: 1 1 100%;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .steps-container {
+        flex-direction: column;
+    }
+
+    .step {
+        margin-bottom: 40px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
+}

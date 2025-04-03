@@ -167,3 +167,41 @@
     margin-bottom: 15px;
     text-align: left;
 }
+.auth-subtitle {
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.auth-subtitle.small {
+    font-size: 0.85rem;
+    margin-top: -10px;
+    color: #999;
+}
+
+.back-to-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e9c46a;
+    text-decoration: none;
+    font-size: 0.95rem;
+    gap: 5px;
+}
+
+.back-to-login:hover {
+    text-decoration: underline;
+}
+
+.success-message {
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+}
