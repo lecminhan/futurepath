@@ -6,8 +6,8 @@ import { useEffect, useState, RefObject } from 'react';
  * @param steps - Ref của các bước
  */
 export function useStickySidebar(
-  sectionRef: RefObject<HTMLDivElement | null>,  // Sử dụng RefObject<HTMLDivElement | null>
-  steps: RefObject<HTMLDivElement | null>[]     // Sử dụng kiểu RefObject<HTMLDivElement | null> cho steps
+  sectionRef: RefObject<HTMLDivElement | null>, // Sử dụng RefObject<HTMLDivElement | null>
+  steps: RefObject<HTMLDivElement | null>[] // Sử dụng kiểu RefObject<HTMLDivElement | null> cho steps
 ) {
   const [isFixed, setIsFixed] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);

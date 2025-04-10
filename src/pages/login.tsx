@@ -1,107 +1,121 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+// src/pages/LoginPage.tsx
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
-import PersonIcon from '@mui/icons-material/Person';
-import "../styles/auth.css"
-import MainLayout from "../layouts/MainLayout";
+import MailIcon from '@mui/icons-material/Mail';
+import '../styles/auth.css';
+import MainLayout from '../layouts/MainLayout';
+import { login, saveUserData, LoginResponse } from '../services/LoginService'; // Import service
+
 export default function LoginPage() {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [rememberMe, setRememberMe] = useState(false)
-    const [isCardVisible, setIsCardVisible] = useState(false)
-    const [showPassword, setShowPassword] = useState(false)
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [rememberMe, setRememberMe] = useState(false);
+  const [isCardVisible, setIsCardVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [apiResponse, setApiResponse] = useState<LoginResponse | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-    // Animation effect
-    useState(() => {
-        const timer = setTimeout(() => {
-            setIsCardVisible(true)
-        }, 100)
-        return () => clearTimeout(timer)
-    })
+  const navigate = useNavigate();
 
-    const handleLogin = (e: React.FormEvent) => {
-        e.preventDefault()
-        console.log("Login attempt with:", { username, password, rememberMe })
-        // Add your authentication logic here
+  useEffect(() => {
+    setIsCardVisible(true);
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleLogin = async () => {
+    setIsLoading(true);
+    setApiResponse(null);
+
+    try {
+      const data = await login(formData.email, formData.password); // Use login from service
+
+      if (data.success && data.token && data.expiresIn) {
+        saveUserData(data); // Save user data to localStorage
+      }
+
+      navigate('/'); // Redirect after successful login
+    } catch (err) {
+      setApiResponse({
+        success: false,
+        error: err instanceof Error ? err.message : 'An error occurred'
+      });
+    } finally {
+      setIsLoading(false);
     }
+  };
 
-    return (
-        <MainLayout>
-        <div className="auth-container">
-           
-            <div
-                className="auth-card"
-                style={{
-                    opacity: isCardVisible ? 1 : 0,
-                    transform: isCardVisible ? "translateY(0)" : "translateY(20px)",
-                }}
-            >
-                <h1 className="auth-title">Login</h1>
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await handleLogin();
+  };
 
-                <form onSubmit={handleLogin}>
-                    <div className="input-wrapper">
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                        <div className="input-icon">
-                            <PersonIcon style={{fontSize:'18px'}}/>
-                        </div>
-                    </div>
+  return (
+    <MainLayout>
+      <div className="auth-container">
+        <div
+          className="auth-card"
+          style={{
+            opacity: isCardVisible ? 1 : 0,
+            transform: isCardVisible ? 'translateY(0)' : 'translateY(20px)'
+          }}
+        >
+          <h1 className="auth-title">Login</h1>
 
-                    <div className="input-wrapper">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                        <div
-                            className="input-icon"
-                            onClick={() => setShowPassword(!showPassword)}
-                            style={{ cursor: "pointer" }}
-                        >
-                            {showPassword ? <LockOpenIcon style={{fontSize:'18px'}}/> : <LockIcon style={{fontSize:'18px'}} />}
-                        </div>
-                    </div>
-
-                    <div className="remember-forgot">
-                        <label className="remember-me">
-                            <input type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
-                            <span>Remember Me</span>
-                        </label>
-                        <Link to="/forgot-password" className="forgot-link">
-                            Forgot Password
-                        </Link>
-                    </div>
-
-                    <button type="submit" className="auth-button">
-                        Login
-                    </button>
-
-                    <button type="button" className="google-button">
-                        <img
-                            src="https://t4.ftcdn.net/jpg/03/08/54/37/360_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg"
-                            alt="Google"
-                            className="google-icon"
-                        />
-                        <span className="google-button-text">Or, sign-in with Google</span>
-                    </button>
-
-                    <div className="auth-footer">
-                        Don't have an account?
-                        <Link to="/register" className="auth-link">
-                            Register
-                        </Link>
-                    </div>
-                </form>
+          {apiResponse?.error && (
+            <div className="auth-error" style={{ color: '#FFFF' }}>
+              {apiResponse.error}
             </div>
+          )}
+
+          <form onSubmit={onSubmit}>
+            <div className="input-wrapper">
+              <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} required />
+              <div className="input-icon">
+                <MailIcon style={{ fontSize: '18px' }} />
+              </div>
+            </div>
+
+            <div className="input-wrapper">
+              <input type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" value={formData.password} onChange={handleInputChange} required />
+              <div className="input-icon" onClick={() => setShowPassword(!showPassword)} style={{ cursor: 'pointer' }}>
+                {showPassword ? <LockOpenIcon style={{ fontSize: '18px' }} /> : <LockIcon style={{ fontSize: '18px' }} />}
+              </div>
+            </div>
+
+            <div className="remember-forgot">
+              <label className="remember-me">
+                <input type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
+                <span>Remember Me</span>
+              </label>
+              <Link to="/forgot-password" className="forgot-link">
+                Forgot Password
+              </Link>
+            </div>
+
+            <button type="submit" className="auth-button" disabled={isLoading}>
+              {isLoading ? 'Logging in...' : 'Login'}
+            </button>
+
+            <div className="auth-footer">
+              Don't have an account?
+              <Link to="/register" className="auth-link">
+                Register
+              </Link>
+            </div>
+          </form>
         </div>
-        </MainLayout>
-    )
+      </div>
+    </MainLayout>
+  );
 }

@@ -1,0 +1,96 @@
+.holland-result-page {
+  background-color: #f5f7fa;
+  padding: 40px;
+  margin-top: 20px;
+  margin-left: -50px;
+}
+
+.holland-result-container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  width: 1140px;
+  margin: 70px;
+  margin-top: 40px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.holland-hero {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.holland-hero h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1580eb;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.holland-hero-image {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.holland-hero-description {
+  font-size: 17px;
+  color: #333;
+  text-align: justify;
+  line-height: 1.6;
+  padding-right: 10px;
+}
+
+.tabs-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  padding: 12px;
+  height: fit-content;
+}
+
+.tab-item {
+  list-style: none;
+  padding: 10px 12px;
+  margin: 4px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.25s;
+  display: flex;
+  align-items: center;
+}
+
+.tab-item.active {
+  background-color: #1580eb;
+  color: #fff;
+  font-weight: bold;
+}
+
+.tab-item:hover {
+  background-color: #dceeff;
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow.visible {
+  visibility: visible;
+}
+
+.tab-label.visible {
+  font-weight: 600;
+}
+
+ul.tabs-list {
+  padding: 0;
+  margin: 0;
+}

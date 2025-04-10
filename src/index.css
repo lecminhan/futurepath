@@ -1,6 +1,4 @@
-
 :root {
-
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -13,6 +11,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+/* src/index.css */
+@font-face {
+  font-family: 'MyFont';
+  src:
+    url('/fonts/MyFont.woff2') format('woff2'),
+    url('/fonts/MyFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -67,5 +77,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-
-} 
+}

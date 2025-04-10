@@ -6,7 +6,7 @@ import '../styles/global.css';
 const MoreDropdown: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null); // Trạng thái theo dõi liên kết nào đang hover
-  const style  = (link: string) =>( {
+  const style = (link: string) => ({
     textDecoration: 'none',
     fontWeight: 'normal',
     transition: 'all 0.3s ease-in-out',
@@ -21,11 +21,7 @@ const MoreDropdown: React.FC = () => {
     display: 'inline-block'
   });
   return (
-    <div 
-      className="dropdown-hover position-relative d-inline-block"
-      onMouseEnter={() => setShowDropdown(true)}
-      onMouseLeave={() => setShowDropdown(false)}
-    >
+    <div className="dropdown-hover position-relative d-inline-block" onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
       {/* Toggle button */}
       <Link
         to="#"
@@ -35,7 +31,7 @@ const MoreDropdown: React.FC = () => {
         onMouseLeave={() => setHoveredLink(null)} // Khi rời khỏi Homepage
       >
         More
-        <span 
+        <span
           className="ms-2 dropdown-arrow"
           style={{
             display: 'inline-block',
@@ -51,7 +47,7 @@ const MoreDropdown: React.FC = () => {
       </Link>
 
       {/* Dropdown menu */}
-      <div 
+      <div
         className="dropdown-menu-custom"
         style={{
           border: 'none',
@@ -72,7 +68,7 @@ const MoreDropdown: React.FC = () => {
           transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1)'
         }}
       >
-        <Link 
+        <Link
           to="/job"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{
@@ -82,7 +78,7 @@ const MoreDropdown: React.FC = () => {
         >
           Job
         </Link>
-        <Link 
+        <Link
           to="/expert-connection"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{
@@ -92,7 +88,7 @@ const MoreDropdown: React.FC = () => {
         >
           Expert Connection
         </Link>
-        <Link 
+        <Link
           to="/blog"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{

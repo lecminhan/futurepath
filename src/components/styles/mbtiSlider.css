@@ -1,0 +1,45 @@
+.scroll-container {
+  display: flex;
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+  gap: 20px;
+  padding: 20px;
+  animation: scrollAnimation 40s linear infinite;
+}
+
+.scroll-item {
+  flex-shrink: 0; /* Ngăn chặn phần tử co lại */
+  width: 450px; /* Kích thước mỗi phần tử */
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #333333;
+  justify-content: space-between;
+  display: flex; /* Hiển thị theo dạng hàng ngang */
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+
+.scroll-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.scroll-item h3 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.scroll-item p {
+  font-size: 13px;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateX(0); /* Bắt đầu ở vị trí ban đầu */
+  }
+  100% {
+    transform: translateX(-100%); /* Cuộn qua trái */
+  }
+}

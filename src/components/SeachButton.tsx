@@ -16,13 +16,15 @@ const SearchButton = () => {
   };
 
   return (
-    <div style={{ 
-      display: 'flex',
-      alignItems: 'center',
-      position: 'relative'
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative'
+      }}
+    >
       {/* Search Icon - Luôn hiển thị */}
-      <IconButton 
+      <IconButton
         onClick={handleSearchClick}
         style={{
           transform: showSearch ? 'rotate(90deg)' : 'rotate(0deg)',
@@ -34,7 +36,7 @@ const SearchButton = () => {
       </IconButton>
 
       {/* Search Field */}
-      <Collapse 
+      <Collapse
         in={showSearch}
         orientation="horizontal"
         style={{
@@ -57,10 +59,7 @@ const SearchButton = () => {
             ),
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton 
-                  onClick={handleCloseSearch}
-                  size="small"
-                >
+                <IconButton onClick={handleCloseSearch} size="small">
                   <CloseIcon fontSize="small" />
                 </IconButton>
               </InputAdornment>

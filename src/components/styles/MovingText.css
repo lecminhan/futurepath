@@ -1,28 +1,27 @@
 /* Style cho container di chuyển chữ */
 .moving-text-container {
-    position: relative;
+  position: relative;
+}
+
+/* Style cho text di chuyển */
+.moving-text {
+  font-size: 5.08rem;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  white-space: nowrap; /* Không cho văn bản xuống dòng */
+  animation: moveText 5s ease-in-out infinite;
+}
+
+/* Keyframes cho animation */
+@keyframes moveText {
+  0% {
+    transform: translateX(100%); /* Bắt đầu từ bên phải */
   }
-  
-  /* Style cho text di chuyển */
-  .moving-text {
-    font-size: 5.08rem;
-    font-weight: bold;
-    color: black;
-    position: relative;
-    white-space: nowrap; /* Không cho văn bản xuống dòng */
-    animation: moveText 5s ease-in-out infinite;
+  50% {
+    transform: translateX(-50%); /* Di chuyển đến giữa */
   }
-  
-  /* Keyframes cho animation */
-  @keyframes moveText {
-    0% {
-      transform: translateX(100%); /* Bắt đầu từ bên phải */
-    }
-    50% {
-      transform: translateX(-50%); /* Di chuyển đến giữa */
-    }
-    100% {
-      transform: translateX(-100%); /* Kết thúc ở bên trái */
-    }
+  100% {
+    transform: translateX(-100%); /* Kết thúc ở bên trái */
   }
-  
+}

@@ -1,0 +1,91 @@
+.mbti-result-page {
+  background-color: #f5f7fa;
+  padding: 40px;
+  margin-top: 20px;
+  margin-left: -50px;
+}
+
+.mbti-hero {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  margin: 5px;
+}
+
+.mbti-hero-image {
+  width: 1084px;
+  height: 350px;
+  border-radius: 12px;
+  margin: 5px;
+}
+
+.mbti-hero h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #1580eb;
+  font-weight: bold;
+}
+.mbti-hero-info {
+  color: var(--Neutral-Neutral-50s, #263a4d);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.14px;
+  line-height: 22px;
+  text-align: justify;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.mbti-hero-description {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.mbti-result-container {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 1140px;
+  margin: 70px;
+  margin-top: 40px;
+}
+
+.mbti-strengths-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 24px;
+}
+.mbti-weaknesses-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.mbti-description-section {
+  margin-top: 40px;
+}
+
+.retry-btn {
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: #00b0ab;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.retry-btn:hover {
+  background-color: #00959b;
+}
+
+.btn-wrapper {
+  text-align: center;
+}
+.tabs-container {
+  height: 400px;
+}

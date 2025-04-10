@@ -14,15 +14,29 @@ const CareerQuizzes = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        textAlign: 'center',
+        textAlign: 'center'
       }}
     >
       <Container>
         <div>
-          <h1 style={{ fontSize: '4rem', marginBottom: '30px', fontWeight: 'bold', marginLeft: '400px' }}>
+          <h1
+            style={{
+              fontSize: '4rem',
+              marginBottom: '30px',
+              fontWeight: 'bold',
+              marginLeft: '400px'
+            }}
+          >
             Khám phá con <br /> người của bạn
           </h1>
-          <p style={{ fontSize: '1.25rem', marginBottom: '30px', marginLeft: '545px', textAlign: 'left' }}>
+          <p
+            style={{
+              fontSize: '1.25rem',
+              marginBottom: '30px',
+              marginLeft: '545px',
+              textAlign: 'left'
+            }}
+          >
             Xin chào CareerExplorer, <br /> nền tảng phát triển sự nghiệp hàng đầu thế giới
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -37,7 +51,7 @@ const CareerQuizzes = () => {
                 color: 'white',
                 textDecoration: 'none',
                 fontSize: '1.25rem',
-                fontWeight: 'normal',
+                fontWeight: 'normal'
               }}
             >
               Tìm hiểu thêm về CareerExplorer
