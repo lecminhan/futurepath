@@ -4,14 +4,16 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f1c75f;
   padding: 20px;
   width: 100vw;
   margin-top: 20px;
+  background-image: url('F:\capstone 2\FuturePath\public\bg-img.webp');
+  background-position: center;
+  background-size: cover;
 }
 
 .auth-card {
-  background-color: #2a2a25;
+  background: linear-gradient(135deg, #1A1A1A, #33D4FF);
   border-radius: 10px;
   width: 100%;
   max-width: 400px;
@@ -24,7 +26,7 @@
 }
 
 .auth-title {
-  color: #e9c46a;
+  color: #D1FFFF;
   text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
@@ -53,7 +55,7 @@
 }
 
 .input-wrapper input:focus {
-  border-color: #e9c46a;
+  border-color: #D1FFFF;
   outline: none;
 }
 
@@ -62,7 +64,7 @@
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #e9c46a;
+  color: #D1FFFF;
 }
 
 /* Remember me and forgot password */
@@ -82,11 +84,11 @@
 
 .remember-me input {
   margin-right: 8px;
-  accent-color: #e9c46a;
+  accent-color: #D1FFFF;
 }
 
 .forgot-link {
-  color: #e9c46a;
+  color: #D1FFFF;
   text-decoration: none;
   font-size: 0.9rem;
 }
@@ -99,8 +101,8 @@
 .auth-button {
   width: 100%;
   padding: 12px;
-  background-color: #e9c46a;
-  color: #333;
+  background-color: #D1FFFF;
+  color: #111E30;
   border: none;
   border-radius: 50px;
   font-size: 1rem;
@@ -111,7 +113,8 @@
 }
 
 .auth-button:hover {
-  background-color: #f1c75f;
+  background-color: #1D3A62;
+  color: #D1FFFF;
 }
 
 .google-button {
@@ -148,7 +151,7 @@
 }
 
 .auth-link {
-  color: #e9c46a;
+  color: #D1FFFF;
   text-decoration: none;
   margin-left: 5px;
 }
@@ -187,7 +190,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e9c46a;
+  color: #D1FFFF;
   text-decoration: none;
   font-size: 0.95rem;
   gap: 5px;
