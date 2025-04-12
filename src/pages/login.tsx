@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { User, Lock, Unlock } from "lucide-react"
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import LockIcon from '@mui/icons-material/Lock';
+import PersonIcon from '@mui/icons-material/Person';
 import "../styles/auth.css"
-import NavBar from "../components/Navbar"
-
+import MainLayout from "../layouts/MainLayout";
 export default function LoginPage() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -26,8 +27,9 @@ export default function LoginPage() {
     }
 
     return (
+        <MainLayout>
         <div className="auth-container">
-            <NavBar />
+           
             <div
                 className="auth-card"
                 style={{
@@ -47,7 +49,7 @@ export default function LoginPage() {
                             required
                         />
                         <div className="input-icon">
-                            <User size={18} />
+                            <PersonIcon style={{fontSize:'18px'}}/>
                         </div>
                     </div>
 
@@ -64,7 +66,7 @@ export default function LoginPage() {
                             onClick={() => setShowPassword(!showPassword)}
                             style={{ cursor: "pointer" }}
                         >
-                            {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
+                            {showPassword ? <LockOpenIcon style={{fontSize:'18px'}}/> : <LockIcon style={{fontSize:'18px'}} />}
                         </div>
                     </div>
 
@@ -100,5 +102,6 @@ export default function LoginPage() {
                 </form>
             </div>
         </div>
+        </MainLayout>
     )
 }

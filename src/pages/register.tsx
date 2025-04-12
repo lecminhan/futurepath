@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { User, Mail, Lock, Unlock } from "lucide-react"
+import { Link } from "react-router-dom";
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import LockIcon from '@mui/icons-material/Lock';
+import PersonIcon from '@mui/icons-material/Person';
+import MailIcon from '@mui/icons-material/Mail';
 import "../styles/auth.css"
-import NavBar from "../components/Navbar"
-
+import MainLayout from "../layouts/MainLayout";
 export default function RegisterPage() {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -40,8 +42,8 @@ export default function RegisterPage() {
     }
 
     return (
-        <div className="auth-container">
-            <NavBar />
+        <MainLayout>
+        <div className="auth-container">   
             <div
                 className="auth-card"
                 style={{
@@ -61,14 +63,14 @@ export default function RegisterPage() {
                             required
                         />
                         <div className="input-icon">
-                            <User size={18} />
+                            <PersonIcon style={{fontSize:'18px'}}/>
                         </div>
                     </div>
 
                     <div className="input-wrapper">
                         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                         <div className="input-icon">
-                            <Mail size={18} />
+                            <MailIcon style={{fontSize:'18px'}} />
                         </div>
                     </div>
 
@@ -85,7 +87,7 @@ export default function RegisterPage() {
                             onClick={() => setShowPassword(!showPassword)}
                             style={{ cursor: "pointer" }}
                         >
-                            {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
+                            {showPassword ? <LockOpenIcon style={{fontSize:'18px'}} /> : <LockIcon style={{fontSize:'18px'}} />}
                         </div>
                     </div>
 
@@ -103,7 +105,7 @@ export default function RegisterPage() {
                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                             style={{ cursor: "pointer" }}
                         >
-                            {showConfirmPassword ? <Unlock size={18} /> : <Lock size={18} />}
+                            {showConfirmPassword ?  <LockOpenIcon style={{fontSize:'18px'}}  /> :  <LockIcon style={{fontSize:'18px'}}/>}
                         </div>
                     </div>
                     {!passwordsMatch && <div className="password-error">Passwords do not match</div>}
@@ -121,6 +123,7 @@ export default function RegisterPage() {
                 </form>
             </div>
         </div>
+        </MainLayout>
     )
 }
 

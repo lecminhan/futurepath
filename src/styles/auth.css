@@ -4,8 +4,10 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #121212;
+    background-color: #f1c75f;
     padding: 20px;
+    width: 100vw;
+    margin-top: 20px;
 }
 
 .auth-card {
@@ -16,6 +18,7 @@
     padding: 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-top: 20px;
 }
 
 .auth-title {
@@ -163,4 +166,42 @@
     margin-top: -15px;
     margin-bottom: 15px;
     text-align: left;
+}
+.auth-subtitle {
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.auth-subtitle.small {
+    font-size: 0.85rem;
+    margin-top: -10px;
+    color: #999;
+}
+
+.back-to-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e9c46a;
+    text-decoration: none;
+    font-size: 0.95rem;
+    gap: 5px;
+}
+
+.back-to-login:hover {
+    text-decoration: underline;
+}
+
+.success-message {
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
 }
