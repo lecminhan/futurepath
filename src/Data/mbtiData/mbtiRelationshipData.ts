@@ -1,231 +1,245 @@
 export const MBTIRelationships: Record<string, { 
-    friendship: { description: string, details: string };
-    love: { description: string, details: string };
-    parenting: { description: string, details: string };
-  }> = {
-    ISTJ: {
-      friendship: {
-        description: 'ISTJ là những người bạn đáng tin cậy và có thể dựa vào. Họ giữ lời hứa và hỗ trợ bạn bè một cách nghiêm túc.',
-        details: 'Trong tình bạn, ISTJ không bao giờ lơ là trách nhiệm. Họ luôn có mặt khi cần, nhưng có thể thiếu sự bày tỏ cảm xúc một cách lãng mạn.'
-      },
-      love: {
-        description: 'Trong tình yêu, ISTJ là những người rất chung thủy và kiên định, nhưng đôi khi có thể thiếu sự lãng mạn.',
-        details: 'ISTJ sẽ rất yêu thương người mình chọn, nhưng họ có thể gặp khó khăn trong việc thể hiện tình cảm sâu sắc bằng hành động cụ thể.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ISTJ rất nghiêm khắc nhưng luôn đảm bảo con cái có một môi trường ổn định và có kỷ luật.',
-        details: 'ISTJ tạo ra một không gian an toàn cho con cái, khuyến khích sự phát triển và tổ chức trong cuộc sống của trẻ.'
-      }
-    },
-    ISFJ: {
-      friendship: {
-        description: 'ISFJ trong tình bạn là người rất tận tâm và sẵn sàng lắng nghe. Họ luôn tìm cách giúp đỡ bạn bè của mình.',
-        details: 'ISFJ có khả năng chăm sóc người khác và cung cấp sự hỗ trợ trong mọi hoàn cảnh. Họ là những người bạn đáng tin cậy và chu đáo.'
-      },
-      love: {
-        description: 'Trong tình yêu, ISFJ là người rất chung thủy và tận tâm. Họ làm mọi thứ vì người mình yêu.',
-        details: 'ISFJ có thể hy sinh nhiều điều vì người yêu, nhưng đôi khi họ có thể cảm thấy tổn thương nếu tình cảm không được đền đáp xứng đáng.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ISFJ là người cha mẹ chăm sóc và yêu thương con cái một cách sâu sắc.',
-        details: 'Họ dạy con cái sự quan tâm, chăm sóc và tôn trọng người khác, tạo ra một môi trường gia đình đầy tình yêu thương.'
-      }
-    },
-    INFJ: {
-      friendship: {
-        description: 'INFJ trong tình bạn là người bạn đáng tin cậy, luôn có mặt khi bạn cần và luôn sẵn sàng lắng nghe.',
-        details: 'INFJ thích những tình bạn sâu sắc và có ý nghĩa. Họ sẽ dành nhiều thời gian để hiểu bạn bè mình một cách thấu đáo.'
-      },
-      love: {
-        description: 'Trong tình yêu, INFJ là người rất tình cảm và tận tụy, luôn tìm kiếm sự kết nối tâm hồn.',
-        details: 'INFJ yêu rất sâu sắc và tìm kiếm một đối tác có thể chia sẻ cùng lý tưởng và mối liên kết tâm hồn mạnh mẽ.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, INFJ khuyến khích sự sáng tạo và phát triển tinh thần cho con cái.',
-        details: 'Họ rất quan tâm đến sự phát triển nội tâm của con cái và sẽ tìm cách giúp con họ phát huy tối đa tiềm năng của mình.'
-      }
-    },
-    INTJ: {
-      friendship: {
-        description: 'INTJ có thể khá kín đáo trong tình bạn, nhưng họ là người bạn tuyệt vời khi cần sự giúp đỡ từ họ.',
-        details: 'INTJ sẽ luôn sẵn sàng chia sẻ quan điểm và giúp đỡ bạn bè trong những quyết định quan trọng.'
-      },
-      love: {
-        description: 'Trong tình yêu, INTJ là người rất kiên định và yêu người mình yêu hết lòng, nhưng thiếu sự lãng mạn.',
-        details: 'Họ cần một đối tác có thể hiểu và chia sẻ lý tưởng cũng như cuộc sống của họ một cách sâu sắc.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, INTJ là những người rất lý trí và có kế hoạch, muốn con cái phát triển một cách độc lập.',
-        details: 'Họ mong muốn con cái có thể tự lập và suy nghĩ độc lập, vì vậy họ sẽ cung cấp một môi trường học hỏi tự do cho trẻ.'
-      }
-    },
-    ISTP: {
-      friendship: {
-        description: 'ISTP có xu hướng rút lui vào thế giới riêng khi cảm thấy quá tải, nhưng họ luôn là những người bạn đáng tin cậy.',
-        details: 'Họ có thể không phải là người bày tỏ cảm xúc một cách rõ ràng, nhưng trong tình bạn, họ sẽ luôn hỗ trợ khi cần.'
-      },
-      love: {
-        description: 'ISTP có thể ít bày tỏ cảm xúc nhưng họ rất yêu thương và kiên định trong tình yêu.',
-        details: 'ISTP là những người có thể không nói nhiều về cảm xúc, nhưng sẽ luôn ở bên khi đối tác cần.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ISTP sẽ khuyến khích sự độc lập và tự do cho con cái.',
-        details: 'Họ sẽ cho con cái tự do khám phá và tìm hiểu thế giới, nhưng vẫn duy trì sự hướng dẫn khi cần thiết.'
-      }
-    },
-    ISFP: {
-      friendship: {
-        description: 'ISFP là người bạn dễ gần, thân thiện và luôn lắng nghe những người xung quanh.',
-        details: 'Họ có thể không nói nhiều, nhưng họ luôn sẵn sàng giúp đỡ bạn bè khi cần, và có thể là người bạn tốt nhất trong lúc khó khăn.'
-      },
-      love: {
-        description: 'Trong tình yêu, ISFP là người rất lãng mạn và tận tâm, nhưng cũng có thể thiếu sự ổn định.',
-        details: 'Họ yêu một cách tự nhiên và chân thành, nhưng đôi khi thiếu kiên nhẫn trong mối quan hệ dài hạn.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ISFP rất yêu thương và chăm sóc con cái.',
-        details: 'Họ khuyến khích con cái thể hiện bản thân và theo đuổi những gì chúng yêu thích, với sự quan tâm và tôn trọng.'
-      }
-    },
-    INFP: {
-      friendship: {
-        description: 'INFP là người bạn tuyệt vời, luôn sẵn sàng lắng nghe và hỗ trợ bạn bè.',
-        details: 'Họ không chỉ là người bạn thân thiết mà còn là người bạn chia sẻ cảm xúc sâu sắc.'
-      },
-      love: {
-        description: 'Trong tình yêu, INFP yêu rất nồng nhiệt và tận tâm, luôn tìm kiếm một tình yêu lý tưởng.',
-        details: 'INFP có thể cực kỳ lý tưởng hóa tình yêu, và đôi khi dễ dàng cảm thấy thất vọng nếu tình yêu không như mong đợi.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, INFP là người cha mẹ nhạy cảm và đầy tình yêu.',
-        details: 'Họ sẽ luôn khuyến khích sự sáng tạo và độc lập cho con cái, với một sự quan tâm sâu sắc đến cảm xúc và nhu cầu của chúng.'
-      }
-    },
-    INTP: {
-      friendship: {
-        description: 'INTP là người bạn thông minh và suy nghĩ sâu sắc, nhưng có thể khá lạnh lùng trong mối quan hệ.',
-        details: 'Họ thích giao tiếp thông qua lý luận và quan điểm, nhưng đôi khi thiếu sự quan tâm tới cảm xúc của bạn bè.'
-      },
-      love: {
-        description: 'Trong tình yêu, INTP là người lý trí và nghiêm túc, tìm kiếm một đối tác có thể chia sẻ những cuộc trò chuyện sâu sắc.',
-        details: 'INTP yêu cầu sự tôn trọng về mặt trí tuệ và có thể cảm thấy không thoải mái trong những mối quan hệ lãng mạn quá nặng về cảm xúc.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, INTP khuyến khích sự độc lập và phát triển tư duy cho con cái.',
-        details: 'Họ sẽ tạo ra một môi trường học tập sáng tạo và tự do cho con cái, khuyến khích con cái suy nghĩ và phát triển tự lập.'
-      }
-    },
-    ESTP: {
-      friendship: {
-        description: 'ESTP là người bạn năng động, luôn tạo ra những cuộc phiêu lưu và thú vị cho bạn bè.',
-        details: 'Họ thích sự hành động và sẵn sàng tham gia vào mọi thử thách, điều này khiến họ trở thành người bạn lý tưởng trong những tình huống thú vị.'
-      },
-      love: {
-        description: 'Trong tình yêu, ESTP là người nhiệt huyết và sôi nổi, yêu thích cảm giác phấn khích và những trải nghiệm mới.',
-        details: 'ESTP có thể thiếu sự ổn định trong mối quan hệ lâu dài, nhưng họ là những người bạn đồng hành thú vị và đầy nhiệt huyết.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ESTP là người cha mẹ năng động và yêu thích hành động.',
-        details: 'Họ sẽ khuyến khích con cái tham gia vào các hoạt động ngoài trời và khám phá thế giới xung quanh.'
-      }
-    },
-    ESFP: {
-      friendship: {
-        description: 'ESFP là người bạn sáng tạo và dễ gần, luôn mang lại niềm vui và sự lạc quan.',
-        details: 'Họ thích kết nối với mọi người và luôn sẵn sàng chia sẻ sự vui vẻ, nhưng đôi khi thiếu kiên nhẫn với những vấn đề phức tạp.'
-      },
-      love: {
-        description: 'Trong tình yêu, ESFP là người lãng mạn và tận hưởng khoảnh khắc.',
-        details: 'ESFP yêu một cách nồng nhiệt và sống hết mình trong các mối quan hệ, nhưng họ có thể thiếu sự kiên nhẫn với những mối quan hệ dài lâu.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ESFP là người cha mẹ vui vẻ và tận tụy.',
-        details: 'Họ khuyến khích con cái thể hiện bản thân và tham gia vào các hoạt động sáng tạo, với một tâm hồn luôn đầy niềm vui.'
-      }
-    },
-    ENFP: {
-      friendship: {
-        description: 'ENFP là người bạn nhiệt huyết và luôn tìm kiếm những kết nối sâu sắc.',
-        details: 'Họ là người luôn sẵn sàng giúp đỡ bạn bè và tạo ra những mối quan hệ ý nghĩa và tràn đầy cảm hứng.'
-      },
-      love: {
-        description: 'Trong tình yêu, ENFP yêu một cách đam mê và luôn tìm kiếm sự kết nối tâm hồn.',
-        details: 'ENFP là người yêu nhiệt tình và sáng tạo, nhưng đôi khi họ có thể cảm thấy bối rối trong các mối quan hệ lâu dài.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ENFP là người cha mẹ sáng tạo và có tầm nhìn.',
-        details: 'Họ sẽ khuyến khích con cái theo đuổi đam mê và tự do sáng tạo, nhưng đôi khi có thể thiếu sự kỷ luật cần thiết.'
-      }
-    },
-    ENTP: {
-      friendship: {
-        description: 'ENTP là người bạn thông minh và thích tranh luận, luôn có những ý tưởng sáng tạo để chia sẻ.',
-        details: 'Họ thích thách thức bạn bè với những câu hỏi sâu sắc và luôn sẵn sàng tham gia vào những cuộc trò chuyện thú vị.'
-      },
-      love: {
-        description: 'Trong tình yêu, ENTP thích những mối quan hệ thú vị và kích thích trí tuệ.',
-        details: 'Họ yêu những cuộc trò chuyện sâu sắc và tìm kiếm một đối tác có thể thách thức họ về mặt trí tuệ.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ENTP sẽ dạy con cái tư duy sáng tạo và khả năng phân tích.',
-        details: 'Họ sẽ khuyến khích con cái nghĩ khác biệt và phát triển kỹ năng giải quyết vấn đề, nhưng có thể thiếu sự kiên nhẫn trong việc theo dõi tiến trình của con cái.'
-      }
-    },
-    ESTJ: {
-      friendship: {
-        description: 'ESTJ là người bạn trung thành và đáng tin cậy, luôn tuân thủ các quy tắc và thực hiện trách nhiệm.',
-        details: 'Họ luôn có mặt khi cần thiết và sẽ hỗ trợ bạn bè trong mọi tình huống, đặc biệt trong việc tổ chức và lên kế hoạch.'
-      },
-      love: {
-        description: 'Trong tình yêu, ESTJ yêu một cách kiên định và có tổ chức.',
-        details: 'Họ tìm kiếm sự ổn định và chắc chắn trong mối quan hệ, nhưng đôi khi có thể thiếu sự lãng mạn.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ESTJ là người cha mẹ nghiêm khắc và có kế hoạch.',
-        details: 'Họ khuyến khích con cái theo đuổi các mục tiêu cụ thể và thành công trong cuộc sống, nhưng có thể thiếu sự linh hoạt trong việc nuôi dạy.'
-      }
-    },
-    ESFJ: {
-      friendship: {
-        description: 'ESFJ là người bạn tận tụy và rất quan tâm đến cảm xúc của bạn bè.',
-        details: 'Họ luôn cố gắng làm cho mọi người cảm thấy thoải mái và luôn tìm cách duy trì hòa khí trong mối quan hệ.'
-      },
-      love: {
-        description: 'Trong tình yêu, ESFJ rất lãng mạn và tận tụy.',
-        details: 'Họ làm mọi thứ vì người mình yêu, nhưng đôi khi có thể hy sinh quá nhiều cho đối tác.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ESFJ là người cha mẹ chăm sóc và yêu thương.',
-        details: 'Họ tạo ra một môi trường gia đình đầy tình yêu thương và luôn đảm bảo con cái cảm thấy được yêu thương và quan tâm.'
-      }
-    },
-    ENFJ: {
-      friendship: {
-        description: 'ENFJ là người bạn đầy cảm hứng và tận tâm.',
-        details: 'Họ luôn giúp đỡ bạn bè phát triển và đạt được những mục tiêu lớn trong cuộc sống, luôn là người dẫn dắt trong các mối quan hệ.'
-      },
-      love: {
-        description: 'Trong tình yêu, ENFJ yêu rất sâu sắc và tận tâm.',
-        details: 'Họ tìm kiếm một đối tác có thể phát triển cùng họ và chia sẻ những giá trị và lý tưởng chung.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ENFJ là người cha mẹ nhiệt huyết và chăm sóc.',
-        details: 'Họ sẽ tạo ra một môi trường phát triển đầy tình yêu và giúp con cái phát triển các kỹ năng giao tiếp và xã hội.'
-      }
-    },
-    ENTJ: {
-      friendship: {
-        description: 'ENTJ là người bạn lãnh đạo và có tầm nhìn xa.',
-        details: 'Họ sẽ thách thức bạn bè để đạt được mục tiêu cao hơn và luôn sẵn sàng hỗ trợ trong các quyết định lớn.'
-      },
-      love: {
-        description: 'Trong tình yêu, ENTJ yêu một cách kiên định và chiến lược.',
-        details: 'Họ tìm kiếm sự ổn định và rõ ràng trong mối quan hệ, nhưng có thể thiếu sự mềm mại trong cảm xúc.'
-      },
-      parenting: {
-        description: 'Làm cha mẹ, ENTJ rất nghiêm khắc và có kế hoạch.',
-        details: 'Họ khuyến khích con cái có mục tiêu rõ ràng và làm việc chăm chỉ để đạt được chúng, nhưng có thể thiếu sự linh hoạt trong cách dạy con cái.'
-      }
-    }
-  };
-  
+  friendship: { description: string, details: string };
+  love: { description: string, details: string };
+  parenting: { description: string, details: string };
+}> = {
+  ISTJ: {
+friendship: {
+  description: "ISTJ là người bạn đáng tin cậy, trung thành và luôn giữ lời hứa. Họ thể hiện sự quan tâm bằng hành động thực tế thay vì lời nói hoa mỹ. Dù ít thể hiện cảm xúc, họ luôn âm thầm có mặt khi bạn cần nhất.",
+  details: "ISTJ là kiểu người bạn mà bạn không nhận ra mình cần cho đến khi họ luôn ở đó vào lúc bạn thực sự cần; trong tình bạn, họ không phô trương cảm xúc, không cuốn theo những buổi trò chuyện đầy cảm hứng hay những cái ôm đầy xúc động, thay vào đó, họ cho bạn cảm giác rằng nếu bạn bị lạc giữa rừng rậm thì họ sẽ là người âm thầm xuất hiện với bản đồ, la bàn và bữa ăn đóng gói; họ coi trọng giá trị của sự tin cậy và nhất quán, và sẽ không bao giờ tha thứ cho sự giả dối hay thiếu trung thực trong quan hệ; đôi khi, họ có vẻ lạnh lùng hoặc thiếu quan tâm, nhưng đó chỉ vì họ không thấy cần thiết phải thể hiện cảm xúc bằng lời lẽ; họ chứng minh sự quan tâm bằng hành động cụ thể: giúp bạn sửa máy tính, lái xe đưa bạn đi làm lúc trời mưa, nhớ sinh nhật bạn và tặng bạn thứ bạn từng nhắc thoáng qua sáu tháng trước; nếu bạn cần người ngồi lắng nghe bạn trút bầu tâm sự rồi không rò rỉ thông tin với thế giới bên ngoài, ISTJ chính là thành trì kín tiếng và đáng tin cậy; tuy nhiên, để họ mở lòng với bạn thì cần thời gian và sự kiên trì – họ không dễ tin, không dễ chia sẻ, nhưng một khi đã coi bạn là bạn thực sự, họ sẽ đối xử với bạn như người trong gia đình, không hào nhoáng nhưng bền bỉ, không phô trương nhưng tuyệt đối trung thành."
+},
+love: {
+  description: "Trong tình yêu, ISTJ yêu chân thành và nghiêm túc, luôn hướng đến sự gắn bó lâu dài. Họ thể hiện tình cảm bằng hành động cụ thể hơn là lời nói lãng mạn. Với ISTJ, yêu là cam kết và trách nhiệm trọn đời.",
+  details: "Khi yêu, ISTJ không theo đuổi những khoảnh khắc lãng mạn kịch tính như trong phim mà họ tìm kiếm một sự gắn kết bền vững và đáng tin cậy; họ không phải kiểu người sẽ bất ngờ xuất hiện với bó hoa trước cửa nhà bạn vào nửa đêm, nhưng họ sẽ là người biết bạn hay bị lạnh vào mùa đông và âm thầm chuẩn bị thêm áo khoác trong cốp xe; họ yêu bằng sự tận tâm, bằng sự có mặt đúng lúc, bằng việc nhớ từng điều nhỏ nhặt bạn từng nói, bằng việc thầm lặng lên kế hoạch dài hạn để hai người có tương lai ổn định; họ không thường xuyên nói “anh yêu em” hay “em là cả thế giới của anh”, nhưng bạn sẽ thấy họ ở đó mỗi khi bạn mệt mỏi, kiệt sức, lo lắng – và họ không chỉ an ủi bạn bằng lời nói mà bằng hành động cụ thể và thiết thực; tuy nhiên, vì quá thực tế và dè dặt, ISTJ đôi khi không hiểu được nhu cầu về cảm xúc của đối phương, nhất là khi người yêu cần sự động viên tinh thần hoặc những biểu hiện lãng mạn bất chợt; họ có thể vô tình làm tổn thương đối phương bằng thái độ nghiêm túc, logic quá mức, hoặc vì họ cho rằng yêu là việc được chứng minh bằng hành động chứ không phải qua cảm xúc bộc phát; muốn yêu ISTJ, bạn cần học cách đọc ngôn ngữ tình yêu qua chi tiết nhỏ: cách họ dọn dẹp giúp bạn, chở bạn đi xa hàng giờ liền chỉ vì bạn thích biển, hoặc lặng lẽ ngồi chờ bạn hoàn thành công việc; và muốn được ISTJ yêu trọn vẹn, bạn phải chứng minh được mình đáng tin, ổn định và không mang trong mình tâm hồn hỗn loạn dễ thay đổi; khi ấy, họ sẽ yêu bạn bằng tất cả sự cam kết vững chắc và khả năng hi sinh đến cuối cùng."
+},
+parenting: {
+  description: "Làm cha mẹ, ISTJ nghiêm khắc và nguyên tắc nhưng luôn tạo ra một môi trường ổn định. Họ dạy con bằng lý trí, tổ chức và lòng kiên trì bền bỉ. Sự yêu thương của họ thể hiện bằng hành động âm thầm và bền vững.",
+  details: "Với vai trò làm cha mẹ, ISTJ không đơn thuần là người nuôi dưỡng mà là người định hình, thiết kế và đảm bảo con mình có một nền tảng vững chắc để trưởng thành; họ sẽ không dễ dàng chiều theo cảm xúc hay để con tùy ý hành động theo cảm hứng – họ sẽ đặt ra quy tắc, lên lịch trình, theo dõi kết quả học tập, giám sát thói quen sinh hoạt, và can thiệp kịp thời nếu thấy dấu hiệu lệch chuẩn; họ tin rằng việc hình thành kỷ luật và đạo đức từ nhỏ sẽ giúp con tự tin và sống có trách nhiệm trong tương lai, và vì vậy, họ sẵn sàng trở thành “kẻ xấu” trong mắt con nếu điều đó giúp con phát triển đúng hướng; họ ít khi bày tỏ tình cảm một cách ngọt ngào, nhưng lại thể hiện tình yêu qua việc luôn chuẩn bị đầy đủ mọi thứ con cần, không bao giờ để con thiếu ăn, thiếu mặc, thiếu định hướng; họ có thể nghiêm khắc đến mức khiến con cảm thấy ngột ngạt, đặc biệt khi con có tính cách nổi loạn hoặc nghệ sĩ, nhưng sâu bên trong, họ luôn muốn điều tốt nhất cho con – chỉ là họ thể hiện điều đó bằng cách quản lý hơn là vuốt ve; khi con làm sai, họ sẽ phê bình cụ thể, rõ ràng và đòi hỏi hành động sửa sai thực tế chứ không chỉ là lời xin lỗi; nhưng khi con làm đúng, họ sẽ lưu lại niềm tự hào đó trong lòng, đôi khi không nói ra nhưng lại sẵn sàng kể với người khác về thành tích của con bằng ánh mắt rạng rỡ hiếm hoi; theo thời gian, ISTJ có thể học được cách linh hoạt và mềm mỏng hơn, đặc biệt nếu họ nhận ra rằng tình cảm không thể ép buộc bằng kỷ luật – và khi đó, họ sẽ không chỉ là cha mẹ đúng mực mà còn là người bạn đáng tin của con cái, luôn âm thầm ủng hộ con dù ở bất kỳ giai đoạn nào của cuộc đời."
+}
+},
+
+  ISFJ: {
+friendship: {
+  description: "ISFJ là người bạn tận tâm, luôn lắng nghe và sẵn sàng giúp đỡ người khác. Họ không ngại hy sinh thời gian và công sức để ở bên cạnh bạn bè. Sự chu đáo và âm thầm của họ khiến tình bạn trở nên ấm áp và bền chặt.",
+  details: "Trong tình bạn, ISFJ là kiểu người sẽ nhớ bạn thích món ăn gì, sẵn sàng lùi lại để bạn tỏa sáng, và luôn có mặt mỗi khi bạn cảm thấy thế giới quay lưng với mình; họ quan sát âm thầm, ghi nhớ những chi tiết nhỏ mà người khác dễ dàng bỏ qua, từ ánh mắt buồn của bạn trong đám đông cho đến lời nói vu vơ bạn thốt ra khi mệt mỏi; họ không thích làm trung tâm, không cần được công nhận, chỉ cần biết rằng bạn ổn là họ yên tâm; với ISFJ, tình bạn không phải là những lời hứa lớn lao mà là hàng ngàn hành động nhỏ ngày qua ngày để chứng minh rằng bạn quan trọng; họ sẵn sàng dừng lại công việc đang làm để lắng nghe bạn kể chuyện, sẽ đi hàng giờ liền chỉ để tặng bạn một chiếc khăn bạn từng khen đẹp, sẽ nhắn tin hỏi thăm bạn chỉ vì trực giác mách bảo bạn đang không ổn; tuy nhiên, ISFJ dễ bị tổn thương nếu họ cảm thấy bị coi nhẹ hay bị lợi dụng, vì họ yêu chân thành và luôn kỳ vọng sự quan tâm đó được nhìn thấy và trân trọng; nếu bạn vô tâm, quên lời hứa hoặc phớt lờ cảm xúc của họ, họ sẽ không phản ứng gay gắt, nhưng sẽ dần lùi bước với nỗi buồn lặng lẽ; tình bạn với ISFJ cần sự tinh tế và công nhận – chỉ cần một lời cảm ơn, một ánh mắt biết ơn, hay sự lắng nghe chân thành, họ sẽ ở bên bạn với cả trái tim."
+},
+love: {
+  description: "ISFJ trong tình yêu rất tận tụy và sâu sắc, họ yêu bằng cả trái tim lặng lẽ. Họ thể hiện tình cảm bằng sự chăm sóc và kiên nhẫn mỗi ngày. Với ISFJ, tình yêu là sự hiến dâng, không cần khoa trương.",
+  details: "Yêu một ISFJ giống như được bao bọc trong một vòng tay vô hình – luôn ấm áp, an toàn và không bao giờ rời bỏ; họ không cần phải nói 'anh yêu em' mỗi ngày, vì họ sẽ thể hiện điều đó qua cách họ pha ly trà bạn thích, giặt áo bạn mặc thường xuyên, hoặc ở lại dù bạn đang trong giai đoạn khó khăn nhất; ISFJ yêu bằng hành động, bằng ánh mắt đầy quan tâm khi bạn nói về ước mơ, bằng sự kiên nhẫn chờ đợi khi bạn chưa sẵn sàng, và bằng sự hy sinh lặng lẽ khi bạn cần không gian riêng; họ không đòi hỏi tình yêu rực rỡ hay những món quà xa hoa – điều họ cần là sự chân thành, là cảm giác rằng tình yêu của họ được nhìn nhận và trân trọng; nếu bị lãng quên, bị xem thường hoặc yêu đơn phương trong im lặng quá lâu, họ sẽ âm thầm rút lui với nỗi đau không thể hiện ra ngoài, vì họ sợ làm phiền người khác, sợ mình là gánh nặng; ISFJ luôn tin rằng tình yêu đích thực là sự thấu hiểu không lời, là người kia biết bạn đang buồn dù bạn vẫn cười, là người có thể yên lặng ngồi bên nhau mà vẫn thấy được yêu thương; họ là người yêu biết quan tâm đến cảm xúc của bạn hơn chính họ, và nhiều khi chính sự hy sinh âm thầm ấy lại khiến họ bị tổn thương nếu gặp phải người không biết đáp lại; yêu ISFJ là học cách lắng nghe những điều không được nói ra, để họ cảm thấy an toàn khi bộc lộ tâm hồn mong manh và đẹp đẽ của mình."
+},
+parenting: {
+  description: "Làm cha mẹ, ISFJ là những người dịu dàng, chăm sóc con từng chi tiết nhỏ. Họ tạo nên một mái ấm yêu thương, an toàn và trật tự. Con cái luôn cảm thấy được che chở và lắng nghe.",
+  details: "ISFJ làm cha mẹ với trái tim bao dung và sự tận tụy tuyệt đối – họ sẽ là người chuẩn bị bữa ăn sáng cho con dù bận rộn đến đâu, kiểm tra bài vở, chuẩn bị quần áo gọn gàng mỗi ngày, và luôn hỏi han nhẹ nhàng về cảm xúc của con; với họ, nuôi dạy con không chỉ là trách nhiệm mà còn là sứ mệnh của tình yêu thương, là hành trình mỗi ngày gieo những giá trị đạo đức và lòng nhân ái vào tâm hồn con trẻ; họ chú ý từng chi tiết nhỏ: con có mệt không, hôm nay ở trường có chuyện gì, con có cần ôm không, và sẽ dành thời gian để trò chuyện, chơi đùa và tạo nên thói quen gắn bó bền vững; ISFJ đặt ra giới hạn và kỷ luật một cách nhẹ nhàng nhưng kiên định – không la mắng, không ép buộc, mà dẫn dắt bằng tình yêu và lý do hợp lý, khiến con cái cảm thấy được tôn trọng và lắng nghe; họ dạy con bằng cách làm gương: sống trung thực, quan tâm đến người khác, cư xử nhẹ nhàng và kiên trì; khi con làm sai, ISFJ không vội chỉ trích mà sẽ tìm hiểu nguyên nhân và hướng dẫn con cách sửa sai bằng sự đồng hành chứ không áp lực; tuy nhiên, vì quá chăm lo cho con, họ có thể hy sinh bản thân quá nhiều, quên đi nhu cầu cá nhân, thậm chí dễ cảm thấy bị tổn thương nếu con lớn lên và trở nên lạnh nhạt; ISFJ cần học cách để con phát triển tự lập và không gắn hạnh phúc cá nhân của mình hoàn toàn vào con cái; nhưng dù thế nào, với ISFJ, gia đình luôn là ưu tiên số một, và tình yêu của họ dành cho con sẽ là nguồn gốc của sự ổn định, nhân hậu và bình yên trong suốt hành trình trưởng thành của con."
+}
+},
+
+  INFJ: {
+friendship: {
+  description: "INFJ là người bạn kín đáo nhưng rất sâu sắc, luôn lắng nghe với sự đồng cảm và suy nghĩ. Họ trân trọng những mối quan hệ có chiều sâu và ý nghĩa thực sự. Với INFJ, tình bạn không chỉ là sự hiện diện, mà là sự kết nối tâm hồn.",
+  details: "Trong tình bạn, INFJ là người luôn nhìn thấy những gì người khác không thể hiện ra ngoài – họ đọc được nỗi buồn sau nụ cười, cảm nhận được những tâm sự chưa kịp nói và âm thầm hiện diện khi bạn cần nhất; họ không kết bạn dễ dàng vì họ không tìm kiếm sự náo nhiệt hay bề nổi, mà khao khát một sự đồng điệu – một người hiểu họ không cần nhiều lời, một người đủ tin cậy để họ mở lòng; INFJ sẽ là người nhắn tin cho bạn lúc 2 giờ sáng vì linh cảm bạn đang không ổn, là người ghi nhớ những mảnh ghép nhỏ trong câu chuyện bạn kể để rồi dùng chúng xoa dịu bạn vào lúc bạn quên mất chính mình; họ rất tận tâm, nhưng không thích bám víu – họ cần không gian để phục hồi năng lượng, và sẽ rút lui nếu tình bạn trở nên giả tạo, hời hợt hoặc thiếu chân thành; INFJ cảm thấy tổn thương sâu sắc khi bị phản bội lòng tin, vì khi họ mở lòng là khi họ đã vượt qua rất nhiều rào chắn nội tâm; với INFJ, tình bạn không cần phải gặp nhau thường xuyên, nhưng cần sự hiện diện tinh thần – sự thấu hiểu, tin tưởng và cùng nhau lớn lên về mặt cảm xúc là điều họ trân trọng nhất; nếu bạn là người bạn chân thành, INFJ sẽ dành cho bạn một vị trí không thể thay thế – như một phần tâm hồn họ vậy."
+},
+love: {
+  description: "INFJ trong tình yêu luôn tìm kiếm sự gắn kết sâu sắc từ tâm trí đến cảm xúc. Họ không yêu vội, nhưng một khi đã yêu, đó là tình cảm thuần túy và bền bỉ. Với INFJ, tình yêu là hành trình cùng nhau khám phá tâm hồn.",
+  details: "Yêu một INFJ là yêu một thế giới nội tâm sâu như đại dương – nơi mỗi cảm xúc đều có tầng lớp, mỗi cử chỉ đều mang ý nghĩa và mỗi im lặng đều chứa đựng sự quan tâm thầm lặng; INFJ không yêu vì sự hấp dẫn tức thời, họ bị cuốn hút bởi chiều sâu tâm hồn, bởi những cuộc trò chuyện về lý tưởng sống, những câu hỏi về mục đích và giá trị; họ yêu bằng cả trí tuệ và cảm xúc – họ sẽ nhớ những điều nhỏ nhặt như bạn thích mưa hay nắng, sợ bóng tối hay im lặng, và sẽ xây dựng tình yêu như một ngôi đền thiêng liêng, nơi cả hai có thể trú ẩn và chữa lành; INFJ cần một người đồng điệu về tâm hồn – một người không sợ khám phá những góc tối trong nhau, không sợ những buổi trò chuyện sâu đến mức rơi nước mắt, và đủ dũng cảm để cùng nhau bước qua tổn thương; họ sẽ dành trọn trái tim cho người mình yêu, nhưng nếu bị tổn thương nặng nề hoặc cảm thấy không được thấu hiểu, họ sẽ rút lui rất lặng lẽ – không trách móc, không ồn ào, chỉ để lại khoảng trống và những dòng suy nghĩ không ai đọc được; INFJ cần cảm giác được nhìn thấy thật sự – không phải ngoại hình, không phải hành vi, mà là linh hồn; nếu bạn yêu họ với sự chân thành, cởi mở và lòng biết ơn, họ sẽ trở thành người bạn đồng hành không ai thay thế được – là nơi an toàn để bạn luôn muốn quay về."
+},
+parenting: {
+  description: "Làm cha mẹ, INFJ định hướng bằng sự yêu thương sâu sắc và trực giác tinh tế. Họ giúp con cái phát triển cả trí tuệ lẫn tâm hồn. Với họ, làm cha mẹ là nuôi dưỡng những tâm hồn tự do và có giá trị.",
+  details: "INFJ làm cha mẹ với một trái tim vừa dịu dàng vừa trí tuệ – họ không áp đặt mà hướng dẫn, không la mắng mà đối thoại, không kiểm soát mà khơi mở – bởi họ tin rằng mỗi đứa trẻ là một linh hồn độc lập, và nhiệm vụ của họ là giúp con khám phá chính mình, không phải trở thành phiên bản lý tưởng của cha mẹ; INFJ có trực giác nhạy bén về cảm xúc của con – họ có thể cảm nhận khi con cảm thấy lo lắng dù con không nói ra, sẽ ôm con vào lòng và hỏi bằng giọng nhẹ như hơi thở: 'Hôm nay có chuyện gì khiến con buồn?'; họ tạo một không gian gia đình nơi con được an toàn để sai, được lắng nghe mà không phán xét, được phát triển theo cách riêng mà không bị bó buộc bởi khuôn mẫu; INFJ dạy con bằng những cuộc trò chuyện về lòng trắc ẩn, sự chính trực, và ý nghĩa cuộc sống – họ không muốn con giỏi nhất lớp, mà muốn con hiểu bản thân, biết yêu thương và có trách nhiệm với thế giới xung quanh; nhưng đôi khi, INFJ có thể lo lắng thái quá, đặt kỳ vọng âm thầm lên con cái, hoặc cảm thấy thất vọng nếu không nhìn thấy sự trưởng thành theo cách họ mong muốn; vì vậy, INFJ cần học cách tôn trọng nhịp điệu phát triển riêng của con, và nhớ rằng tình yêu thương của họ đã là nền tảng quý giá nhất; với INFJ, việc nuôi dạy con không chỉ là nhiệm vụ, mà là hành trình tinh thần – nơi họ và con cùng học hỏi, cùng tổn thương, cùng chữa lành và cùng lớn lên bằng tất cả yêu thương không điều kiện."
+}
+},
+
+  INTJ: {
+friendship: {
+  description: "INTJ là người bạn có vẻ ngoài lạnh lùng và kín tiếng, nhưng một khi đã thân thiết, họ trở thành chỗ dựa vững chắc và đáng tin cậy. Họ không cần nhiều bạn, chỉ cần một vài người thực sự hiểu họ. Sự hiện diện của họ thường ít lời nhưng luôn có giá trị.",
+  details: "Trong tình bạn, INTJ là người rất chọn lọc – họ không dễ dàng mở lòng hay dành thời gian cho những mối quan hệ hời hợt, vì với họ, chất lượng quan trọng hơn số lượng; một khi đã chấp nhận ai đó làm bạn, INTJ sẽ là người luôn sẵn sàng đưa ra những lời khuyên chiến lược, phân tích logic tình huống thay vì chỉ đơn thuần an ủi – họ thể hiện sự quan tâm bằng hành động cụ thể như giúp bạn định hướng nghề nghiệp, hỗ trợ giải quyết vấn đề cá nhân bằng tư duy sắc bén; tuy không giỏi thể hiện cảm xúc bằng lời nói ngọt ngào hay những cử chỉ tình cảm truyền thống, INTJ lại cực kỳ trung thành và tôn trọng ranh giới cá nhân của bạn bè – họ không xâm phạm, không kiểm soát, nhưng luôn theo dõi và can thiệp đúng lúc khi bạn cần nhất; đôi khi, sự phân tích quá mức hoặc vẻ ngoài lạnh lùng của họ có thể khiến người khác cảm thấy khó gần, nhưng thực chất INTJ trân trọng tình bạn theo cách rất sâu sắc và bền vững – họ chỉ không phô trương, không làm màu, và chỉ đầu tư vào những người mà họ tin là xứng đáng; nếu bạn hiểu được sự yên lặng của họ cũng là một hình thức quan tâm, và không đòi hỏi sự hiện diện thường xuyên, bạn sẽ thấy INTJ là một người bạn trung thực, thông minh và không bao giờ bỏ rơi bạn khi bạn thật sự cần đến họ."
+},
+love: {
+  description: "Trong tình yêu, INTJ không phải là người dễ rung động, nhưng khi đã yêu, họ rất nghiêm túc và kiên định. Họ yêu bằng lý trí lẫn niềm tin sâu sắc vào mối quan hệ dài lâu. Sự lãng mạn của họ tinh tế, ẩn sau hành động thực tế hơn là lời nói.",
+  details: "Yêu một INTJ không giống như bước vào một bản tình ca đầy nốt thăng trầm, mà giống như xây dựng một bản đồ chiến lược chung cho tương lai – nơi từng mục tiêu, từng giá trị sống đều được xem xét một cách kỹ lưỡng; INTJ không yêu vội, họ quan sát, phân tích và chỉ mở lòng khi họ tin rằng bạn có thể là người đồng hành lâu dài – một người không chỉ đồng cảm mà còn đồng trí hướng, một người đủ mạnh mẽ về nội tâm để đồng hành trong những chặng đường đầy thách thức; trong tình yêu, họ không thích thể hiện bằng những cử chỉ lãng mạn truyền thống, mà bằng việc chia sẻ kế hoạch tương lai, dành thời gian chất lượng, lắng nghe và giúp người yêu vượt qua khó khăn bằng cách thực tế; INTJ có thể khiến người yêu cảm thấy bị “đánh giá” vì xu hướng phân tích mọi thứ, nhưng điều đó xuất phát từ mong muốn xây dựng một mối quan hệ vững chắc – họ không yêu để lấp đầy cảm xúc, mà yêu để cùng phát triển; khi bị tổn thương, họ không nổi giận hay khóc lóc – họ lùi lại, phân tích mọi khía cạnh và nếu thấy mối quan hệ không còn phù hợp, họ sẽ rút lui một cách dứt khoát nhưng đầy nỗi buồn âm thầm; với INTJ, tình yêu không chỉ là cảm xúc – đó là sự kết nối trí tuệ, lý tưởng sống và niềm tin chung vào sự tiến bộ, cả cá nhân lẫn cùng nhau; nếu bạn tôn trọng tự do cá nhân của họ, tin tưởng họ và sẵn sàng cùng họ xây dựng những mục tiêu dài hạn, họ sẽ là người yêu tuyệt vời – ổn định, thông minh và trung thành tuyệt đối."
+},
+parenting: {
+  description: "Làm cha mẹ, INTJ hướng tới việc nuôi dạy con cái trở thành những cá nhân độc lập, tự tin và có khả năng tư duy phản biện. Họ không quá tình cảm, nhưng rất trách nhiệm và định hướng dài hạn. Họ giáo dục con bằng lý trí và định hướng tương lai rõ ràng.",
+  details: "INTJ làm cha mẹ giống như một kiến trúc sư đang thiết kế tương lai cho con – họ sẽ lập kế hoạch dài hạn cho việc học, kỹ năng sống và cả tính cách phát triển của con, với mong muốn con không chỉ giỏi giang mà còn là người biết tự suy nghĩ và chịu trách nhiệm; họ không nuông chiều cảm xúc hay bày tỏ tình cảm bằng sự âu yếm ngọt ngào thường xuyên, nhưng thể hiện tình yêu bằng việc luôn chuẩn bị sẵn phương án dự phòng cho con, giải thích mọi quyết định bằng lý do hợp lý, và lắng nghe con theo cách rất trí tuệ; họ khuyến khích con đặt câu hỏi, suy nghĩ phản biện và không bị cuốn theo đám đông – nhưng đồng thời cũng kỳ vọng rất cao và có thể trở nên khá cầu toàn, khiến con cảm thấy áp lực nếu không đạt được các tiêu chuẩn đó; đôi khi INTJ cần học cách thể hiện tình cảm một cách mềm mại hơn, để con cảm nhận được sự yêu thương thay vì chỉ thấy trách nhiệm và kỳ vọng; họ có thể nghiêm khắc, nhưng công bằng – nếu con chứng minh được lập luận có lý, INTJ sẵn sàng điều chỉnh quan điểm thay vì áp đặt; môi trường mà họ tạo ra thường rất yên tĩnh, giàu tính tổ chức và kích thích trí tuệ – nơi con có thể đọc sách, học hỏi và phát triển theo nhịp điệu riêng; với INTJ, làm cha mẹ không phải là sự hy sinh cảm tính, mà là đầu tư trí tuệ và định hướng – và tình yêu của họ dành cho con cái sâu hơn rất nhiều so với những gì họ có thể nói thành lời."
+}
+},
+
+  ISTP: {
+friendship: {
+  description: "ISTP là người bạn điềm tĩnh, thực tế và không ưa ồn ào, họ có xu hướng giữ khoảng cách cảm xúc nhưng lại cực kỳ trung thành. Họ sẽ không can thiệp nhiều vào đời sống của bạn, nhưng sẽ xuất hiện ngay khi bạn thực sự cần. Tình bạn với ISTP thường phát triển âm thầm, tự nhiên và bền vững theo thời gian.",
+  details: "Trong tình bạn, ISTP là người thích sự tự do cá nhân và không thích bị ràng buộc bởi các kỳ vọng xã hội hay cảm xúc phức tạp – họ không giỏi thể hiện tình cảm bằng lời nói, thậm chí có thể né tránh những cuộc trò chuyện quá sâu về cảm xúc, nhưng lại thể hiện sự quan tâm thông qua hành động thiết thực như giúp sửa đồ, hỗ trợ công việc hay đơn giản là cùng bạn đi đâu đó để giải tỏa áp lực; ISTP không cần nhiều lời để kết nối – họ tin rằng sự đồng hành im lặng nhưng đáng tin cậy còn có ý nghĩa hơn cả ngôn từ; vì không thích bị ràng buộc nên ISTP thường tránh những mối quan hệ bạn bè quá lệ thuộc, và họ sẽ rút lui nếu cảm thấy bị kiểm soát hoặc gò bó quá mức – tuy nhiên, với những người bạn thật sự hiểu và tôn trọng không gian cá nhân của họ, ISTP sẵn sàng cống hiến và bảo vệ mối quan hệ đó một cách lặng lẽ mà kiên cường; họ không thích các cuộc xung đột cảm xúc và sẽ thường chọn cách giữ im lặng hoặc lùi lại để tránh làm mọi việc căng thẳng hơn, nhưng khi thấy bạn rơi vào tình huống khó khăn, họ sẽ xuất hiện, hành động nhanh chóng và thực tế để giúp đỡ – không màu mè, không đòi hỏi sự công nhận, chỉ đơn giản vì đó là điều họ nghĩ nên làm cho người bạn mà họ quý trọng."
+},
+love: {
+  description: "Trong tình yêu, ISTP là người yêu kín đáo, thích thể hiện bằng hành động hơn là lời nói. Họ trân trọng sự tự do và không gian cá nhân trong mối quan hệ. Dù không phải kiểu lãng mạn cổ điển, họ rất trung thành khi đã chọn một ai đó.",
+  details: "ISTP bước vào tình yêu một cách từ tốn, thận trọng và thường cần thời gian để mở lòng vì họ không giỏi trong việc bày tỏ cảm xúc bằng lời – thay vào đó, họ thể hiện tình cảm thông qua sự hiện diện thực tế, những hành động nhỏ nhưng chu đáo, và khả năng giải quyết vấn đề nhanh nhạy; họ không thích những buổi trò chuyện dài lê thê về cảm xúc, cũng không thoải mái khi phải thể hiện sự lãng mạn một cách cường điệu – với họ, một cái chạm tay đúng lúc hay việc tự nguyện sửa món đồ hỏng cho người yêu còn giá trị hơn hàng ngàn lời yêu thương; ISTP rất coi trọng sự tự do cá nhân và không thích bị kiểm soát, vì thế họ cũng tôn trọng đối phương theo cách tương tự – yêu một ISTP là học cách hiểu những tín hiệu tinh tế và không đòi hỏi quá nhiều sự thể hiện bề ngoài; tuy nhiên, khi đã yêu, họ cực kỳ kiên định và trung thành – họ sẽ không nói “anh yêu em” mỗi ngày, nhưng sẽ lặng lẽ làm mọi thứ để người yêu được an toàn và thoải mái; đôi khi, chính sự im lặng hoặc thái độ xa cách của ISTP khiến đối phương hoang mang, nhưng điều đó không đồng nghĩa với sự thờ ơ – họ chỉ cần không gian để tái tạo năng lượng và luôn trở lại bằng hành động cụ thể, không ồn ào nhưng đầy chắc chắn; họ cần một người bạn đời thấu hiểu, không ép buộc, tôn trọng cá tính độc lập, và biết cách chấp nhận tình yêu không ồn ào của họ như một dạng gắn kết chân thành nhất."
+},
+parenting: {
+  description: "Làm cha mẹ, ISTP khuyến khích con cái phát triển sự tự lập, tính tò mò và khả năng thích nghi. Họ tin rằng con cái nên được học thông qua trải nghiệm thực tế. Dù không quá nghiêm khắc, họ sẽ can thiệp đúng lúc để hướng dẫn khi cần thiết.",
+  details: "ISTP làm cha mẹ theo kiểu tự nhiên và linh hoạt – họ không lập kế hoạch cứng nhắc hay áp đặt khuôn mẫu giáo dục mà ưu tiên việc quan sát, hỗ trợ và tạo không gian để con tự khám phá thế giới; họ khuyến khích con học qua hành động và trải nghiệm, sẵn sàng cùng con sửa một món đồ, tháo lắp máy móc hay giải thích cách một hệ thống hoạt động thay vì chỉ dạy bằng lý thuyết khô khan; với tính cách thực tế và bình tĩnh, họ không dễ nổi nóng với con cái, nhưng một khi con vượt quá giới hạn, họ sẽ dùng hành động dứt khoát thay vì lời răn đe dài dòng; ISTP tôn trọng sự độc lập của con – họ không kiểm soát từng bước đi mà sẽ âm thầm quan sát và chỉ xuất hiện khi thấy con thực sự cần giúp đỡ hoặc hướng dẫn; tuy nhiên, chính sự ít thể hiện cảm xúc và phong cách giáo dục khá “tự nhiên” của họ đôi khi có thể khiến con cảm thấy thiếu đi sự kết nối về mặt tình cảm – do đó ISTP cần học cách thể hiện yêu thương rõ ràng hơn qua lời nói hay cử chỉ âu yếm để con cảm nhận được tình yêu một cách trọn vẹn hơn; họ là kiểu cha mẹ “nghĩ gì làm nấy”, không hình thức, không màu mè nhưng luôn sẵn sàng sửa xe, dựng trại, chỉ cách sử dụng công cụ hay giúp con sửa chữa lỗi sai bằng thái độ bình tĩnh và dẫn dắt – chính nhờ cách giáo dục này mà con cái ISTP thường trở nên độc lập, thực tế và có khả năng tự giải quyết vấn đề từ sớm."
+}
+},
+
+  ISFP: {
+friendship: {
+  description: "ISFP là người bạn nhẹ nhàng, dễ mến và đầy cảm thông. Họ thường không phô trương nhưng rất sâu sắc và chân thành trong các mối quan hệ. Tình bạn với ISFP thường mang lại cảm giác yên bình và được thấu hiểu.",
+  details: "ISFP là những người sống nội tâm nhưng vô cùng chu đáo trong tình bạn – họ không ồn ào hay chủ động gây sự chú ý nhưng luôn âm thầm quan sát, cảm nhận và sẵn sàng hành động khi thấy bạn bè cần hỗ trợ; họ có khả năng lắng nghe tuyệt vời, ít phán xét và luôn tạo cảm giác an toàn để người khác có thể thoải mái chia sẻ – điều này khiến họ trở thành một điểm tựa cảm xúc rất vững chắc trong mắt bạn bè; ISFP không thích sự ép buộc hay những mối quan hệ quá kịch tính – họ trân trọng sự tự nhiên, nhẹ nhàng và tự do phát triển theo cảm xúc thật; nếu bị tổn thương trong tình bạn, ISFP có xu hướng rút lui lặng lẽ thay vì đối đầu – họ cần thời gian để chữa lành và có thể giữ khoảng cách với những ai không tôn trọng cảm xúc của họ; khi gắn bó, ISFP cực kỳ trung thành và sẽ thể hiện tình cảm qua những hành động nhỏ, bất ngờ – như một món quà ý nghĩa, một bức thư tay hay đơn giản là sự hiện diện đúng lúc; họ không cần mối quan hệ phải “hoành tráng” hay quá nhiều lời hứa – với ISFP, một tình bạn thực sự là nơi mà cả hai được là chính mình, được lắng nghe và chấp nhận mà không phán xét."
+},
+love: {
+  description: "Trong tình yêu, ISFP là người rất tình cảm, lãng mạn và luôn yêu bằng cả trái tim. Họ thường sống với cảm xúc thật và mong muốn một tình yêu nhẹ nhàng nhưng sâu sắc. Tuy nhiên, họ dễ tổn thương khi không được thấu hiểu.",
+  details: "ISFP yêu một cách chân thành, không toan tính – họ để cảm xúc dẫn đường và luôn mong muốn xây dựng một tình yêu dựa trên sự chân thật, cảm thông và tôn trọng lẫn nhau; khi yêu, họ thích thể hiện tình cảm bằng những cử chỉ nhỏ nhưng ý nghĩa như một ánh nhìn trìu mến, một hành động quan tâm tinh tế hay những món quà đầy cảm xúc – với họ, từng chi tiết đều chứa đựng sự quan tâm sâu sắc; ISFP không dễ mở lòng với người lạ, nhưng khi đã tin tưởng và yêu ai đó, họ sẽ hết lòng vì người ấy – họ có thể hy sinh rất nhiều mà không đòi hỏi gì đáp lại, chỉ mong được yêu thương một cách nhẹ nhàng và chân thật; tuy nhiên, chính vì sống thiên về cảm xúc và nhạy cảm nên ISFP dễ cảm thấy tổn thương khi bị bỏ rơi, lạnh nhạt hay khi tình cảm không được trân trọng – lúc đó, họ thường không nổi giận hay trách móc mà chọn cách rút lui lặng lẽ để bảo vệ bản thân; họ không giỏi giao tiếp bằng lời, đặc biệt là trong các cuộc đối thoại căng thẳng – thay vào đó, họ mong muốn đối phương cảm nhận được trái tim mình qua hành động và cảm xúc; ISFP cần một người bạn đời có thể chấp nhận sự mong manh nhưng đầy chân thành của họ, một người có thể cùng họ tận hưởng từng khoảnh khắc nhỏ bé trong tình yêu mà không ép buộc hay kiểm soát."
+},
+parenting: {
+  description: "Làm cha mẹ, ISFP là những người dịu dàng, kiên nhẫn và luôn yêu thương con cái một cách vô điều kiện. Họ ưu tiên cảm xúc của trẻ và tạo ra một môi trường ấm áp, đầy sự tôn trọng. Con cái của ISFP thường cảm thấy được yêu và được là chính mình.",
+  details: "ISFP làm cha mẹ bằng trực giác cảm xúc và sự dịu dàng – họ không đặt ra kỳ vọng cao hay ép con phải đạt thành tích mà quan tâm nhiều hơn đến việc con cái cảm thấy hạnh phúc, được lắng nghe và tự do thể hiện bản thân; họ chú trọng tạo nên một không khí gia đình yên bình, nơi mọi cảm xúc đều được đón nhận và không có sự phán xét – ISFP tin rằng việc nuôi dạy con nên bắt đầu từ tình yêu và sự tôn trọng cá nhân thay vì các nguyên tắc khắt khe; họ sẽ cổ vũ con theo đuổi đam mê cá nhân, dù đó là nghệ thuật, sáng tạo hay bất kỳ lĩnh vực nào khác, và họ luôn hiện diện như một người bạn đồng hành nhẹ nhàng chứ không phải một người điều khiển cuộc đời con; ISFP không phải là kiểu cha mẹ luôn có kế hoạch hay chiến lược giáo dục rõ ràng – thay vào đó, họ phản ứng theo cảm xúc và sự nhạy cảm với nhu cầu của con trong từng thời điểm; tuy nhiên, họ đôi khi có thể né tránh các tình huống kỷ luật hay xung đột vì không muốn làm tổn thương cảm xúc của con, điều này có thể tạo nên sự thiếu rõ ràng trong ranh giới giáo dục nếu không được cân bằng; dù vậy, con cái của ISFP thường lớn lên trong môi trường giàu cảm xúc, có lòng nhân ái và biết trân trọng sự khác biệt – bởi vì chính cha mẹ đã là hình mẫu của sự yêu thương không điều kiện và tôn trọng cá tính cá nhân."
+}
+},
+
+  INFP: {
+friendship: {
+  description: "INFP là người bạn sâu sắc, luôn hiện diện bằng cả trái tim trong mối quan hệ. Họ không chỉ lắng nghe mà còn thấu hiểu cảm xúc người khác một cách tinh tế. Tình bạn với INFP là một hành trình đầy cảm xúc, chân thành và ý nghĩa.",
+  details: "INFP xem tình bạn như một mối quan hệ thiêng liêng và đầy ý nghĩa – họ không có nhiều bạn bè thân thiết, nhưng một khi đã kết nối, họ sẽ cực kỳ trung thành, luôn lắng nghe, đồng cảm và sẵn sàng hy sinh vì người bạn ấy; họ không thích sự hời hợt hay những mối quan hệ chỉ mang tính xã giao – INFP tìm kiếm những người bạn có thể chia sẻ giá trị sống, lý tưởng và cảm xúc sâu kín mà không bị phán xét; trong tình bạn, INFP thường là người bạn tinh tế, luôn để ý đến những thay đổi nhỏ về tâm trạng và có khả năng đưa ra sự an ủi nhẹ nhàng, đúng lúc; tuy nhiên, vì sống nội tâm và đôi khi hay mơ mộng, INFP có thể bị tổn thương nếu cảm thấy bị bỏ rơi, bị phản bội hoặc nếu tình bạn không được trân trọng như họ kỳ vọng; họ có xu hướng rút lui vào thế giới riêng nếu cảm thấy không còn an toàn để bộc lộ bản thân – nhưng điều đó không có nghĩa họ không quan tâm, mà đơn giản là họ đang tự chữa lành trước khi mở lòng trở lại; tình bạn với INFP là sự kết nối sâu sắc giữa hai tâm hồn, nơi mà sự chân thành, lòng tốt và tôn trọng lẫn nhau là điều cốt lõi để duy trì lâu dài."
+},
+love: {
+  description: "Trong tình yêu, INFP yêu bằng cả trái tim và linh hồn. Họ tìm kiếm một tình yêu thuần khiết, sâu sắc và có sự kết nối tâm hồn. Mối quan hệ lý tưởng với INFP là nơi họ được là chính mình và được yêu trọn vẹn.",
+  details: "INFP yêu một cách mãnh liệt nhưng đầy dịu dàng – họ thường lý tưởng hóa người mình yêu, đặt vào đó những kỳ vọng rất cao về sự hòa hợp tâm hồn, sự hiểu biết sâu sắc và sự đồng điệu về giá trị sống; khi yêu, họ hiến dâng toàn bộ con người mình cho mối quan hệ, trở thành người yêu tận tụy, đầy mộng mơ và rất biết cách lắng nghe cảm xúc của đối phương; INFP không tìm kiếm một mối quan hệ chỉ để lấp đầy khoảng trống – họ cần một người có thể đồng hành về mặt tâm hồn, cùng họ khám phá thế giới nội tâm phong phú và những lý tưởng sâu xa trong cuộc sống; tuy nhiên, chính vì kỳ vọng quá cao và có xu hướng lý tưởng hóa nên INFP dễ cảm thấy thất vọng hoặc tổn thương nếu mối quan hệ thực tế không giống như hình ảnh họ từng vẽ ra; họ có thể trở nên buồn bã, rút lui, hoặc dằn vặt bản thân khi mọi chuyện không như mong đợi – nhưng cũng chính sự trung thành và niềm tin mạnh mẽ vào tình yêu khiến họ không dễ dàng từ bỏ; trong một mối quan hệ lành mạnh, INFP là người rất lãng mạn, biết quan tâm đến từng chi tiết nhỏ và luôn cố gắng nuôi dưỡng sự kết nối cảm xúc – họ không ngừng đầu tư vào mối quan hệ bằng cả trái tim, chỉ cần được đối xử bằng sự chân thành và tôn trọng, INFP sẽ yêu sâu đậm và bền vững đến cuối cùng."
+},
+parenting: {
+  description: "Làm cha mẹ, INFP là những người nhạy cảm, đầy yêu thương và thấu hiểu. Họ hướng đến việc nuôi dạy con cái trở thành những cá thể độc lập, sáng tạo và sống đúng với giá trị của mình. Sự ấm áp và tôn trọng cảm xúc là nền tảng trong cách họ nuôi dạy con.",
+  details: "INFP làm cha mẹ bằng cả trái tim và niềm tin vào tiềm năng nội tại của con cái – họ không đặt ra những tiêu chuẩn cứng nhắc hay áp lực thành tích mà quan tâm nhiều hơn đến việc con cái được sống thật với bản thân, cảm thấy hạnh phúc và được phát triển trong một môi trường tràn đầy tình yêu; họ đặc biệt nhạy cảm với cảm xúc của con, luôn sẵn sàng lắng nghe và đồng hành cùng con qua từng giai đoạn phát triển – không chỉ như người hướng dẫn mà còn như một người bạn tâm lý, luôn hiện diện khi con cần; INFP coi trọng trí tưởng tượng, sự sáng tạo và khả năng biểu đạt cảm xúc – họ thường khuyến khích con đọc sách, viết lách, vẽ tranh hay kể những câu chuyện mang đậm màu sắc tâm hồn; tuy nhiên, do sống thiên về cảm xúc và hay tự phản tỉnh, INFP đôi khi có thể quá bao bọc hoặc né tránh việc đưa ra các quy tắc kỷ luật rõ ràng – điều này có thể khiến con cảm thấy thiếu định hướng nếu không được cân bằng đúng mức; dù vậy, điều quý giá nhất mà một đứa trẻ nhận được từ cha mẹ INFP chính là sự chấp nhận vô điều kiện, không bao giờ bị so sánh hay ép buộc thay đổi bản chất – từ đó, con cái của INFP thường lớn lên với một lòng nhân ái sâu sắc, biết lắng nghe bản thân và dũng cảm theo đuổi những điều có ý nghĩa thật sự trong cuộc sống."
+}
+},
+
+  INTP: {
+friendship: {
+  description: "INTP là người bạn thông minh, sâu sắc và có tư duy độc lập. Họ không quá thể hiện cảm xúc nhưng luôn mang đến những góc nhìn mới lạ. Tình bạn với INTP thường được xây dựng trên sự chia sẻ tri thức và tôn trọng cá nhân.",
+  details: "INTP thường tiếp cận tình bạn bằng lý trí và sự quan sát, họ không dễ mở lòng nhưng khi đã tin tưởng, họ có thể trở thành những người bạn đầy trí tuệ, sâu sắc và trung thành trong cách riêng của họ; họ không thường xuyên thể hiện tình cảm hay chăm sóc bạn bè một cách trực tiếp, nhưng họ sẽ hiện diện đúng lúc khi bạn cần những lời khuyên logic, góc nhìn độc lập hoặc một người đồng hành trí tuệ; INTP thường bị cuốn hút bởi những cuộc trò chuyện sâu sắc, nơi mà họ có thể khám phá các ý tưởng và lý thuyết cùng bạn bè – họ ít hứng thú với các cuộc tụ tập xã giao nông cạn hay các mối quan hệ dựa trên sự gần gũi cảm xúc quá mức; đôi khi, họ có thể vô tình khiến bạn bè cảm thấy bị bỏ rơi hoặc lạnh lùng do bản tính khép kín và thiên về nội tâm – nhưng điều đó không có nghĩa họ không quan tâm, chỉ là cách họ thể hiện sự quan tâm khác với những người thiên về cảm xúc; tình bạn với INTP cần sự kiên nhẫn, hiểu biết và khả năng tôn trọng không gian cá nhân – nếu điều này được đáp ứng, họ sẽ trở thành người bạn cực kỳ sâu sắc, giàu chiều sâu trí tuệ và luôn ủng hộ bạn theo cách thầm lặng nhưng bền bỉ."
+},
+love: {
+  description: "Trong tình yêu, INTP là người lý trí và hướng nội, thường suy nghĩ kỹ lưỡng trước khi mở lòng. Họ tìm kiếm một đối tác có thể kích thích trí tuệ và tôn trọng không gian cá nhân. Sự kết nối về tư duy với họ quan trọng hơn sự thể hiện cảm xúc thông thường.",
+  details: "INTP bước vào tình yêu một cách thận trọng và phân tích – họ thường dành nhiều thời gian để quan sát, suy ngẫm và tự hỏi về tính logic, sự tương thích và khả năng phát triển lâu dài của mối quan hệ trước khi thực sự mở lòng; khi yêu, INTP không thể hiện sự lãng mạn theo kiểu truyền thống – họ ít khi tỏ ra ngọt ngào hay thể hiện tình cảm công khai, nhưng thể hiện tình yêu qua những cuộc trò chuyện sâu sắc, những phân tích thú vị và việc chia sẻ những điều quan trọng trong thế giới nội tâm của họ; họ cần một đối tác có thể kích thích trí tuệ, thách thức lập luận của họ và đồng hành trong những hành trình khám phá kiến thức – tình yêu lý tưởng với họ là sự đồng hành về tư tưởng và tôn trọng lẫn nhau hơn là sự phụ thuộc cảm xúc; tuy nhiên, sự dè dặt trong việc bộc lộ cảm xúc và khuynh hướng tách biệt có thể khiến đối phương cảm thấy bị xa cách hoặc thiếu gắn kết – INTP cần học cách thể hiện cảm xúc bằng những hành động nhỏ hoặc ngôn ngữ tình cảm rõ ràng hơn nếu muốn duy trì một mối quan hệ bền vững; khi cảm thấy an toàn và được hiểu, INTP sẽ trở nên trung thành, tận tụy và sẵn sàng vượt qua ranh giới của bản thân để làm cho mối quan hệ ngày càng sâu sắc hơn."
+},
+parenting: {
+  description: "Làm cha mẹ, INTP định hướng cho con bằng tư duy phản biện và sự độc lập. Họ ít khi áp đặt mà để con tự khám phá thế giới. Môi trường nuôi dạy của họ là nơi tự do học hỏi và khuyến khích trí tò mò.",
+  details: "INTP làm cha mẹ với triết lý giáo dục dựa trên sự độc lập, sáng tạo và tư duy phản biện – họ thường không can thiệp quá sâu vào cuộc sống của con cái, thay vào đó tạo ra môi trường nơi trẻ có thể đặt câu hỏi, tìm hiểu vấn đề theo cách riêng và phát triển sự hiểu biết một cách tự nhiên; họ không áp đặt khuôn mẫu hay ép buộc con phải tuân theo những nguyên tắc cứng nhắc – INTP tin rằng mỗi đứa trẻ là một cá thể duy nhất cần được phát triển theo nhịp điệu riêng; họ sẽ khuyến khích con tự học, đọc sách, phân tích và tự chịu trách nhiệm cho các quyết định cá nhân; tuy nhiên, vì bản tính hướng nội và đôi khi quá tập trung vào thế giới trí tuệ của bản thân, họ có thể thiếu sự nhạy bén trong việc nhận diện cảm xúc hoặc nhu cầu tinh thần của con – điều này có thể khiến một số đứa trẻ cảm thấy bị bỏ rơi nếu chúng cần nhiều hơn về mặt tình cảm; để cân bằng, INTP cần học cách chủ động giao tiếp cảm xúc với con, dành thời gian để lắng nghe và hỗ trợ tinh thần – nếu làm được điều đó, họ sẽ trở thành những người cha mẹ truyền cảm hứng sâu sắc, gieo mầm cho sự sáng tạo, khả năng tư duy độc lập và lòng ham học suốt đời nơi con cái."
+}
+},
+
+  ESTP: {
+friendship: {
+  description: "ESTP là người bạn năng động, dám nghĩ dám làm và luôn biết cách khiến mọi khoảnh khắc trở nên sống động. Họ thích kéo bạn bè vào các cuộc phiêu lưu, thử thách mới và các hoạt động xã hội sôi nổi. Dù đôi khi bốc đồng, họ vẫn là người bạn hào sảng và có mặt khi bạn thật sự cần.",
+  details: "ESTP tiếp cận tình bạn bằng sự nhiệt tình, hành động và sự hiện diện trọn vẹn trong từng khoảnh khắc – họ là kiểu người bạn luôn lôi kéo bạn ra khỏi vùng an toàn, rủ rê đi khám phá những điều mới mẻ hoặc cùng bạn giải quyết một vấn đề bằng sự nhanh nhạy và quyết đoán; với ESTP, tình bạn là sự đồng hành trong hành động – họ ít khi nói về cảm xúc nhưng sẽ thể hiện tình cảm bằng việc cùng bạn trải nghiệm, giúp đỡ khi bạn gặp rắc rối hoặc đơn giản là kéo bạn ra ngoài để thư giãn và sống trọn từng giây; họ rất thẳng thắn, nên đôi khi có thể vô tình làm tổn thương người khác nếu đối phương nhạy cảm hoặc kỳ vọng sự tinh tế – tuy nhiên, ESTP không cố ý, mà đơn giản là họ sống thật, trực tiếp và không màu mè; họ dễ kết bạn, giỏi giao tiếp và có sức hút tự nhiên trong các nhóm xã hội, nhưng để thiết lập một mối quan hệ bạn bè sâu sắc và bền lâu, ESTP cần học cách lắng nghe nhiều hơn và tôn trọng chiều sâu cảm xúc của người khác; khi được thấu hiểu và không bị bó buộc, họ sẽ là người bạn trung thành, vui nhộn và đầy năng lượng tích cực trong cuộc sống của bạn."
+},
+love: {
+  description: "Trong tình yêu, ESTP là người đam mê, quyến rũ và thích hành động thực tế hơn là nói suông. Họ thường yêu nhanh, sống hết mình cho hiện tại và không ngại thể hiện tình cảm một cách táo bạo. Tuy nhiên, họ có thể gặp khó khăn với những mối quan hệ đòi hỏi sự cam kết lâu dài.",
+  details: "ESTP yêu bằng hành động và cảm xúc ngay tại khoảnh khắc – họ không cần nhiều lời hứa hay kế hoạch xa vời, mà muốn tận hưởng tình yêu như một cuộc phiêu lưu tràn đầy cảm xúc và năng lượng; khi yêu, họ rất cuốn hút, tự tin và sẵn sàng làm mọi thứ để gây ấn tượng với người họ thích – từ những cử chỉ ngẫu hứng lãng mạn đến những hành động đầy bất ngờ; họ thích sự mới mẻ, nên nếu tình yêu trở nên quá nhàm chán hoặc nặng nề bởi trách nhiệm, họ có thể cảm thấy mất động lực hoặc dễ phân tâm; ESTP không thích sự gò bó, nên họ cần một người yêu hiểu được tính cách năng động, độc lập và sống cho hiện tại của họ – người đó không nhất thiết phải giống họ, nhưng cần biết cách để đồng hành mà không kiểm soát; trong sâu thẳm, ESTP vẫn khao khát kết nối chân thành, chỉ là họ thường ưu tiên hành động hơn cảm xúc nên đôi khi bị hiểu lầm là thiếu nghiêm túc; nếu được yêu một cách không ràng buộc và cảm thấy được tự do là chính mình, ESTP có thể trở thành một người yêu nhiệt huyết, sôi nổi, và mang lại nhiều niềm vui bất ngờ trong mối quan hệ."
+},
+parenting: {
+  description: "Làm cha mẹ, ESTP là những người sống thực tế, linh hoạt và gần gũi với con cái. Họ không thích lý thuyết suông mà luôn tìm cách dạy con thông qua trải nghiệm thực tế. Trẻ em với cha mẹ ESTP thường có tuổi thơ sôi động, nhiều hoạt động và tự do khám phá.",
+  details: "ESTP làm cha mẹ với tinh thần hành động và sự hiện diện sống động – họ không gò bó con cái trong khuôn khổ khắt khe, mà khuyến khích chúng học từ trải nghiệm, khám phá thế giới bằng cách tham gia vào các hoạt động thực tế và phát triển kỹ năng sống; họ là kiểu cha mẹ hay dẫn con đi dã ngoại, cho phép con được té ngã và tự đứng dậy, đồng thời tạo ra môi trường đầy màu sắc để trẻ không ngừng khám phá bản thân; tuy nhiên, vì xu hướng sống trong hiện tại và không thích lên kế hoạch dài hạn, ESTP có thể gặp khó khăn khi cần kỷ luật con hoặc giải quyết những vấn đề cần sự kiên trì, sự nhẫn nại và phân tích cảm xúc phức tạp; họ cần học cách lắng nghe con cái nhiều hơn, đặc biệt khi con đang trải qua các khủng hoảng tâm lý hay cảm xúc, bởi bản tính hành động của họ đôi khi dễ khiến họ bỏ qua những tín hiệu tinh tế từ con trẻ; nếu biết kết hợp bản năng hướng ngoại với sự nhạy cảm và trách nhiệm, ESTP sẽ là những người cha mẹ đầy năng lượng, gần gũi và truyền cảm hứng hành động cho con cái qua chính lối sống chân thực và linh hoạt của họ."
+}
+},
+
+  ESFP: {
+friendship: {
+  description: "ESFP là người bạn năng động, giàu năng lượng và luôn lan tỏa niềm vui đến những người xung quanh. Họ thích giao tiếp, kết nối cảm xúc và sống trọn vẹn từng khoảnh khắc với bạn bè. Với sự ấm áp và thân thiện, họ là kiểu người luôn khiến bạn cảm thấy được chào đón và vui vẻ.",
+  details: "ESFP coi tình bạn như một phần thiết yếu của cuộc sống đầy màu sắc mà họ muốn tận hưởng mỗi ngày – họ tìm thấy niềm vui trong việc tụ tập, chia sẻ và tạo ra những kỷ niệm thú vị cùng bạn bè, và chính sự hiện diện tràn đầy sức sống của họ giúp mọi buổi gặp gỡ trở nên sinh động hơn. Với trái tim nhạy cảm và nhân hậu, họ luôn chú ý đến cảm xúc của bạn bè và thường thể hiện sự quan tâm thông qua hành động cụ thể – như việc bất ngờ mang món ăn bạn thích, lên kế hoạch cho một buổi dã ngoại chỉ vì bạn buồn, hay đơn giản là xuất hiện đúng lúc bạn cần ai đó bên cạnh. Tuy nhiên, ESFP có thể thiếu kiên nhẫn với những người thường xuyên than phiền hoặc chìm đắm trong các mối lo dài hạn, vì họ tập trung vào hiện tại và không muốn bị kéo xuống bởi những vấn đề quá nghiêm trọng. Dù vậy, với những người bạn thật sự quan trọng, họ sẽ không bỏ cuộc mà sẽ cố gắng dùng chính sự lạc quan và niềm tin tích cực để kéo bạn thoát ra khỏi u ám. Tình bạn với ESFP là một hành trình đầy niềm vui, âm nhạc, tiếng cười – và hơn hết, là sự chân thành xuất phát từ trái tim ấm áp và mong muốn mang lại hạnh phúc cho người khác."
+},
+love: {
+  description: "Trong tình yêu, ESFP là người tình cảm, sống hết mình và luôn muốn tận hưởng sự lãng mạn trong từng khoảnh khắc. Họ yêu bằng cảm xúc, bằng hành động và luôn nỗ lực khiến đối phương cảm thấy đặc biệt. Tuy nhiên, họ có thể gặp khó khăn với sự ổn định và cam kết lâu dài nếu cảm thấy ngột ngạt.",
+  details: "ESFP yêu với sự hồn nhiên, đắm say và hết lòng – họ muốn mỗi khoảnh khắc yêu đương đều ngập tràn cảm xúc, sự mới mẻ và tiếng cười. Với sự tinh tế trong cảm xúc, họ có thể đọc được tâm trạng của đối phương rất nhanh và không ngại thể hiện tình cảm một cách ngẫu hứng, sáng tạo – từ những món quà bất ngờ, những tin nhắn ngọt ngào lúc nửa đêm, đến việc rủ người yêu đi đâu đó chỉ vì 'muốn cùng nhau tận hưởng một ngày đẹp trời'. Tuy nhiên, chính sự sống hết mình cho hiện tại này đôi khi khiến ESFP khó duy trì sự ổn định trong một mối quan hệ dài hạn – nếu họ cảm thấy nhàm chán, bị kiểm soát hoặc mất đi sự tự do thể hiện bản thân, họ dễ chán nản hoặc xa cách. Dù vậy, khi yêu ai đó thật lòng, ESFP rất trung thành và sẵn sàng hy sinh để người ấy cảm thấy hạnh phúc. Họ chỉ cần một đối tác có thể trân trọng sự tự nhiên, sống động và mong muốn kết nối chân thật của họ – ai đó không tìm cách thay đổi họ, mà cùng họ tạo nên một tình yêu tràn đầy sắc màu, sự hứng khởi và sự hiện diện thật sự."
+},
+parenting: {
+  description: "Làm cha mẹ, ESFP là người gần gũi, yêu thương và rất nhạy bén với cảm xúc của con cái. Họ luôn mang lại cho con một môi trường vui vẻ, sáng tạo và tự do thể hiện. Thay vì đặt ra nhiều quy tắc cứng nhắc, họ dạy con bằng sự đồng cảm và khích lệ tích cực.",
+  details: "ESFP tiếp cận vai trò làm cha mẹ bằng một trái tim mở rộng và đầy cảm xúc – họ coi con cái không chỉ là người cần được nuôi dưỡng, mà còn là bạn đồng hành trong hành trình khám phá thế giới. Họ thường khuyến khích con thể hiện cảm xúc, thử nghiệm những hoạt động sáng tạo như nghệ thuật, âm nhạc, nhảy múa, hoặc các trò chơi vận động – tất cả nhằm nuôi dưỡng trí tưởng tượng và cảm xúc cá nhân của trẻ. Với sự tinh tế, ESFP rất giỏi nhận ra khi con buồn, lo lắng hay cần sự chú ý, và họ sẽ lập tức phản hồi bằng cách gần gũi, ôm ấp hoặc đưa con đi chơi để xua tan cảm xúc tiêu cực. Tuy nhiên, vì họ không quá thích lập kế hoạch dài hạn hay thiết lập kỷ luật nghiêm ngặt, đôi khi họ gặp khó khăn trong việc duy trì sự nhất quán hoặc xử lý những hành vi cần sự kiên quyết – điều này có thể khiến con trở nên thiếu ranh giới nếu không được cân bằng. Dù vậy, con cái của cha mẹ ESFP thường lớn lên với một tinh thần thoải mái, sáng tạo, và được yêu thương trọn vẹn – bởi họ được nuôi dưỡng bằng một tình yêu chân thành, sự hiện diện đầy cảm xúc và một tâm hồn luôn tràn đầy màu sắc cuộc sống từ chính cha mẹ của mình."
+}
+},
+
+  ENFP: {
+friendship: {
+  description: "ENFP là người bạn tràn đầy nhiệt huyết, sáng tạo và luôn khao khát tạo nên những kết nối sâu sắc với người khác. Họ không chỉ dừng lại ở sự vui vẻ bề ngoài mà luôn mong muốn hiểu rõ cảm xúc và tâm hồn của bạn bè.",
+  details: "Tình bạn với ENFP là một hành trình đầy cảm hứng, sự phiêu lưu và những cuộc trò chuyện sâu lắng về ý nghĩa cuộc sống. Họ thường dễ dàng bắt chuyện và kết nối với người khác nhờ sự cởi mở và chân thành, nhưng điều khiến họ khác biệt là mong muốn thực sự 'hiểu' – không chỉ biết bạn là ai, mà hiểu bạn cảm thấy gì, đang đấu tranh với điều gì, và bạn mong muốn điều gì trong cuộc sống. ENFP sẽ là người nhắn tin cho bạn lúc 3 giờ sáng chỉ để hỏi rằng bạn có ổn không, hoặc xuất hiện với một ly cà phê khi bạn đang hoang mang giữa hàng tá áp lực. Tuy nhiên, vì họ có xu hướng bận tâm đến nhiều mối quan hệ và đôi khi quá bận rộn với cảm xúc của chính mình, họ có thể vô tình bỏ lỡ những tín hiệu nhỏ của bạn bè. Dù vậy, một khi đã gắn bó, ENFP là người bạn trung thành, đầy lòng trắc ẩn và luôn thúc đẩy bạn trở thành phiên bản tốt nhất của chính mình bằng sự khích lệ không giới hạn."
+},
+love: {
+  description: "Trong tình yêu, ENFP là người đam mê, lãng mạn và luôn tìm kiếm sự kết nối tâm hồn sâu sắc. Họ không chỉ muốn được yêu mà còn muốn đồng hành cùng người ấy trên hành trình phát triển và khám phá bản thân.",
+  details: "ENFP bước vào tình yêu như bước vào một cuộc phiêu lưu kỳ thú – họ yêu bằng cả trái tim, trí óc và sự tò mò vô tận. Họ không dễ bị thu hút bởi vẻ ngoài hay thành tích, mà tìm kiếm một người có thể cùng họ chia sẻ những lý tưởng, những hoài bão, và cả những nỗi đau chưa nói thành lời. Họ là người yêu lãng mạn, luôn nghĩ ra những bất ngờ đầy sáng tạo, những cuộc hẹn không theo lối mòn, và đặc biệt – những cuộc trò chuyện đầy chiều sâu về cảm xúc, ước mơ, triết lý sống. Tuy nhiên, với bản chất luôn khao khát sự mới mẻ và cảm hứng, ENFP có thể cảm thấy bối rối hoặc lo lắng khi một mối quan hệ dần đi vào quỹ đạo ổn định. Họ sợ bị giam cầm trong thói quen, trong khuôn mẫu, và dễ bị hút vào những cảm xúc nhất thời nếu không cảm thấy được nuôi dưỡng về mặt tinh thần. Nhưng khi tìm được người có thể vừa hiểu vừa thách thức họ một cách tích cực, ENFP sẽ là người bạn đời trung thành, tận tâm và luôn truyền lửa cho tình yêu bằng cảm hứng bất tận và sự dịu dàng khó tìm thấy ở bất kỳ ai khác."
+},
+parenting: {
+  description: "Làm cha mẹ, ENFP mang đến cho con một môi trường đầy sáng tạo, tình yêu và tự do khám phá. Họ không muốn đơn giản nuôi dạy một đứa trẻ, mà muốn truyền cảm hứng để con trở thành một cá thể độc lập, biết yêu thương và có lý tưởng sống.",
+  details: "ENFP là kiểu cha mẹ thường xuyên đặt câu hỏi như 'Con nghĩ gì về điều này?', 'Con cảm thấy ra sao?', hoặc 'Hôm nay con học được điều gì khiến con thấy hứng thú?' – bởi vì với họ, nuôi dạy con không phải là một tiến trình kiểm soát mà là một hành trình đồng hành. Họ luôn tạo điều kiện cho con thể hiện bản thân thông qua nghệ thuật, trò chơi, câu chuyện, hoặc bất cứ điều gì con đam mê. Sự sáng tạo và khả năng thấu hiểu cảm xúc giúp họ dễ dàng tiếp cận con cái bằng tình cảm và sự tôn trọng. Tuy nhiên, vì không quá giỏi trong việc thiết lập giới hạn rõ ràng hay duy trì sự nhất quán, họ có thể đôi khi khiến con cảm thấy thiếu định hướng hoặc khó hiểu về ranh giới. Dù vậy, cha mẹ ENFP luôn nỗ lực để giúp con tìm thấy con đường của chính mình – họ sẽ là người đứng phía sau khích lệ mỗi lần con vấp ngã, chia sẻ những câu chuyện về ước mơ, và sẵn sàng cùng con vẽ lại bản đồ cuộc sống nếu con muốn thay đổi hướng đi. Trẻ được nuôi dạy bởi ENFP thường lớn lên với lòng trắc ẩn, sự tự do tư duy và niềm tin mạnh mẽ rằng mình được yêu thương – không phải vì làm điều gì, mà vì chính bản thân mình là ai."
+}
+},
+
+  ENTP: {
+friendship: {
+  description: "ENTP là người bạn thông minh, hài hước và luôn tò mò về mọi điều trong cuộc sống. Họ không chỉ tìm kiếm niềm vui trong tình bạn mà còn mong muốn những cuộc đối thoại kích thích tư duy và khai mở ý tưởng.",
+  details: "Khi làm bạn với một ENTP, bạn sẽ không bao giờ cảm thấy nhàm chán. Họ luôn đầy ắp những câu chuyện kỳ quặc, những quan điểm bất ngờ và khả năng nhìn thấy vấn đề từ nhiều góc độ khác nhau. ENTP không chỉ thích giao tiếp – họ sống để giao tiếp, đặc biệt là những cuộc thảo luận sôi nổi, nơi họ có thể tranh luận một cách say mê, thậm chí là khi chính họ không hoàn toàn tin vào quan điểm đang bảo vệ. Nhưng điều đó không làm cho họ trở nên giả dối – họ làm vậy vì thích thử thách giới hạn tư duy, cả của bản thân lẫn người khác. Tuy nhiên, vì quá yêu sự tự do và kích thích trí tuệ, đôi khi ENTP có thể bị đánh giá là thiếu sâu sắc về cảm xúc, hoặc không đủ kiên nhẫn để ở bên cạnh khi bạn cần sự yên lặng và lắng nghe hơn là một loạt giải pháp và phân tích. Dù vậy, nếu bạn có thể chấp nhận bản chất 'nghĩ nhiều, cảm ít' của họ, ENTP sẽ là người bạn luôn thúc đẩy bạn suy nghĩ rộng hơn, sống dũng cảm hơn và không bao giờ từ bỏ những ý tưởng táo bạo của mình."
+},
+love: {
+  description: "Trong tình yêu, ENTP là người yêu nhiệt thành, linh hoạt và đầy trí tuệ. Họ tìm kiếm một mối quan hệ không chỉ lãng mạn mà còn là một cuộc khám phá tâm trí và tư duy của nhau.",
+  details: "ENTP tiếp cận tình yêu như một cuộc hành trình mạo hiểm: không theo khuôn mẫu, không rập khuôn, và luôn mở ra những bất ngờ mới. Họ dễ bị thu hút bởi những người có chiều sâu suy nghĩ, khả năng phản biện thông minh và óc hài hước sắc sảo. Với họ, sự gắn kết thực sự bắt đầu từ một cuộc trò chuyện đầy cảm hứng, nơi cả hai có thể tự do phản biện, khám phá ý tưởng, và thách thức quan điểm của nhau mà vẫn giữ được sự tôn trọng và thu hút. Tuy nhiên, do bản chất luôn khao khát sự mới mẻ và kích thích, ENTP có thể cảm thấy bồn chồn nếu mối quan hệ trở nên quá yên ả hoặc thiếu sự đổi mới. Họ cũng có thể vô tình bỏ qua nhu cầu tình cảm của đối phương nếu quá say mê vào công việc hay các dự án trí tuệ. Nhưng nếu họ tìm thấy một người bạn đời có thể theo kịp trí tưởng tượng của mình, cùng nhau tranh luận không mệt mỏi và đồng hành như một 'đồng chí', ENTP sẽ cực kỳ trung thành, tận tâm và luôn thắp sáng mối quan hệ bằng nguồn năng lượng sáng tạo không giới hạn."
+},
+parenting: {
+  description: "Làm cha mẹ, ENTP mang đến một môi trường đầy sự khám phá, cởi mở và kích thích trí tuệ. Họ không đặt nặng sự tuân thủ mà tập trung vào việc khơi dậy tư duy độc lập và tinh thần đổi mới của con cái.",
+  details: "ENTP là kiểu cha mẹ sẽ đặt hàng tá câu hỏi cho con như: 'Tại sao con lại nghĩ thế?', 'Nếu con là người viết luật thì con sẽ làm gì khác?', 'Con có thể nghĩ ra cách mới để giải quyết vấn đề này không?' – vì họ xem việc nuôi dạy con không chỉ là giáo dục mà là cùng nhau học hỏi và phát triển. Họ rất giỏi trong việc truyền cảm hứng, khuyến khích con suy nghĩ phản biện, và dám đặt câu hỏi cho cả những điều tưởng chừng là bất biến. Trẻ em trong gia đình ENTP thường lớn lên với tinh thần đổi mới, sáng tạo và không ngại thử những điều khác biệt. Tuy nhiên, ENTP có thể gặp khó khăn trong việc thiết lập quy tắc nhất quán hoặc theo dõi tiến trình học tập hàng ngày của con, bởi họ thường hứng thú với bức tranh lớn hơn là những chi tiết nhỏ. Đôi lúc, sự linh hoạt quá mức và bận rộn với nhiều dự án khác nhau khiến họ dễ sao nhãng vai trò điều tiết cảm xúc cho con trẻ. Dẫu vậy, với tình yêu tự nhiên và trí tuệ rộng mở, ENTP vẫn là những người cha mẹ tuyệt vời – người không chỉ nuôi dạy con, mà còn học cùng con mỗi ngày, với tinh thần tò mò không bao giờ tắt."
+}
+},
+
+  ESTJ: {
+friendship: {
+  description: "ESTJ là người bạn trung thành, thẳng thắn và đáng tin cậy – một trụ cột vững chắc trong mọi nhóm bạn. Họ là người luôn giữ lời, có trách nhiệm và tôn trọng các giá trị truyền thống trong tình bạn.",
+  details: "Khi làm bạn với một ESTJ, bạn sẽ luôn biết mình đang đứng ở đâu. Họ không mập mờ, không 'bắt cá hai tay', và luôn rõ ràng trong quan điểm. ESTJ thích sự ổn định và trật tự, vì vậy họ thường là người tổ chức các buổi họp mặt, quản lý thời gian và đảm bảo mọi người đều được tham gia một cách công bằng. Họ sẵn sàng giúp đỡ khi bạn gặp khó khăn, đặc biệt là trong những tình huống thực tế như lên kế hoạch, giải quyết công việc, hoặc đưa ra những lời khuyên thiết thực. Tuy nhiên, họ có thể thiếu sự mềm mại trong giao tiếp, đôi khi thể hiện sự thẳng thắn đến mức vô tình khiến người khác cảm thấy bị đánh giá. ESTJ không giỏi xử lý cảm xúc mơ hồ hoặc những tình huống cần sự đồng cảm tinh tế. Nhưng nếu bạn cần một người bạn sẵn sàng đến ngay khi bạn cần, có khả năng đưa bạn trở lại thực tế và giúp bạn đứng dậy sau thất bại, thì ESTJ là một người bạn không thể thiếu."
+},
+love: {
+  description: "Trong tình yêu, ESTJ là người bạn đời kiên định, có tổ chức và hướng đến xây dựng một tương lai ổn định. Họ thể hiện tình cảm qua hành động và trách nhiệm hơn là những lời ngọt ngào.",
+  details: "Đối với ESTJ, tình yêu không chỉ là cảm xúc – đó còn là sự cam kết và xây dựng một nền tảng bền vững cho tương lai. Họ coi trọng sự trung thành, nguyên tắc và vai trò rõ ràng trong mối quan hệ. ESTJ thường thể hiện tình cảm bằng cách chăm sóc chu đáo, làm việc chăm chỉ để đảm bảo an toàn tài chính, hoặc chủ động lên kế hoạch cho cả hai. Tuy nhiên, họ có thể gặp khó khăn trong việc diễn đạt cảm xúc lãng mạn hoặc linh hoạt thích ứng với những thay đổi cảm xúc bất ngờ từ người yêu. Đôi khi họ có xu hướng kiểm soát hoặc trở nên cứng nhắc nếu đối phương không tuân theo kế hoạch hoặc không có định hướng rõ ràng. Tuy vậy, nếu được đối tác thấu hiểu và tôn trọng tính cách trực diện, ESTJ là người bạn đời rất tận tâm, kiên cường và luôn đặt mối quan hệ lên hàng đầu, đặc biệt khi họ cảm nhận được sự tôn trọng và ổn định từ phía đối phương."
+},
+parenting: {
+  description: "Làm cha mẹ, ESTJ là hình mẫu của sự kỷ luật, tổ chức và định hướng thành công. Họ xem việc nuôi dạy con như một nhiệm vụ quan trọng cần nghiêm túc và có chiến lược dài hạn.",
+  details: "ESTJ không chỉ là người hướng dẫn mà còn là người lãnh đạo trong gia đình. Họ thường xây dựng lịch trình rõ ràng cho con cái, đặt ra quy tắc ứng xử và kỳ vọng cao về thành tích học tập hay hành vi. Trẻ được nuôi dạy bởi ESTJ thường học được cách sống có trách nhiệm, biết tôn trọng người khác và có tinh thần cạnh tranh tích cực. Tuy nhiên, điểm yếu của ESTJ nằm ở việc đôi khi họ quá tập trung vào kết quả mà quên mất yếu tố cảm xúc hoặc cá tính riêng của từng đứa trẻ. Họ có thể gặp khó khăn trong việc chấp nhận những con đường phi truyền thống hoặc những thay đổi không theo kế hoạch. Nhưng nếu ESTJ học được cách lắng nghe và điều chỉnh sự nghiêm khắc của mình bằng sự thấu cảm, họ sẽ trở thành những người cha mẹ tuyệt vời – vừa định hướng vững chắc cho con cái, vừa là tấm gương mạnh mẽ về ý chí và trách nhiệm."
+}
+},
+
+  ESFJ: {
+friendship: {
+  description: "ESFJ là người bạn tận tụy, chu đáo và luôn quan tâm sâu sắc đến cảm xúc của người khác. Họ sống vì tập thể và luôn nỗ lực để tạo ra sự hòa hợp trong các mối quan hệ.",
+  details: "Với bản tính giàu lòng vị tha và nhạy cảm với cảm xúc xung quanh, ESFJ thường là người đứng ra hòa giải mâu thuẫn, kết nối mọi người lại với nhau và làm cho nhóm bạn trở nên gắn bó hơn. Họ có xu hướng quan tâm đến từng chi tiết nhỏ – như nhớ ngày sinh, hỏi thăm khi bạn mệt mỏi, hay gửi một lời nhắn để cổ vũ bạn khi bạn cần. Sự chân thành và quan tâm này khiến họ trở thành người bạn vô cùng đáng quý. Tuy nhiên, ESFJ đôi khi có thể quá nhạy cảm với sự phê bình hoặc cảm thấy tổn thương nếu không nhận được sự đáp lại từ bạn bè. Họ dễ bị tổn thương nếu cảm thấy bị bỏ rơi hoặc không được đánh giá đúng mức nỗ lực. Dù vậy, họ sẽ luôn là người sẵn sàng lắng nghe, giúp đỡ và làm mọi điều để bạn bè cảm thấy được yêu thương, đặc biệt trong những thời điểm khó khăn."
+},
+love: {
+  description: "Trong tình yêu, ESFJ là người yêu tận tụy, tình cảm và luôn đặt nhu cầu của đối phương lên hàng đầu. Họ luôn khao khát xây dựng một mối quan hệ hài hòa và gắn bó lâu dài.",
+  details: "ESFJ thể hiện tình yêu thông qua hành động cụ thể: chăm sóc từng bữa ăn, chú ý đến tâm trạng của người yêu, và không ngừng tìm cách làm cho người ấy hạnh phúc. Họ rất quan tâm đến việc người yêu cảm thấy thế nào và sẵn sàng hy sinh bản thân để duy trì sự yên ấm trong mối quan hệ. Đôi khi, vì mong muốn làm vừa lòng đối phương, ESFJ có thể bỏ qua nhu cầu cá nhân hoặc đánh mất bản sắc riêng. Họ cũng có xu hướng nhạy cảm với sự lạnh nhạt và có thể cảm thấy bất an nếu không nhận được sự công nhận và tình cảm đầy đủ. Tuy nhiên, với một người biết trân trọng sự tận tâm ấy, tình yêu của ESFJ là một hành trình sâu sắc, ấm áp và đầy sự quan tâm vô điều kiện."
+},
+parenting: {
+  description: "Làm cha mẹ, ESFJ là những người chăm sóc tận tụy, đặt tình cảm gia đình lên hàng đầu và luôn tạo ra một môi trường tràn ngập yêu thương cho con cái.",
+  details: "ESFJ có xu hướng nuôi dạy con bằng sự yêu thương vô bờ bến và mong muốn con cái được an toàn, hạnh phúc. Họ chăm lo cho từng chi tiết trong cuộc sống của con – từ bữa ăn đến việc học tập và cảm xúc. Họ đặc biệt giỏi trong việc tạo ra thói quen sinh hoạt lành mạnh và truyền đạt các giá trị đạo đức, tinh thần trách nhiệm. Tuy nhiên, vì mong muốn con được hạnh phúc, họ có thể trở nên kiểm soát hoặc quá lo lắng, đôi khi làm mờ ranh giới giữa việc chăm sóc và can thiệp quá sâu. ESFJ cần học cách tin tưởng vào khả năng tự lập của con và để con khám phá bản thân theo cách riêng. Nhưng nhìn chung, họ là những bậc phụ huynh giàu tình cảm, đáng tin cậy và luôn đặt trái tim vào mọi điều mình làm cho con cái."
+}
+},
+
+  ENFJ: {
+friendship: {
+  description: "ENFJ là người bạn đầy cảm hứng, sâu sắc và luôn quan tâm đến sự phát triển của những người xung quanh. Họ mang lại nguồn năng lượng tích cực và là trung tâm kết nối trong mọi mối quan hệ xã hội.",
+  details: "Với khả năng thấu hiểu cảm xúc và nhu cầu của người khác một cách tự nhiên, ENFJ thường trở thành người bạn tâm giao, người lắng nghe và người cố vấn không chính thức trong nhóm bạn. Họ không chỉ cổ vũ mà còn chủ động giúp bạn bè vượt qua khó khăn, thúc đẩy họ vươn tới mục tiêu và sống đúng với tiềm năng. ENFJ có một tầm nhìn rõ ràng về sự phát triển cá nhân và không ngần ngại chia sẻ điều đó với người khác, đôi khi đến mức can thiệp hơi sâu vào quyết định của bạn bè mà họ nghĩ là vì điều tốt nhất. Họ dễ bị tổn thương nếu cảm thấy sự tận tâm của mình không được đón nhận hoặc đáp lại. Tuy nhiên, sự chân thành, tận tâm và khả năng nâng đỡ bạn bè vượt qua thử thách khiến họ trở thành một người bạn đáng tin cậy và truyền cảm hứng sâu sắc."
+},
+love: {
+  description: "Trong tình yêu, ENFJ là người yêu sâu sắc, tận tụy và luôn khao khát một mối quan hệ gắn bó cả về tâm hồn lẫn lý tưởng sống.",
+  details: "ENFJ đặt rất nhiều kỳ vọng vào tình yêu – không chỉ là cảm xúc lãng mạn, mà còn là sự hòa hợp về giá trị, mục tiêu cuộc sống và tầm nhìn tương lai. Họ yêu hết mình, không tiếc hy sinh để người mình yêu được hạnh phúc và phát triển. ENFJ thường tạo ra một không gian ấm áp, an toàn và khích lệ cho người yêu, nơi mà đối phương cảm thấy được tôn trọng và nâng đỡ. Tuy nhiên, vì mong muốn ‘cứu rỗi’ hay ‘phát triển’ người mình yêu, họ đôi khi có thể khiến đối phương cảm thấy bị áp lực hoặc kỳ vọng quá cao. Họ cũng dễ bị thất vọng nếu cảm thấy người kia không đáp ứng lại tình cảm hay không cùng đồng hành trong hành trình phát triển. Nhưng với một người biết trân trọng tấm lòng và khát vọng của họ, tình yêu của ENFJ là một hành trình sâu sắc, ý nghĩa và trọn vẹn cả trái tim lẫn trí tuệ."
+},
+parenting: {
+  description: "Làm cha mẹ, ENFJ là những người đầy đam mê, tận tâm và luôn tạo ra một môi trường nuôi dưỡng tích cực, đầy yêu thương và định hướng rõ ràng.",
+  details: "ENFJ thường coi việc làm cha mẹ là một sứ mệnh lớn lao, nơi họ không chỉ nuôi dưỡng mà còn truyền cảm hứng cho con cái trở thành phiên bản tốt nhất của chính mình. Họ thường đặt ra những tiêu chuẩn đạo đức và giá trị sống rõ ràng, kết hợp cùng sự yêu thương và hướng dẫn nhẹ nhàng. Họ rất giỏi trong việc giao tiếp cảm xúc với con và dạy con biết quan tâm đến người khác. Tuy nhiên, ENFJ có thể gặp khó khăn khi phải đối mặt với những hành vi ‘nổi loạn’ hoặc khác biệt hoàn toàn với kỳ vọng của mình từ con cái. Họ cần học cách buông bỏ việc kiểm soát kết quả và tin tưởng rằng con cái cũng có con đường riêng của chúng. Dù vậy, sự hiện diện đầy yêu thương, khả năng truyền động lực và hướng dẫn con theo hướng tích cực khiến ENFJ trở thành những người cha mẹ đầy cảm hứng, được con cái yêu quý và tôn trọng sâu sắc."
+}
+},
+
+  ENTJ: {
+friendship: {
+  description: "ENTJ là người bạn có định hướng, quyết đoán và luôn truyền cảm hứng hành động cho những người xung quanh.",
+  details: "Trong các mối quan hệ bạn bè, ENTJ thường đóng vai trò là người dẫn đầu – người luôn đưa ra định hướng, chiến lược và khuyến khích bạn bè vươn tới những mục tiêu cao hơn. Họ đánh giá cao sự hiệu quả, năng lực và lòng trung thành. Khi làm bạn với ENTJ, bạn sẽ luôn được thúc đẩy để cải thiện bản thân và vượt qua giới hạn cá nhân. Tuy nhiên, ENTJ không phải là người giỏi thể hiện cảm xúc nhẹ nhàng hay đồng cảm sâu sắc. Họ có thể vô tình trở nên quá cứng rắn hoặc quá tập trung vào kết quả, khiến bạn bè cảm thấy áp lực hoặc bị bỏ qua cảm xúc cá nhân. Nhưng đối với những người bạn đủ mạnh mẽ và độc lập, ENTJ là một đồng minh đắc lực, trung thành và luôn sẵn sàng hỗ trợ bằng hành động thực tế, kế hoạch rõ ràng và sự thúc đẩy mạnh mẽ."
+},
+love: {
+  description: "Trong tình yêu, ENTJ là người đối tác đáng tin cậy, nghiêm túc và định hướng dài hạn.",
+  details: "ENTJ bước vào một mối quan hệ với tư duy chiến lược – họ không dễ yêu nhanh chóng, nhưng một khi đã cam kết, họ đầu tư nghiêm túc cả về thời gian lẫn nỗ lực. Họ thường tìm kiếm một người bạn đời có trí tuệ, tham vọng và có thể song hành cùng họ trong hành trình chinh phục các mục tiêu lớn. ENTJ yêu bằng hành động – bằng cách lên kế hoạch tương lai, chăm sóc đối tác thông qua sự ổn định, tổ chức và trách nhiệm. Tuy nhiên, họ có thể gặp khó khăn khi cần thể hiện sự dịu dàng, lãng mạn hoặc thấu cảm trong những khoảnh khắc cảm xúc mong manh. Đôi khi, họ có xu hướng lý trí hóa mọi vấn đề trong tình cảm, dẫn đến việc bỏ qua những nhu cầu tinh tế về cảm xúc của đối phương. Để mối quan hệ bền vững, ENTJ cần học cách chậm lại, lắng nghe sâu sắc hơn và cho phép mình thể hiện sự dễ bị tổn thương – điều vốn không dễ với họ nhưng lại rất quan trọng để kết nối cảm xúc sâu sắc."
+},
+parenting: {
+  description: "Làm cha mẹ, ENTJ định hướng mạnh mẽ cho con cái và luôn hướng tới thành công và hiệu suất cao.",
+  details: "ENTJ nhìn việc làm cha mẹ như một vai trò lãnh đạo đầy trách nhiệm – nơi họ truyền đạt kỷ luật, tư duy chiến lược và tính tổ chức cho con cái. Họ dạy con cách đặt mục tiêu, làm việc chăm chỉ và tự tin vượt qua thử thách. ENTJ không ngần ngại yêu cầu cao từ con, bởi họ tin rằng đó là cách tốt nhất để con đạt được thành công trong tương lai. Họ xây dựng một hệ thống nguyên tắc và mục tiêu rõ ràng trong gia đình, và mong đợi con cái tuân thủ nghiêm túc. Tuy nhiên, chính vì định hướng mạnh mẽ ấy mà đôi khi ENTJ có thể quá kiểm soát, thiếu linh hoạt và ít thể hiện sự mềm mại trong giao tiếp cảm xúc. Họ có thể khó hiểu được những nhu cầu tinh thần sâu xa của con hoặc những cảm xúc mà họ cho là ‘phi lý’. ENTJ cần học cách cân bằng giữa mục tiêu và cảm xúc, giữa kỳ vọng và chấp nhận con người thật của con cái – bởi sự yêu thương không chỉ đến từ thành tựu, mà còn từ sự hiện diện nhẹ nhàng và đồng hành cảm xúc hàng ngày."
+}
+}
+};
