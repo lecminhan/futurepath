@@ -11,6 +11,7 @@ import HollandQuizPage from './pages/Holland-QuizPage';
 import { NotificationProvider } from './services/NotificationServices';
 import QuizResultMBTI from './pages/MBTIQuizResult';
 import QuizResultHolland from './pages/HolladQuizResult';
+import DiscordCommunityPage from './pages/Community';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/hollandquiz" element={<HollandQuizPage />} />
           <Route path="/quizresultmbti" element={<QuizResultMBTI />} />
           <Route path="/quizresultholland" element={<QuizResultHolland />} />
+          <Route path="/community" element={<DiscordCommunityPage />} />
         </Routes>
       </Router>
     </NotificationProvider>

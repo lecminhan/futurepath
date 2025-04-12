@@ -14,6 +14,7 @@ export default function ForgotPasswordPage() {
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+
   // Animation effect
   useState(() => {
     const timer = setTimeout(() => {
@@ -28,7 +29,6 @@ export default function ForgotPasswordPage() {
     // Add your password reset logic here
     setIsSubmitted(true);
   };
-
   return (
     <div className="auth-container">
       <NavBar />
@@ -37,6 +37,7 @@ export default function ForgotPasswordPage() {
         style={{
           opacity: isCardVisible ? 1 : 0,
           transform: isCardVisible ? 'translateY(0)' : 'translateY(20px)'
+
         }}
       >
         {!isSubmitted ? (
@@ -49,6 +50,7 @@ export default function ForgotPasswordPage() {
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <div className="input-icon">
                   <EmailIcon style={{ fontSize: '18px' }} />
+
                 </div>
               </div>
 
@@ -69,6 +71,7 @@ export default function ForgotPasswordPage() {
             <h1 className="auth-title">Email Sent</h1>
             <p className="auth-subtitle">
               We've sent a password reset link to <strong>{email}</strong>. Please check your inbox and follow the instructions.
+
             </p>
             <p className="auth-subtitle small">If you don't see the email, please check your spam folder.</p>
             <Link to="/login" className="auth-button back-button">
@@ -80,3 +83,4 @@ export default function ForgotPasswordPage() {
     </div>
   );
 }
+

@@ -20,6 +20,9 @@
     "bootstrap": "^5.3.3",
     "lucide-react": "^0.483.0",
     "node-vibrant": "^4.0.3",
+    "lucide": "^0.483.0",
+    "lucide-react": "^0.483.0",
+
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
