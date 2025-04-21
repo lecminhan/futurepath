@@ -155,3 +155,7 @@ body {
   text-transform: uppercase;
   border-radius: 10px;
 }
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensures that padding and borders are included in width/height */
+}

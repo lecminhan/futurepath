@@ -19,8 +19,11 @@ const MBTIRelationship: React.FC<Props> = ({ result }) => {
         <Typography variant="h6" sx={{ color: '#333333', fontWeight: 600, mb: 1, ml: -2 }}>
           Tình bạn
         </Typography>
-        <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1, ml: -2 }}>
+        <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1.5, ml: -2 }}>
           {relations.friendship.description}
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1.5, ml: -2,marginTop:1 }}>
+          {relations.friendship.details}
         </Typography>
       </Box>
       <Box sx={{ mb: 1.5 }}>
@@ -30,6 +33,9 @@ const MBTIRelationship: React.FC<Props> = ({ result }) => {
         <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1.5, ml: -2 }}>
           {relations.love.description}
         </Typography>
+        <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1.5, ml: -2 ,marginTop:1}}>
+          {relations.love.details}
+        </Typography>
       </Box>
 
       <Box sx={{ mb: 1.5 }}>
@@ -38,6 +44,9 @@ const MBTIRelationship: React.FC<Props> = ({ result }) => {
         </Typography>
         <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1.5, ml: -2 }}>
           {relations.parenting.description}
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#333333', lineHeight: 1.5, ml: -2,marginTop:1 }}>
+          {relations.parenting.details}
         </Typography>
       </Box>
     </Box>

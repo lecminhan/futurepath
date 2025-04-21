@@ -33,7 +33,7 @@ const CareerQuizzes = () => {
             style={{
               fontSize: '1.25rem',
               marginBottom: '30px',
-              marginLeft: '545px',
+              marginLeft: ' 545px',
               textAlign: 'left'
             }}
           >

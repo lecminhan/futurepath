@@ -3,7 +3,6 @@ import Quizzes from './pages/Quizzs';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
-import Degrees from './pages/Degrees';
 import Community from './pages/Community';
 import ForgotPasswordPage from './pages/forgot-password';
 import MBTIQuizPage from './pages/MBTI-QuizPage';
@@ -12,7 +11,7 @@ import { NotificationProvider } from './services/NotificationServices';
 import QuizResultMBTI from './pages/MBTIQuizResult';
 import QuizResultHolland from './pages/HolladQuizResult';
 import DiscordCommunityPage from './pages/Community';
-
+import ChatPage from './pages/AiChatBox';
 export default function App() {
   return (
     <NotificationProvider>
@@ -22,7 +21,7 @@ export default function App() {
           <Route path="/quizzes" element={<Quizzes />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/degrees" element={<Degrees />} />
+          <Route path="/chatpage" element={<ChatPage/>} />
           <Route path="/community" element={<Community />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/mbtiquizpage" element={<MBTIQuizPage />} />

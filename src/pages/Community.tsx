@@ -84,18 +84,18 @@ export default function DiscordCommunityPage() {
             {/* Hero Section */}
             <section
                 id="hero"
-                className="hero-section animate-section"
+                className="community-community-hero-section animate-section"
                 style={{
                     opacity: isVisible.hero ? 1 : 0,
                     transform: isVisible.hero ? "translateY(0)" : "translateY(20px)",
                 }}
             >
-                <div className="hero-content">
-                    <div className="hero-text">
+                <div className="community-hero-content">
+                    <div className="community-hero-text">
                         <div className="discord-label">DISCORD COMMUNITY</div>
                         <h1>Find your people in the CareerExplorer Discord community</h1>
                         <p>Join our network and connect with career-focused individuals, just like you.</p>
-                        <div className="hero-cta">
+                        <div className="community-hero-cta">
                             <button className="join-button">Join the community</button>
                             <span className="members-count">• 9165 members</span>
                         </div>
@@ -448,7 +448,7 @@ export default function DiscordCommunityPage() {
                     <p className="steps-subtitle">(Great news, it's free for now.)</p>
 
                     <div className="steps-container">
-                        <div className="step">
+                        <div className="community-step">
                             <div className="step-number">STEP 1</div>
                             <div className="step-icon">
                                 <div className="discord-icon">
@@ -472,7 +472,7 @@ export default function DiscordCommunityPage() {
                             </p>
                         </div>
 
-                        <div className="step">
+                        <div className="community-step">
                             <div className="step-number">STEP 2</div>
                             <div className="step-icon">
                                 <div className="verification-image">
@@ -482,7 +482,7 @@ export default function DiscordCommunityPage() {
                             <h3>Get verified by clicking the blue dot emoji to access all of our channels.</h3>
                         </div>
 
-                        <div className="step">
+                        <div className="community-step">
                             <div className="step-number">STEP 3</div>
                             <div className="step-icon">
                                 <div className="introduction-image">
@@ -492,7 +492,7 @@ export default function DiscordCommunityPage() {
                             <h3>Introduce yourself using the #introductions channel.</h3>
                         </div>
 
-                        <div className="step">
+                        <div className="community-step">
                             <div className="step-number">STEP 4</div>
                             <div className="step-icon">
                                 <div className="community-image">
@@ -517,7 +517,7 @@ export default function DiscordCommunityPage() {
                     backgroundPosition: "center",
                 }}
             >
-                <div className="container">
+                <div className="community-container">
                     <h2>Hear from our members:</h2>
 
                     <div className="testimonials-container">
