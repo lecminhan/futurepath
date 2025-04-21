@@ -49,7 +49,7 @@ export default function NavBar() {
     <Navbar bg="dark" variant="dark" expand="lg" className="px-3 w-100 fixed-top">
       <Container fluid>
         <Navbar.Brand href="/" className="fw-bold text-white">
-          Career<span className="text-primary">Explorer</span>
+          <span className="text-primary">Future</span>Path
         </Navbar.Brand>
 
         {/* Toggle Button for Mobile */}
@@ -64,11 +64,11 @@ export default function NavBar() {
             <Link to="/quizzes" className="text-white nav-link" style={style('quizzes')} onMouseEnter={() => setHoveredLink('quizzes')} onMouseLeave={() => setHoveredLink(null)}>
               Quizzes
             </Link>
-            <Nav.Link href="/degrees" className="text-white nav-link" style={style('degrees')} onMouseEnter={() => setHoveredLink('degrees')} onMouseLeave={() => setHoveredLink(null)}>
-              Degrees
-            </Nav.Link>
             <Nav.Link href="/community" className="text-white nav-link" style={style('community')} onMouseEnter={() => setHoveredLink('community')} onMouseLeave={() => setHoveredLink(null)}>
               Community
+            </Nav.Link>
+            <Nav.Link href="/chatpage" className="text-white nav-link" style={style('degrees')} onMouseEnter={() => setHoveredLink('degrees')} onMouseLeave={() => setHoveredLink(null)}>
+            Talk to AI
             </Nav.Link>
             <MoreDropdown />
           </Nav>
