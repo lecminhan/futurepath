@@ -1,0 +1,139 @@
+.careerform-bubble-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    position: absolute;
+    top:20px;
+    right: 295px;
+  }
+  
+  .careerform-bubble-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 250px;
+  }
+  
+  .careerform-answer-section {
+    flex: 1;
+  }
+  
+  .careerform-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .careerform-answer.left {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    border-radius: 16px;
+    padding: 12px 16px;
+    max-width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .result-bubble {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 20px;
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    width: 700px;
+    margin-right:80px;
+  }
+  
+  .careerform-step.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 20px;
+    width: 600px;
+    margin-top: 8px;
+    margin-left: 10px;
+    background-color: #eef7ff; /* Màu nền bong bóng - xanh dương nhạt */
+    border-radius: 18px 18px 4px 18px; /* Bo tròn các góc, tạo đuôi bên phải */
+  }
+  
+  .careerform-question {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 4px;
+    align-self: flex-end;
+    width: 100%;
+    color: #2c3e50;
+  }
+  
+  .careerform-chatbubble-input {
+    border-radius: 16px;
+    max-width: 100%;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .careerform-chatinput {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+    color: #2c3e50;
+  }
+  
+  .careerform-button-wrapper {
+    align-self: flex-end;
+  }
+  
+  .careerform-nextbtn {
+    background-color: #0D6EFD;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    width: 44.5px;
+  }
+
+  .careerform-nextbtn:hover {
+    background-color: #0849A8;
+  }
+  
+  @media (max-width: 768px) {
+    .careerform-bubble-flex {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .careerform-step.right {
+      align-items: stretch;
+    }
+  
+    .careerform-button-wrapper {
+      align-self: flex-start;
+    }
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blinkCaret {
+    50% { border-color: transparent; }
+  }
+  
+  .typing-effect {
+    display: inline-block;
+    white-space: normal;
+    overflow: hidden;
+    font-size: 16px;
+    max-width: 690px;
+    animation: typing 3.5s steps(80, end); /* ❌ không còn blinkCaret */
+  }
+  

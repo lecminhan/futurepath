@@ -1,0 +1,44 @@
+.pointanalyst-fullscreen {
+    min-height: 100vh;
+    background-image: url('/images/ai-sp.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    backdrop-filter: brightness(0.95);
+  }
+  
+  .pointanalyst-header {
+    display: flex;
+    margin-top: 55px;
+  }
+  
+  .pointanalyst-back {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #0D6EFD;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+  .pointanalyst-back:hover {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  }
+  .pointanalyst-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
