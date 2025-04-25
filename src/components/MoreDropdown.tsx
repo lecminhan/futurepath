@@ -89,14 +89,14 @@ const MoreDropdown: React.FC = () => {
           Expert Connection
         </Link>
         <Link
-          to="/blog"
+          to="/forumpost"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{
             color: '#333',
             transition: 'background-color 0.2s ease'
           }}
         >
-          Blog
+          Diễn Đàn
         </Link>
       </div>
     </div>
