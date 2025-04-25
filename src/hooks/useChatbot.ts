@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sendMessageToBot } from "../services/chatbotService";
-
+import { getUserId } from "../utils/useridUtils";
 // Kiểu dữ liệu message
 interface Message {
   content: string;
@@ -15,7 +15,7 @@ const useChatbot = (initialConversationId: number = 1) => {
   const [createNewConversation, setCreateNewConversation] = useState<boolean>(false);
   const [spamProtection, setSpamProtection] = useState<boolean>(false);
   const [conversationId, setConversationId] = useState<number>(initialConversationId); // ✅ Khởi tạo từ props
-
+  const userId = getUserId();
   const addMessage = (content: string, sender: "user" | "bot", response?: string) => {
     setMessages((prevMessages) => [...prevMessages, { content, sender, response }]);
   };
@@ -64,7 +64,7 @@ const useChatbot = (initialConversationId: number = 1) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: 1,
+          user_id: userId,
           messages: message,
           response: response,
           create_new_conversation: createNewConversation,

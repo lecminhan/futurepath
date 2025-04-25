@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import '../styles/auth.css';
-import NavBar from '../components/Navbar';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
@@ -31,8 +30,12 @@ export default function ForgotPasswordPage() {
   };
   return (
     <div className="auth-container">
-      <NavBar />
-      <div
+<div className="video-container">
+  <video width="100%" height="auto" autoPlay muted loop>
+    <source src="/intro.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  </div>      <div
         className="auth-card"
         style={{
           opacity: isCardVisible ? 1 : 0,
@@ -42,8 +45,8 @@ export default function ForgotPasswordPage() {
       >
         {!isSubmitted ? (
           <>
-            <h1 className="auth-title">Forgot Password</h1>
-            <p className="auth-subtitle">Enter your email address and we'll send you a link to reset your password.</p>
+            <h1 className="auth-title">Bạn quên mật khẩu?</h1>
+            <p className="auth-subtitle">Hãy nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn mã xác nhận</p>
 
             <form onSubmit={handleSubmit}>
               <div className="input-wrapper">
@@ -55,13 +58,13 @@ export default function ForgotPasswordPage() {
               </div>
 
               <button type="submit" className="auth-button">
-                Reset Password
+                Thay đổi mật khẩu
               </button>
 
               <div className="auth-footer">
                 <Link to="/login" className="back-to-login">
                   <ArrowLeftIcon style={{ fontSize: '18px' }} />
-                  <span>Back to Login</span>
+                  <span>Trờ về trang đăng nhập</span>
                 </Link>
               </div>
             </form>

@@ -5,7 +5,6 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import MailIcon from '@mui/icons-material/Mail';
 import '../styles/auth.css';
-import MainLayout from '../layouts/MainLayout';
 
 interface RegisterResponse {
   user?: {
@@ -106,8 +105,13 @@ export default function RegisterPage() {
   };
 
   return (
-    <MainLayout>
       <div className="auth-container">
+        <div className="video-container">
+  <video width="100%" height="auto" autoPlay muted loop>
+    <source src="/intro.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  </div>
         <div
           className="auth-card"
           style={{
@@ -115,12 +119,12 @@ export default function RegisterPage() {
             transform: isCardVisible ? 'translateY(0)' : 'translateY(20px)'
           }}
         >
-          <h1 className="auth-title">Register</h1>
+          <h1 className="auth-title">Đăng ký</h1>
 
           {/* Hiển thị thông báo từ API */}
           {apiResponse?.error && <div className="auth-error">{apiResponse.error}</div>}
 
-          {apiResponse?.user && <div className="auth-success">Registration successful! Redirecting to login...</div>}
+          {apiResponse?.user && <div className="auth-success">Đăng ký thành công! Quay lại trang login để đăng nhập...</div>}
 
           <form onSubmit={onSubmit}>
             <div className="input-wrapper">
@@ -151,21 +155,20 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {!passwordsMatch && <div className="password-error">Passwords do not match</div>}
+            {!passwordsMatch && <div className="password-error">Mật khẩu không giống nhau</div>}
 
             <button type="submit" className="auth-button" disabled={isLoading}>
-              {isLoading ? 'Registering...' : 'Register'}
+              {isLoading ? 'Đang xử lý ...' : 'Đăng ký'}
             </button>
 
             <div className="auth-footer">
-              Already have an account?
+             Đã có tài khoản?
               <Link to="/login" className="auth-link">
-                Login
+                Đăng nhập
               </Link>
             </div>
           </form>
         </div>
       </div>
-    </MainLayout>
   );
 }

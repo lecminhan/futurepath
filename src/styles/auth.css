@@ -1,61 +1,60 @@
 /* Auth pages styling */
 .auth-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  padding: 20px;
   width: 100vw;
-  margin-top: 20px;
-  background-image: url('F:\capstone 2\FuturePath\public\bg-img.webp');
   background-position: center;
   background-size: cover;
+  background: linear-gradient(to right, #2c2c2c, #0a2e3d, #6e6e6e);
 }
 
 .auth-card {
-  background: linear-gradient(135deg, #1A1A1A, #33D4FF);
-  border-radius: 10px;
+  background: #fff;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   padding: 30px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-  margin-top: 20px;
-}
 
+}
+  
 .auth-title {
-  color: #D1FFFF;
+  margin-top: 20px;
+  color: transparent;  /* Make the text transparent */
+  background: linear-gradient(to right, #7EC8E3, #004A7C, #003366); /* Thêm các màu xanh khác nhau */
+  -webkit-background-clip: text;  /* Clip background to text for webkit browsers */
+  background-clip: text;  /* Clip background to text for modern browsers */  
   text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
   font-weight: 600;
+  font-size: 25;
 }
 
 /* Input styling */
 .input-wrapper {
   position: relative;
   margin-bottom: 20px;
+  background-color: transparent; /* No background color */
 }
 
 .input-wrapper input {
   width: 100%;
   padding: 12px 40px 12px 15px;
-  border: 1px solid #444;
-  border-radius: 50px;
-  background-color: #2a2a25;
-  color: #fff;
+  border: 1px solid #0D6EFD;
+  border-radius: 10px;
+  background-color: #FFF;
+  color: #444;
   font-size: 1rem;
   transition: border-color 0.3s;
 }
 
 .input-wrapper input::placeholder {
-  color: #aaa;
+  color: #0D6EFD}
+.auth-form{
+  width: 90%;
+  margin-left: 5%;
 }
-
 .input-wrapper input:focus {
-  border-color: #D1FFFF;
+  border-color: #CBE2F9;
   outline: none;
 }
 
@@ -64,8 +63,7 @@
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #D1FFFF;
-}
+ color: #0D6EFD;}
 
 /* Remember me and forgot password */
 .remember-forgot {
@@ -73,7 +71,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  color: #ccc;
+  color: #AAAA;
 }
 
 .remember-me {
@@ -84,11 +82,11 @@
 
 .remember-me input {
   margin-right: 8px;
-  accent-color: #D1FFFF;
+  accent-color: #0D6EFD;
 }
 
 .forgot-link {
-  color: #D1FFFF;
+  color: #0D6EFD;
   text-decoration: none;
   font-size: 0.9rem;
 }
@@ -101,10 +99,10 @@
 .auth-button {
   width: 100%;
   padding: 12px;
-  background-color: #D1FFFF;
-  color: #111E30;
+  background-color: #0D6EFD;
+  color: #FFF;
   border: none;
-  border-radius: 50px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -114,7 +112,7 @@
 
 .auth-button:hover {
   background-color: #1D3A62;
-  color: #D1FFFF;
+  color: #0D6EFD;
 }
 
 .google-button {
@@ -146,12 +144,12 @@
 /* Footer */
 .auth-footer {
   text-align: center;
-  color: #ccc;
+  color: #333;
   font-size: 0.9rem;
 }
 
 .auth-link {
-  color: #D1FFFF;
+  color: #0D6EFD;
   text-decoration: none;
   margin-left: 5px;
 }
@@ -173,7 +171,7 @@
   text-align: left;
 }
 .auth-subtitle {
-  color: #ccc;
+  color: #AAA;
   text-align: center;
   margin-bottom: 25px;
   font-size: 0.95rem;
@@ -190,7 +188,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D1FFFF;
+  color: #0D6EFD;
   text-decoration: none;
   font-size: 0.95rem;
   gap: 5px;
@@ -211,3 +209,83 @@
   text-align: center;
 }
 
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.social-button {
+  display: flex;
+  padding: 12px;
+  background-color: transparent; /* Background không màu */
+  color: #0D6EFD;
+  border: 1px solid #ddd; /* Border mỏng xám */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease; /* Tạo hiệu ứng mượt khi hover */
+}
+
+.social-button svg {
+  margin-right: 10px;
+}
+.google-button {
+  width: 95%;
+  margin-bottom: 0px;
+}
+.microsoft-button{
+  width: 95%;
+  text-align: center;
+  padding: 12px;
+  background-color: transparent; /* Background không màu */
+  color: #0D6EFD;
+  border: 1px solid #ddd; /* Border mỏng xám */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease; 
+}
+.phone-button {
+  width: 95%;
+  text-align: center;
+  padding: 12px;
+  background-color: transparent; /* Background không màu */
+  color: #0D6EFD;
+  border: 1px solid #ddd; /* Border mỏng xám */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease; 
+
+}
+/* Khi hover, background sẽ đổi thành màu xám nhẹ */
+.social-button:hover {
+  background-color: #f0f0f0; /* Màu xám khi hover */
+  border-color: #ccc; /* Border màu xám nhạt hơn */
+  color: #000; /* Màu chữ đen khi hover */
+}
+
+.google-button:hover {
+  background-color: #f4f4f4;
+}
+
+.microsoft-button:hover {
+  background-color: #f4f4f4;
+}
+
+.phone-button:hover {
+  background-color: #f4f4f4;
+}
+.video-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+}

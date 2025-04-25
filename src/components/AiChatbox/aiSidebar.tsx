@@ -7,12 +7,12 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { database } from '../../config/FirebaseConfig';
 import { remove, ref } from 'firebase/database';
 import { useNotification } from '../../services/NotificationServices';
-
+import { useNavigate } from 'react-router-dom';
 const Sidebar: React.FC = () => {
   const [open, setOpen] = useState<boolean>(true);
   const [spamLock, setSpamLock] = useState<boolean>(false);
   const { showNotification } = useNotification();
-
+  const navigate = useNavigate();
   const [conversationList, setConversationList] = useState<number[]>(
     () => JSON.parse(localStorage.getItem("conversationList") || "[1]")
   );
@@ -142,23 +142,31 @@ const Sidebar: React.FC = () => {
           New Chat
         </IconButton>
         <IconButton
-          sx={{
-            borderRadius: '10px',
-            marginLeft: '-10px',
-            fontSize: '13px',
-            display: 'flex',
-            border: '10px',
-            paddingRight: '100px',
-            marginTop: '-5px',
-          }}
-        >
-          <img
-            src='../../../public/analyst.webp'
-            alt="FuturePath Ai"
-            style={{ width: '17%', height: 'auto', maxWidth: '100px', marginRight: '10px', marginLeft: '-5px', borderRadius: '10px' }}
-          />
-          Phân tích AI
-        </IconButton>
+  sx={{
+    borderRadius: '10px',
+    marginLeft: '-10px',
+    fontSize: '13px',
+    display: 'flex',
+    border: '10px',
+    paddingRight: '100px',
+    marginTop: '-5px',
+  }}
+  onClick={() => navigate('/careerform')}
+>
+  <img
+    src="../../../public/analyst.webp"
+    alt="FuturePath Ai"
+    style={{
+      width: '17%',
+      height: 'auto',
+      maxWidth: '100px',
+      marginRight: '10px',
+      marginLeft: '-5px',
+      borderRadius: '10px',
+    }}
+  />
+  Phân tích AI
+</IconButton>
         <Typography sx={{ fontWeight: 'bold', fontSize: '15px', marginTop: '20px' }}>History</Typography>
         {conversationList.map((id) => (
           <Box
