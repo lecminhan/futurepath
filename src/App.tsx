@@ -15,6 +15,7 @@ import ChatPage from './pages/AiChatBox';
 import PointAnalyst from './pages/pointAnalyst';
 import UserProfile from './pages/UserProfile';
 import ForumLayout from './pages/forum';
+import AdminDashboard from './pages/admin';
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/careerform" element={<PointAnalyst/>} />
           <Route path="/user/:userId" element={<UserProfile />} />
           <Route path="/forumpost" element={<ForumLayout />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </NotificationProvider>

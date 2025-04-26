@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import {
   User, DollarSign, Wallet, Edit, ChevronRight,
-  Shield, Bell, Settings, LogOut, CreditCard, ArrowUpRight, ArrowDownRight,
+  Shield, Bell, Settings, CreditCard, ArrowUpRight, ArrowDownRight,
   X, Check, Lock, AlignJustify
 } from "lucide-react";
 import "../styles/user-profile.css";
@@ -279,15 +279,6 @@ export default function UserProfile() {
             </button>
           </div>
 
-          <button className="logout-button">
-            <LogOut size={20} />
-            <span>Log Out</span>
-          </button>
-
-          {/* Mobile close button */}
-          <button className="mobile-close-button" onClick={toggleMobileSidebar}>
-            <X size={24} />
-          </button>
         </div>
 
         {/* Main Content Area */}
@@ -296,7 +287,6 @@ export default function UserProfile() {
           {activeSidebarItem === 'profile' && (
             <div className="content-section">
               <div className="section-header">
-                <h2>Personal Information</h2>
                 {isCurrentUser && (
                   <button className="edit-button" onClick={openEditModal}>
                     <Edit size={18} />
@@ -346,9 +336,7 @@ export default function UserProfile() {
                 </div>
               </div>
 
-              <div className="section-header">
-                <h2>Financial Summary</h2>
-              </div>
+ 
 
               <div className="finance-summary-card">
                 <div className="balance-display">
