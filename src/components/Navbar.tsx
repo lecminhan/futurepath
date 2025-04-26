@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import MoreDropdown from './MoreDropdown';
 import SearchButton from './SeachButton';
-
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { IconButton } from '@mui/material';
 interface User {
   id: number;
   email: string;
@@ -86,7 +87,7 @@ export default function NavBar() {
                   {user.username} <span className="caret"></span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu style={{ borderRadius: '10px' }}>
-                  <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                  <Dropdown.Item href="/user/:userId">Profile</Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -97,9 +98,20 @@ export default function NavBar() {
               </Nav.Link>
             )}
 
-            <Button variant="light" className="fw-bold">
-              Take the free test
-            </Button>
+{user ? (
+  // Khi đã đăng nhập, thay thế nút "Take the free test" bằng biểu tượng chuông
+  <IconButton
+    sx={{ color: 'white', marginLeft: '10px' }}
+    onClick={() => navigate('/notifications')} // Chuyển hướng đến trang thông báo (có thể thay đổi)
+  >
+    <NotificationsIcon />
+  </IconButton>
+) : (
+  // Nếu chưa đăng nhập, hiển thị nút "Take the free test"
+  <Button variant="light" className="fw-bold">
+    Take the free test
+  </Button>
+)}
           </div>
         </Navbar.Collapse>
       </Container>
