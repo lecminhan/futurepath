@@ -79,14 +79,14 @@ const MoreDropdown: React.FC = () => {
           Job
         </Link>
         <Link
-          to="/expert-connection"
+          to="/expert"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{
             color: '#333',
             transition: 'background-color 0.2s ease'
           }}
         >
-          Expert Connection
+          Chuyên gia
         </Link>
         <Link
           to="/forumpost"

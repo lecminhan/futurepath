@@ -16,6 +16,7 @@ import PointAnalyst from './pages/pointAnalyst';
 import UserProfile from './pages/UserProfile';
 import ForumLayout from './pages/forum';
 import AdminDashboard from './pages/admin';
+import ListEP from './pages/listEP';
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/user/:userId" element={<UserProfile />} />
           <Route path="/forumpost" element={<ForumLayout />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/expert" element={<ListEP />} />
         </Routes>
       </Router>
     </NotificationProvider>
