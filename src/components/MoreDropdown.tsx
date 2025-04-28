@@ -30,7 +30,7 @@ const MoreDropdown: React.FC = () => {
         onMouseEnter={() => setHoveredLink('#')} // Khi hover vào Homepage
         onMouseLeave={() => setHoveredLink(null)} // Khi rời khỏi Homepage
       >
-        More
+        Xem thêm
         <span
           className="ms-2 dropdown-arrow"
           style={{
@@ -76,7 +76,7 @@ const MoreDropdown: React.FC = () => {
             transition: 'background-color 0.2s ease'
           }}
         >
-          Job
+          Công việc
         </Link>
         <Link
           to="/expert"

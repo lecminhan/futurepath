@@ -60,16 +60,16 @@ export default function NavBar() {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             <Link to="/" className="text-white nav-link" style={style('homepage')} onMouseEnter={() => setHoveredLink('homepage')} onMouseLeave={() => setHoveredLink(null)}>
-              Homepage
+              Trang chủ
             </Link>
             <Link to="/quizzes" className="text-white nav-link" style={style('quizzes')} onMouseEnter={() => setHoveredLink('quizzes')} onMouseLeave={() => setHoveredLink(null)}>
-              Quizzes
+              Bài Quizzes
             </Link>
             <Nav.Link href="/community" className="text-white nav-link" style={style('community')} onMouseEnter={() => setHoveredLink('community')} onMouseLeave={() => setHoveredLink(null)}>
-              Community
+              Cộng đồng
             </Nav.Link>
             <Nav.Link href="/chatpage" className="text-white nav-link" style={style('degrees')} onMouseEnter={() => setHoveredLink('degrees')} onMouseLeave={() => setHoveredLink(null)}>
-            Talk to AI
+            Trò chuyện với AI
             </Nav.Link>
             <MoreDropdown />
           </Nav>
