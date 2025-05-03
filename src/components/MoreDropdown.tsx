@@ -30,7 +30,7 @@ const MoreDropdown: React.FC = () => {
         onMouseEnter={() => setHoveredLink('#')} // Khi hover vào Homepage
         onMouseLeave={() => setHoveredLink(null)} // Khi rời khỏi Homepage
       >
-        More
+        Xem thêm
         <span
           className="ms-2 dropdown-arrow"
           style={{
@@ -76,27 +76,27 @@ const MoreDropdown: React.FC = () => {
             transition: 'background-color 0.2s ease'
           }}
         >
-          Job
+          Công việc
         </Link>
         <Link
-          to="/expert-connection"
+          to="/expert"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{
             color: '#333',
             transition: 'background-color 0.2s ease'
           }}
         >
-          Expert Connection
+          Chuyên gia
         </Link>
         <Link
-          to="/blog"
+          to="/forumpost"
           className="dropdown-item py-2 px-3 d-block text-decoration-none"
           style={{
             color: '#333',
             transition: 'background-color 0.2s ease'
           }}
         >
-          Blog
+          Diễn Đàn
         </Link>
       </div>
     </div>

@@ -14,6 +14,10 @@ import DiscordCommunityPage from './pages/Community';
 import ChatPage from './pages/AiChatBox';
 import PointAnalyst from './pages/pointAnalyst';
 import UserProfile from './pages/UserProfile';
+import ForumLayout from './pages/forum';
+import AdminDashboard from './pages/admin';
+import ListEP from './pages/listEP';
+
 export default function App() {
   return (
     <NotificationProvider>
@@ -33,6 +37,9 @@ export default function App() {
           <Route path="/community" element={<DiscordCommunityPage />} />
           <Route path="/careerform" element={<PointAnalyst/>} />
           <Route path="/user/:userId" element={<UserProfile />} />
+          <Route path="/forumpost" element={<ForumLayout />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/expert" element={<ListEP />} />
         </Routes>
       </Router>
     </NotificationProvider>
