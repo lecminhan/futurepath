@@ -1,9 +1,10 @@
-// src/components/AiAnalyst/CareerForm.tsx
 import React, { useEffect, useState } from 'react';
 import './style/CareerForm.css';
 import { getUserId } from '../../utils/useridUtils';
 import { useNotification } from '../../services/NotificationServices';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';const introMessages = [
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { getQuizLatestResult, submitCareerForm } from '../../services/QuizLatestResultService'; // Import quizLatestResultService
+const introMessages = [
   'Chào bạn! Tôi là trợ lý AI của bạn.',
   'Tôi sẽ giúp bạn phân tích thông tin cá nhân để gợi ý nghề nghiệp phù hợp.',
   'Hãy cùng bắt đầu nhé!',
@@ -47,14 +48,14 @@ const CareerForm: React.FC = () => {
   }>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3004/api/quizzes/quiz-result/latest/${Userid}`)
-      .then((res) => res.json())
+    // Lấy dữ liệu quiz từ API
+    getQuizLatestResult(Userid)
       .then((data) => {
-        if (data.success) {
+        if (data) {
           setAnswers((prev) => ({
             ...prev,
-            mbti: data.mbti?.result.trim() || '',
-            holland: data.holland?.result.trim() || '',
+            mbti: data.mbti,
+            holland: data.holland,
           }));
         }
       })
@@ -94,52 +95,36 @@ const CareerForm: React.FC = () => {
   const submitForm = (formData: QuizAnswers) => {
     setIsSubmitting(true);
     setShowAnalyzingMessage(true); // ✅ hiện tin nhắn trong khung chat
-
-    fetch(`http://localhost:3004/api/quizzes/quiz-result/latest/${Userid}`)
-      .then((res) => res.json())
-      .then((quizData) => {
-        if (!quizData.success) {
-          throw new Error('Không tìm thấy kết quả MBTI/Holland.');
-        }
-
-        const payload = {
-          mbti: quizData.mbti?.result.trim() || '',
-          holland: quizData.holland?.result.trim() || '',
-          skills: formData.skills.trim(),
-          interests: formData.interests.trim(),
-        };
-
-        return fetch('http://127.0.0.1:5000/career-result', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-      })
-      .then(async (res) => {
-        if (!res.ok) {
-          const text = await res.text();
-          throw new Error(`Phân tích thất bại: ${text}`);
-        }
-        return res.json();
-      })
-      .then((flaskResult) => {
-        showNotification('Phân tích thành công!', 'success');
-        setShowAnalyzingMessage(false); // ✅ ẩn tin nhắn sau khi xong
-
-        setResultData({
-          mbti: answers.mbti,
-          holland: answers.holland,
-          skills: flaskResult.skills || '',
-          interests: flaskResult.interests || '',
-          suggestion: flaskResult.suggestion || '',
-        });
-      })
-      .catch((err) => {
-        setShowAnalyzingMessage(false);
-        showNotification(err.message || 'Lỗi khi gửi hoặc nhận dữ liệu!', 'error');
-      })
-      .finally(() => setIsSubmitting(false));
+  
+    if (Userid !== null) {
+      submitCareerForm(Userid, formData)
+        .then((flaskResult) => {
+          if (flaskResult) {
+            // Kiểm tra flaskResult có phải là null trước khi sử dụng
+            showNotification('Phân tích thành công!', 'success');
+            setShowAnalyzingMessage(false); // ✅ ẩn tin nhắn sau khi xong
+  
+            setResultData({
+              mbti: answers.mbti,
+              holland: answers.holland,
+              skills: flaskResult.skills || '',  // Kiểm tra nếu flaskResult.skills là null
+              interests: flaskResult.interests || '',  // Kiểm tra nếu flaskResult.interests là null
+              suggestion: flaskResult.suggestion || '',  // Kiểm tra nếu flaskResult.suggestion là null
+            });
+          } else {
+            // Nếu flaskResult là null, xử lý lỗi hoặc thông báo
+            showNotification('Không có kết quả phân tích nghề nghiệp!', 'error');
+            setShowAnalyzingMessage(false);
+          }
+        })
+        .catch((err) => {
+          setShowAnalyzingMessage(false);
+          showNotification(err.message || 'Lỗi khi gửi hoặc nhận dữ liệu!', 'error');
+        })
+        .finally(() => setIsSubmitting(false));
+    }
   };
+  
 
   const currentQuestion = currentStep >= 0 ? questions[currentStep] : null;
   const isAutoFilledStep = currentQuestion?.name === 'mbti' || currentQuestion?.name === 'holland';
@@ -175,7 +160,7 @@ const CareerForm: React.FC = () => {
                 </div>
                 <div className="careerform-button-wrapper">
                   <button onClick={handleNext} className="careerform-nextbtn" disabled={isSubmitting}>
-                  <NavigateNextIcon  sx={{marginLeft:'-8px'}}/>
+                    <NavigateNextIcon sx={{ marginLeft: '-8px' }} />
                   </button>
                 </div>
               </>
@@ -185,16 +170,17 @@ const CareerForm: React.FC = () => {
             {currentStep < 0 && !showAnalyzingMessage && (
               <div className="careerform-button-wrapper">
                 <button onClick={handleNext} className="careerform-nextbtn">
-                <NavigateNextIcon  sx={{marginLeft:'-8px'}}/>
+                  <NavigateNextIcon sx={{ marginLeft: '-8px' }} />
                 </button>
               </div>
             )}
           </div>
         ) : (
           <div className="careerform-step result-bubble">
-<p style={{fontSize:'14px',fontWeight:'600'}}>
-  Tôi đã hoàn tất quá trình phân tích thông tin của bạn. Dựa trên những sở thích như {resultData.interests} và kỹ năng {resultData.skills}, tôi xin đề xuất một số nghề nghiệp phù hợp mà bạn có thể cân nhắc:
-</p>            <p style={{fontSize:'14px',fontWeight:'600'}} >Gợi ý nghề nghiệp phù hợp:</p>
+            <p style={{ fontSize: '14px', fontWeight: '600' }}>
+              Tôi đã hoàn tất quá trình phân tích thông tin của bạn. Dựa trên những sở thích như {resultData.interests} và kỹ năng {resultData.skills}, tôi xin đề xuất một số nghề nghiệp phù hợp mà bạn có thể cân nhắc:
+            </p>
+            <p style={{ fontSize: '14px', fontWeight: '600' }}>Gợi ý nghề nghiệp phù hợp:</p>
             <p style={{ whiteSpace: 'pre-wrap' }}>{resultData.suggestion}</p>
           </div>
         )}

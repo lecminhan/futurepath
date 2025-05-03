@@ -1,19 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Thêm dòng này để Tailwind quét tất cả các tệp trong thư mục src
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}' // Đảm bảo đường dẫn đúng với cấu trúc thư mục của bạn
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };

@@ -97,7 +97,6 @@ const Sidebar: React.FC = () => {
         </IconButton>
         <div style={{ fontWeight: '600', marginTop: '7px' }}>FuturePath Ai</div>
       </div>
-
       <div
         style={{
           position: 'fixed',

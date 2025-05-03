@@ -1,12 +1,11 @@
-const API_URL = "http://127.0.0.1:5000/chatbot";
-
+const API_URL = import.meta.env.VITE_AI_API_URL;
 interface BotResponse {
   reply: string;
 }
 
 export const sendMessageToBot = async (message: string): Promise<string> => {
   try {
-    const response = await fetch(API_URL, {
+    const response = await fetch(`${API_URL}/chatbot`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

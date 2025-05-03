@@ -5,16 +5,18 @@ import useChatbot from '../../hooks/useChatbot';
 import './styles/chatArea.css';
 import SendIcon from '@mui/icons-material/Send';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { getUserId } from '../../utils/useridUtils';  // Lấy user_id trực tiếp từ hàm
 
 interface FirebaseMessage {
   key: string;
   sender: string;
   content: string;
   response?: string;
+  user_id: string;  // Đảm bảo có user_id để kiểm tra
 }
 
 interface ChatAreaProps {
-  conversationId: number; // ✅ Truyền từ bên ngoài
+  conversationId: number; // Truyền từ bên ngoài
 }
 
 const ChatArea: React.FC<ChatAreaProps> = ({ conversationId }) => {
@@ -30,6 +32,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ conversationId }) => {
   const lastMessageRef = useRef<HTMLDivElement | null>(null);
   const [messages, setMessages] = useState<FirebaseMessage[]>([]);
   const [isChatStarted, setIsChatStarted] = useState(false);
+  const user_id = getUserId();  // Lấy user_id trực tiếp từ hàm
 
   // 🔁 Cập nhật conversationId vào hook mỗi khi props thay đổi
   useEffect(() => {
@@ -47,7 +50,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ conversationId }) => {
       const newMessage = snapshot.val();
       const key = snapshot.key;
 
-      if (newMessage && key) {
+      if (newMessage && key && newMessage.user_id === user_id) {  // Lọc theo user_id
         setMessages((prevMessages) => {
           const exists = prevMessages.some((msg) => msg.key === key);
           if (!exists) {
@@ -58,6 +61,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ conversationId }) => {
                 sender: newMessage.sender === 'user' ? 'user' : 'bot',
                 content: newMessage.message,
                 response: newMessage.response,
+                user_id: newMessage.user_id,  // Lưu user_id từ Firebase
               },
             ];
           }
@@ -78,7 +82,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ conversationId }) => {
     return () => {
       off(conversationRef);
     };
-  }, [conversationId]);
+  }, [conversationId, user_id]); // Thêm user_id vào dependencies
 
   useEffect(() => {
     if (messages.length > 0) {
