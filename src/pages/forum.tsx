@@ -36,6 +36,7 @@ const Forum: React.FC = () => {
           borderRight: "1px solid #e0e0e0",
           padding: "20px",
           boxSizing: "border-box",
+          marginTop:"45px"
         }}
       >
         <div>
@@ -49,6 +50,7 @@ const Forum: React.FC = () => {
               border: "1px solid #ccc",
               backgroundColor: "#fff",
               color: "#000",
+              marginTop: '20px'
             }}
           />
         </div>
@@ -79,10 +81,10 @@ const Forum: React.FC = () => {
                   >
                     <span style={{ marginRight: "8px" }}>
                       {item === "Câu hỏi"
-                        ? "❓"
+                        ? ""
                         : item === "Câu chuyện người dùng"
-                        ? "📝"
-                        : "🌟"}
+                        ? ""
+                        : ""}
                     </span>
                     {item}
                   </button>
@@ -110,18 +112,12 @@ const Forum: React.FC = () => {
                   textAlign: "left",
                 }}
               >
-                <span style={{ marginRight: "8px" }}>📌</span> Câu hỏi của bạn
+                <span style={{ marginRight: "8px" }}></span> Câu hỏi của bạn
               </button>
             </li>
           </ul>
         </nav>
-        <footer style={{ marginTop: "20px" }}>
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <span>📷</span>
-            <span>📘</span>
-            <span>📁</span>
-          </div>
-        </footer>
+
       </aside>
 
       {/* Main Content */}
@@ -135,6 +131,7 @@ const Forum: React.FC = () => {
             backgroundColor: "#F5F5F5",
             padding: "10px",
             borderRadius: "10px",
+            marginTop:'43px'
           }}
         >
           <img
