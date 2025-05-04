@@ -1,171 +1,183 @@
 .listEP-container {
-    display: flex;
-    font-family: Arial, sans-serif;
-    height: 100vh; /* Full viewport height */
-  }
-  
-  .sidebar {
-    width: 300px;
-    background-color: #f8f9fa;
-    padding: 20px 10px 10px 20px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px ;
-  }
-  
-  .search-section {
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .menu-section h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .menu-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menu-section ul li {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #333;
-    transition: background-color 0.2s;
-    margin-bottom: 10px;
-  }
-  
-  .menu-section ul li i.icon {
-    margin-right: 10px;
-    font-size: 18px;
-  }
-  
-  .menu-section ul li:hover {
-    background-color: #e7f3ff;
-  }
-  
-  .menu-section ul li.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .main-content {
-    flex: 1;
-    background-color: #f1f1f1;
-    overflow: hidden; /* Prevent content from overflowing */
-  }
-  
-  .scrollable-content {
-    height: 100%;
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding: 70px;
-  }
-  
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  
-  .card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 15px;
-  }
-  
-  .card-title {
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  .card-description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 10px;
-  }
-  
-  .card-actions {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .button {
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .button.primary {
-    background: #007bff;
-    color: white;
-  }
-  
-  .button.secondary {
-    background: #f1f1f1;
-    color: #007bff;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .pagination-button {
-    padding: 10px 15px;
-    margin: 0 5px;
-    border: 1px solid #ddd;
-    background: rgb(255, 254, 254);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s;
-    color: #000000;
-  }
-  
-  .pagination-button.active,
-  .pagination-button:hover {
-    background: #007bff;
-    color: white;
-  }
+  display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 500px;
+  background: linear-gradient(135deg, #ffffff, #f8fafd);
+  padding: 24px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  margin-right: 24px;
+  margin-top: 40px;
+  transition: all 0.3s ease;
+
+}
+
+.sidebar h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #555;
+  font-size: 15px;
+  position: relative;
+}
+
+.sidebar li::before {
+  content: "👉";
+  margin-right: 12px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.2s ease;
+}
+
+.sidebar li:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidebar li:hover {
+  background-color: #eaf3ff;
+  color: #0d6efd;
+}
+
+.sidebar li.active {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar li.active::before {
+  content: "⭐";
+  opacity: 1;
+  color: #fff;
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-description {
+  margin: 10px 0;
+  color: #555;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 14px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.card-actions button:hover {
+  background-color: #0b5ed7;
+}
+
+.card-actions button.secondary {
+  background-color: #e7e7e7;
+  color: #333;
+}
+
+.card-actions button.secondary:hover {
+  background-color: #d4d4d4;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 8px 14px;
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+.pagination button.active {
+  background-color: #0d6efd;
+  color: white;
+}
+.sidebar-menu-item{
+  margin-bottom: 20px;
+}

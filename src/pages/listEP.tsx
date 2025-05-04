@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Styles/listEP.css';
 import MainLayout from '../layouts/MainLayout';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ListEP: React.FC = () => {
-  const handleMenuClick = (menu: string) => {
-    console.log(`Menu clicked: ${menu}`);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+
+  const handleMenuClick = (path: string) => {
+    navigate(path);
   };
 
   const handleBookNowClick = (id: number) => {
@@ -21,85 +27,78 @@ const ListEP: React.FC = () => {
     description: "Chuyên gia định hướng nghề nghiệp toàn diện, đồng hành cùng bạn từ chọn ngành đến xây dựng lộ trình phát triển.",
     price: "200.000/2h",
     author: "William Wong",
-    image: "https://studiochupanhdep.com/Upload/Newsimages/anh-nu-doanh-nhan-35.jpg", // Placeholder image
+    image: "https://studiochupanhdep.com/Upload/Newsimages/anh-nu-doanh-nhan-35.jpg",
   }));
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = items.slice(startIndex, endIndex);
+
+  const menuItems = [
+    { label: "Danh sách chuyên gia", path: "/expert" },
+    { label: "Tin nhắn với chuyên gia", path: "/messages" },
+  ];
 
   return (
     <MainLayout>
-    <div className="listEP-container">
+      <div className="listEP-container">
       <aside className="sidebar">
-        <div className="search-section">
-          <input type="text" placeholder="Tìm kiếm" className="search-input" />
-        </div>
-        <div className="menu-section">
-          <h3>MENU</h3>
-          <ul>
-            <li onClick={() => handleMenuClick("Hướng nghiệp tổng quát")}>
-              <i className="icon">&#128712;</i>
-              Hướng nghiệp tổng quát
-            </li>
-            <li
-              className="active"
-              onClick={() => handleMenuClick("Tư vấn chọn ngành học")}
-            >
-              <i className="icon">&#128200;</i>
-              Tư vấn chọn ngành học
-            </li>
-            <li onClick={() => handleMenuClick("Tư vấn nghề nghiệp & thị trường việc làm")}>
-              <i className="icon">&#128188;</i>
-              Tư vấn nghề nghiệp & thị trường việc làm
-            </li>
-            <li onClick={() => handleMenuClick("Tư vấn du học")}>
-              <i className="icon">&#127758;</i>
-              Tư vấn du học
-            </li>
-          </ul>
-        </div>
-      </aside>
-      <main className="main-content">
-        <div className="scrollable-content">
+  <h3 className="sidebar-title">Chuyên mục</h3>
+  <ul className="sidebar-menu">
+    {menuItems.map((item) => (
+      <li
+        key={item.path}
+        className={`sidebar-menu-item ${location.pathname === item.path ? "active" : ""}`}
+        onClick={() => handleMenuClick(item.path)}
+      >
+        {item.label}
+      </li>
+    ))}
+  </ul>
+</aside>
+
+
+        <main className="main-content">
+          <h2>Danh sách chuyên gia</h2>
+
           <div className="card-grid">
-            {items.map(item => (
+            {currentItems.map(item => (
               <div className="card" key={item.id}>
                 <img src={item.image} alt="Thumbnail" className="card-image" />
                 <div className="card-content">
                   <h4 className="card-title">{item.title}</h4>
                   <p className="card-description">{item.description}</p>
+
                   <div className="card-footer">
-                    <div className="author-info">
-                      <span>{item.author}</span>
-                    </div>
-                    <span className="card-price">{item.price}</span>
+                    <span className="author">{item.author}</span>
+                    <span className="price">{item.price}</span>
                   </div>
+
                   <div className="card-actions">
-                    <button
-                      className="button primary"
-                      onClick={() => handleBookNowClick(item.id)}
-                    >
-                      Đặt ngay
-                    </button>
-                    <button
-                      className="button secondary"
-                      onClick={() => handleViewMoreClick(item.id)}
-                    >
-                      Xem thêm
-                    </button>
+                    <button onClick={() => handleBookNowClick(item.id)}>Đặt ngay</button>
+                    <button className="secondary" onClick={() => handleViewMoreClick(item.id)}>Xem thêm</button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
           <div className="pagination">
-            <button className="pagination-button">Trước</button>
-            <button className="pagination-button active">1</button>
-            <button className="pagination-button">2</button>
-            <button className="pagination-button">3</button>
-            <button className="pagination-button">4</button>
-            <button className="pagination-button">Sau</button>
+            <button onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1}>Trước</button>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                className={currentPage === index + 1 ? "active" : ""}
+                onClick={() => setCurrentPage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>Sau</button>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
     </MainLayout>
   );
 };
