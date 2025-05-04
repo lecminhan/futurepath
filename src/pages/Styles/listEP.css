@@ -5,11 +5,12 @@
   }
   
   .sidebar {
-    width: 350px;
+    width: 300px;
     background-color: #f8f9fa;
-    padding: 70px;
+    padding: 20px 10px 10px 20px;
     display: flex;
     flex-direction: column;
+    margin-top: 50px ;
   }
   
   .search-section {
@@ -44,6 +45,7 @@
     border-radius: 5px;
     color: #333;
     transition: background-color 0.2s;
+    margin-bottom: 10px;
   }
   
   .menu-section ul li i.icon {

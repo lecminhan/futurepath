@@ -5,7 +5,7 @@
   width: 100vw;
   background-position: center;
   background-size: cover;
-  background: linear-gradient(to right, #2c2c2c, #0a2e3d, #6e6e6e);
+  background: #F5f5f5;
 }
 
 .auth-card {

@@ -1,0 +1,54 @@
+.post-input {
+  background-color: #F5F5F5;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 43px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.post-input img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.post-input input,
+.post-input textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #F5F5F5;
+  color: #444;
+}
+
+.post-input textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.post-input button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.post-input--expanded {
+  flex-direction: column;
+}
+.post-input__buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .post-input__buttons .cancel {
+    background-color: #ccc;
+    color: #333;
+  }
+  

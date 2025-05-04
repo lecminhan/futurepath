@@ -1,0 +1,113 @@
+.post-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  
+  .post-item__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .post-item__author {
+    display: flex;
+    align-items: center;
+  }
+  
+  .post-item__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .post-item__name {
+    font-weight: bold;
+  }
+  
+  .post-item__time {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .post-item__title {
+    margin: 15px 0;
+  }
+  
+  .post-item__content {
+    color: #555;
+  }
+  
+  .post-item__comment-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    background-color: #f5f5f5;
+    color: #444;
+  }
+  
+  .post-item__footer {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .post-item__options {
+    cursor: pointer;
+  }
+  
+  .comment-item {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.3s ease forwards;
+  }
+  
+  .comment-item.fade-out {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeOut 0.3s ease forwards;
+  }
+  .post-item__header {
+  position: relative; /* <<< THÊM VÔ ĐÂY */
+}
+
+.post-item__menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  right: 0;
+  top: 30px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-item__menu div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.post-item__menu div:hover {
+  background: #f0f0f0;
+}
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+  
