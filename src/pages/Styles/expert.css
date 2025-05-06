@@ -65,7 +65,7 @@ body {
 /* Sidebar */
 .expert-menu {
   position: fixed;
-  top: 64px; /* dưới Navbar */
+  top: 50px; /* dưới Navbar */
   left: 0;
   width: 340px;
   background: #fff6f7;
@@ -79,7 +79,7 @@ body {
   text-align: center;
   font-size: 1.5rem;
   color: #231f20;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   font-weight: bold;
   letter-spacing: -0.5px;
 }
