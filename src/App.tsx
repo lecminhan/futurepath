@@ -19,6 +19,8 @@ import AdminDashboard from './pages/admin';
 import ListEP from './pages/listEP';
 import ExpertDashboard from './pages/expert';
 import LichHen from './pages/lichhen';
+import DoanhThu from './pages/doanhthu';
+import TinNhan from './pages/tinnhan';
 
 export default function App() {
   return (
@@ -44,6 +46,8 @@ export default function App() {
           <Route path="/expert" element={<ListEP />} />
           <Route path="/uiexpert" element={<ExpertDashboard />} />
           <Route path="/lichhen" element={<LichHen />} />
+          <Route path="/doanhthu" element={<DoanhThu />} />
+          <Route path="/tinnhan" element={<TinNhan />} />
         </Routes>
       </Router>
     </NotificationProvider>

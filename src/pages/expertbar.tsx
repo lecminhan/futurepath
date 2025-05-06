@@ -64,7 +64,7 @@ export default function ExpertBar() {
         <li>
           <button
             className="expert-menu-btn"
-            onClick={() => navigate("/hoidap")}
+            onClick={() => navigate("/tinnhan")}
           >
             Tin Nhắn
           </button>
@@ -72,7 +72,7 @@ export default function ExpertBar() {
         <li>
           <button
             className="expert-menu-btn"
-            onClick={() => navigate("/duan")}
+            onClick={() => navigate("/doanhthu")}
           >
             Doanh thu
           </button>

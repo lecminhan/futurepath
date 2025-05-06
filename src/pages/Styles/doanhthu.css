@@ -1,0 +1,402 @@
+.doanhthu-layout {
+    display: flex;
+    background: #f5f6fa;
+    min-height: 100vh;
+  }
+  
+  .doanhthu-main {
+    flex: 1;
+    margin-left: 340px;
+    margin-top: 64px;
+    padding: 38px 36px 38px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background: #f5f6fa;
+    min-height: calc(100vh - 64px);
+  }
+  
+  .doanhthu-top-row,
+  .doanhthu-middle-row,
+  .doanhthu-analytics-row,
+  .doanhthu-bottom-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 16px;
+  }
+  
+  .doanhthu-card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 32px 36px 32px 36px;
+    box-shadow: 0 4px 24px rgba(40,60,90,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  
+  .doanhthu-salescost-card {
+    min-width: 560px;
+    max-width: 620px;
+    flex: 2.15 !important;
+    padding: 0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .doanhthu-card-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 22px;
+    margin: 0 38px 0 40px;
+    margin-top: 20px;
+  }
+  
+  .doanhthu-card-title {
+    font-weight: 700;
+    color: #20263a;
+    font-size: 1.45rem;
+  }
+  
+  .doanhthu-card-subtle {
+    color: #7a8194;
+    font-size: 1.13rem;
+    margin-top: 2px;
+  }
+  
+  .doanhthu-legend {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    font-size: 1.13rem;
+    color: #20263a;
+    margin-top: 3px;
+  }
+  
+  .legend-dot {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 9px;
+    vertical-align: middle;
+  }
+  .legend-dot.sales {
+    background: #1976f7;
+  }
+  .legend-dot.cost {
+    background: #45b3e6;
+  }
+  
+  .doanhthu-card-value-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    margin: 0 38px 0 40px;
+    margin-top: 14px;
+    margin-bottom: 2px;
+  }
+  .doanhthu-card-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #232323;
+  }
+  .doanhthu-card-trend {
+    font-size: 1.23rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+  .trend-sub {
+    color: #b5b5b5;
+    font-size: 1.07rem;
+    margin-left: 12px;
+    font-weight: 400;
+  }
+  .doanhthu-card-trend.positive {
+    color: #3dbd6a;
+  }
+  .doanhthu-card-trend.negative {
+    color: #ed473f;
+  }
+  
+  .doanhthu-salescost-chart-wrap {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+    background: #fff;
+    border-radius: 0 0 22px 22px;
+    overflow: hidden;
+  }
+  .doanhthu-salescost-chart {
+    width: 100%;
+    height: 140px;
+    display: block;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+  }
+  
+  .doanhthu-card-large {
+    min-width: 630px !important;
+    max-width: 720px !important;
+    flex: 1.7 !important;
+    font-size: 1.21rem;
+  }
+  .doanhthu-card-xlarge {
+    min-width: 900px !important;
+    max-width: 1100px !important;
+    flex: 3 !important;
+    font-size: 1.21rem;
+  }
+  .doanhthu-card-xxlarge {
+    min-width: 0 !important;
+    flex: 3.5 !important;
+    font-size: 1.21rem;
+  }
+  
+  .doanhthu-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 14px;
+    font-size: 1.21rem;
+    font-weight: 600;
+    color: #222;
+  }
+  .doanhthu-card-sub {
+    margin-left: 18px;
+    font-size: 1.11rem;
+    color: #7a8194;
+    font-weight: 400;
+  }
+  .doanhthu-card-menu {
+    margin-left: auto;
+    font-size: 1.35rem;
+    color: #b5b5b5;
+    cursor: pointer;
+    user-select: none;
+  }
+  .doanhthu-card-link {
+    margin-left: auto;
+    color: #1976f7;
+    font-size: 1.11rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .doanhthu-card-body {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 12px;
+  }
+  .doanhthu-card-value {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #232323;
+  }
+  .doanhthu-card-trend {
+    font-size: 1.13rem;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+  .doanhthu-card-trend span {
+    color: #b5b5b5;
+    font-size: 1.09rem;
+    margin-left: 2px;
+  }
+  .doanhthu-card-trend.positive {
+    color: #3dbd6a;
+  }
+  .doanhthu-card-trend.negative {
+    color: #ed473f;
+  }
+  
+  .doanhthu-line-chart {
+    margin-top: 12px;
+    width: 100%;
+    height: 75px;
+    display: block;
+  }
+  .doanhthu-spark {
+    margin-top: 6px;
+    width: 100%;
+    height: 44px;
+    display: block;
+  }
+  
+  /* --- Reports Bar Chart --- */
+  .doanhthu-reports-top {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 12px;
+    margin-top: 13px;
+  }
+  .doanhthu-reports-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    color: #7a8194;
+    font-size: 1.13rem;
+    font-weight: 500;
+  }
+  .doanhthu-reports-metric.active {
+    color: #1976f7;
+    font-weight: 700;
+  }
+  .doanhthu-reports-metric > div {
+    font-size: 1.38rem;
+  }
+  .doanhthu-reports-bar-wrap {
+    margin-top: 12px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .doanhthu-reports-bar {
+    width: 100%;
+    height: 145px;
+    display: block;
+    background: #fff;
+  }
+  
+  /* --- End Reports Bar Chart --- */
+  
+  .doanhthu-users-value {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #232323;
+  }
+  .doanhthu-users-label {
+    color: #7a8194;
+    font-size: 1.13rem;
+    margin-bottom: 12px;
+  }
+  .doanhthu-users-bar {
+    width: 100%;
+    height: 56px !important;
+    margin-bottom: 12px;
+  }
+  .doanhthu-users-countries {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .doanhthu-country {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    font-size: 1.09rem;
+  }
+  .flag {
+    display: inline-block;
+    width: 32px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-right: 6px;
+  }
+  .flag-us { background-image: url('https://flagcdn.com/us.svg'); }
+  .flag-br { background-image: url('https://flagcdn.com/br.svg'); }
+  .flag-in { background-image: url('https://flagcdn.com/in.svg'); }
+  .flag-au { background-image: url('https://flagcdn.com/au.svg'); }
+  
+  .country-name {
+    min-width: 110px;
+  }
+  .country-bar {
+    background: #e7ecfc;
+    border-radius: 7px;
+    width: 70px;
+    height: 14px;
+    margin: 0 14px;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .country-bar > span {
+    display: block;
+    height: 100%;
+    background: #1976f7;
+    border-radius: 7px;
+  }
+  .country-users {
+    font-weight: 600;
+    min-width: 54px;
+  }
+  .country-perc {
+    font-size: 1.03rem;
+    margin-left: 12px;
+  }
+  .country-perc.up { color: #3dbd6a; }
+  .country-perc.down { color: #ed473f; }
+  
+  .doanhthu-trans-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+  
+  .doanhthu-trans-table th,
+  .doanhthu-trans-table td {
+    padding: 15px 8px;
+    text-align: left;
+    font-size: 1.02rem;
+    vertical-align: middle;
+  }
+  .doanhthu-trans-table th {
+    color: #7a8194;
+    font-weight: 500;
+    background: #f4f7fb;
+    white-space: nowrap;
+  }
+  .doanhthu-trans-table td {
+    white-space: normal;
+  }
+  .doanhthu-trans-table tbody tr {
+    border-top: 1px solid #f0f1f4;
+  }
+  .doanhthu-link {
+    color: #1976f7;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1800px) {
+    .doanhthu-salescost-card,
+    .doanhthu-card-large,
+    .doanhthu-card-xlarge,
+    .doanhthu-card-xxlarge {
+      min-width: 350px !important;
+      max-width: 98vw !important;
+    }
+  }
+  @media (max-width: 1300px) {
+    .doanhthu-top-row,
+    .doanhthu-middle-row,
+    .doanhthu-analytics-row,
+    .doanhthu-bottom-row {
+      flex-direction: column;
+      gap: 18px;
+    }
+    .doanhthu-main {
+      padding: 18px 5px 18px 5px;
+    }
+  }
