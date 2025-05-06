@@ -17,6 +17,8 @@ import UserProfile from './pages/UserProfile';
 import ForumLayout from './pages/forum';
 import AdminDashboard from './pages/admin';
 import ListEP from './pages/listEP';
+import ExpertDashboard from './pages/expert';
+import LichHen from './pages/lichhen';
 
 export default function App() {
   return (
@@ -40,6 +42,8 @@ export default function App() {
           <Route path="/forumpost" element={<ForumLayout />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/expert" element={<ListEP />} />
+          <Route path="/uiexpert" element={<ExpertDashboard />} />
+          <Route path="/lichhen" element={<LichHen />} />
         </Routes>
       </Router>
     </NotificationProvider>

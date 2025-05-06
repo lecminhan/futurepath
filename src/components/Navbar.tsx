@@ -94,7 +94,7 @@ export default function NavBar() {
             ) : (
               // Nếu chưa đăng nhập, hiển thị nút "Login"
               <Nav.Link href="/login" className="text-white me-3 ms-auto" style={style('login')} onMouseEnter={() => setHoveredLink('login')} onMouseLeave={() => setHoveredLink(null)}>
-                Log in
+                Đăng nhập
               </Nav.Link>
             )}
 
@@ -109,7 +109,7 @@ export default function NavBar() {
 ) : (
   // Nếu chưa đăng nhập, hiển thị nút "Take the free test"
   <Button variant="light" className="fw-bold">
-    Take the free test
+    Làm thử miễn phí
   </Button>
 )}
           </div>

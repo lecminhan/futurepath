@@ -1,0 +1,310 @@
+body {
+  background: #f5f5f5;
+  margin: 0;
+}
+
+/* Navbar fixed trên cùng */
+.expert-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #231f20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 100;
+}
+
+/* Logo nhỏ gọn hơn */
+.expert-logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.5px;
+}
+
+.logo-blue {
+  color: #3757f7;
+  letter-spacing: -0.5px;
+}
+
+.logo-white {
+  color: #ffffff;
+  margin-left: 2px;
+  letter-spacing: -0.5px;
+}
+
+.logo-black {
+  color: #000000;
+  margin-left: 2px;
+  letter-spacing: -0.5px;
+}
+
+.expert-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.expert-username {
+  color: #fff;
+  font-weight: 500;
+}
+.expert-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #b5f5d1;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+/* Sidebar */
+.expert-menu {
+  position: fixed;
+  top: 64px; /* dưới Navbar */
+  left: 0;
+  width: 340px;
+  background: #fff6f7;
+  padding: 32px 0 0 0;
+  min-height: calc(100vh - 64px);
+  box-sizing: border-box;
+}
+
+/* Menu chữ nhỏ hơn */
+.expert-menu-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #231f20;
+  margin-bottom: 32px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+}
+
+.expert-menu ul {
+  list-style: none;
+  padding: 0 32px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.expert-menu-btn {
+  width: 100%;
+  padding: 13px 0;
+  background: #231f20;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: -0.5px;
+}
+
+.expert-menu-btn.active,
+.expert-menu-btn:hover {
+  background: #0D6EFD  ;
+  text-decoration: underline;
+}
+
+/* Main layout sửa lại để tránh chồng lên Navbar */
+.expert-layout {
+  display: flex;
+  background: #f5f5f5;
+  height: 100vh;
+}
+
+/* Main content đẩy xuống dưới Navbar và dịch sang phải để không che sidebar */
+.expert-main {
+  flex: 1;
+  margin-left: 340px; /* bằng với width sidebar */
+  margin-top: 64px;   /* bằng với height navbar */
+  padding: 32px 40px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background: #f5f5f5;
+  min-height: calc(100vh - 64px);
+}
+
+.expert-stats-row {
+  display: flex;
+  gap: 24px;
+}
+.expert-stat-card {
+  background: #f7faff;
+  border-radius: 16px;
+  padding: 26px 34px 22px 34px;
+  min-width: 210px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(44,56,74,0.04);
+}
+.expert-stat-card:nth-child(odd) {
+  background: #fff;
+}
+.stat-title {
+  color: #757575;
+  font-size: 1.03rem;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #231f20;
+}
+.stat-growth {
+  font-size: 1rem;
+  color: #6b3d3a;
+}
+.stat-growth.positive {
+  color: #17b26a;
+}
+.stat-growth.negative {
+  color: #f04438;
+}
+
+.expert-main-content {
+  background: transparent;
+}
+
+/* Make Total User chart card bigger and more beautiful */
+.expert-totaluser-bigcard {
+  background: linear-gradient(120deg, #f7faff 70%, #e5ecfc 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 48px rgba(44,56,74,0.06);
+  padding: 36px 44px 48px 44px;
+  margin-bottom: 22px;
+  min-width: 0;
+  min-height: 410px;
+  position: relative;
+}
+
+.line-chart-placeholder.big {
+  width: 100%;
+  min-width: 0;
+  min-height: 330px;
+  background: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expert-chart-header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.chart-tab {
+  color: #b2b2b2;
+  margin-right: 16px;
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+.chart-tab.active {
+  color: #231f20;
+  border-bottom: 2px solid #231f20;
+}
+.chart-legend {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: #757575;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px 0 0;
+}
+.dot.this-year {
+  background: #231f20;
+}
+.dot.last-year {
+  background: #a9c9fd;
+}
+.line-chart-placeholder {
+  background: linear-gradient(180deg, #f7faff 60%, #fff 100%);
+  border-radius: 14px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.expert-traffic-row {
+  display: flex;
+  gap: 22px;
+}
+.expert-traffic-card {
+  background: #fff;
+  border-radius: 16px;
+  flex: 1;
+  padding: 28px 26px;
+  box-shadow: 0 2px 8px rgba(44,56,74,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+}
+
+.traffic-title {
+  font-weight: 600;
+  font-size: 1.09rem;
+  color: #231f20;
+  margin-bottom: 18px;
+}
+
+/* Pie chart styles */
+.pie-chart-container {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.traffic-pie-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #231f20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pie-dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 9px;
+  vertical-align: middle;
+}
+
+.traffic-pie-legend .percent {
+  margin-left: 10px;
+  color: #757575;
+  font-size: 0.98em;
+}
+
+/* Animation for pie chart circles */
+.pie-anim {
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
+  stroke-dasharray: 101;
+  stroke-dashoffset: 101;
+}
