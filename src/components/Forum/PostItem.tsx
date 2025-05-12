@@ -87,7 +87,7 @@ const PostItem: React.FC<Props> = ({ posts }) => {
             <div className="post-item" key={post.id}>
               <div className="post-item__header">
                 <div className="post-item__author">
-                  <img src="../../../public/images/avt.jpg" alt="Avatar" className="post-item__avatar" />
+                  <img src="/images/avt.jpg" alt="Avatar" className="post-item__avatar" />
                   <div>
                     <span className="post-item__name">{post.user_name}</span>
                     <p className="post-item__time">{new Date(post.created_at).toLocaleString()}</p>
