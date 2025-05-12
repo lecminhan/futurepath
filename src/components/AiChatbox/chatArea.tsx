@@ -119,7 +119,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ conversationId }) => {
     <div className="chat-container">
       <div className="ai-title">
         <img
-          src="/images/chatbot.png"
+          src="/images/chatbox.png"
           alt="Chat Icon"
           style={{ width: '45px', height: 'auto' }}
         />
