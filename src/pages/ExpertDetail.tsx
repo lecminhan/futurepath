@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import './Styles/expertDetail.css';
+import './Styles/expertdetail.css';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
