@@ -1,4 +1,3 @@
-import React from 'react';
 import { getMBTIOverview } from '../../utils/mbtiUtils';
 
 const MBTIDescription = ({ result }: { result: string }) => {

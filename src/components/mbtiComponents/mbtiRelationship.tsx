@@ -1,4 +1,3 @@
-import React from 'react';
 import { getMBTIRelationships } from '../../utils/mbtiUtils';
 import { Typography, Box } from '@mui/material';
 

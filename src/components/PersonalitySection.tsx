@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container } from 'react-bootstrap';
 import './styles/PersonalitySection.css'; // Import CSS file cho các animation
 

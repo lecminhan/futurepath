@@ -16,7 +16,7 @@ export const listenComments = (callback: (comments: Comment[]) => void) => {
     const data = snapshot.val();
     const loadedComments: Comment[] = [];
 
-    for (let id in data) {
+    for (const id in data) {
       loadedComments.push({
         id,
         post_id: Number(data[id].post_id),
@@ -39,7 +39,7 @@ export const deletePostAndComments = async (postFirebaseId: string, postId: numb
   const commentsRef = ref(database, "comments");
   onValue(commentsRef, (snapshot) => {
     const data = snapshot.val();
-    for (let id in data) {
+    for (const id in data) {
       if (Number(data[id].post_id) === postId) {
         const commentRef = ref(database, `comments/${id}`);
         remove(commentRef);

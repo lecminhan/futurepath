@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from 'react-bootstrap';
 import './styles/MovingText.css';
 const MovingTextSection: React.FC = () => {

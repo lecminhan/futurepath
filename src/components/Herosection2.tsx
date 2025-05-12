@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; // Import Link từ react-router-dom (nếu bạn muốn điều hướng trong app)
 

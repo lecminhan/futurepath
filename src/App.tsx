@@ -18,6 +18,7 @@ import ForumLayout from './pages/forum';
 import AdminDashboard from './pages/admin';
 import ListEP from './pages/listEP';
 import Messages from './pages/messages';
+import ExpertDetail from './pages/ExpertDetail';
 export default function App() {
   return (
     <NotificationProvider>
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/expert" element={<ListEP />} />
           <Route path="/messages" element={<Messages/>} />
+          <Route path="/expert/:id" element={<ExpertDetail />} />
         </Routes>
       </Router>
     </NotificationProvider>

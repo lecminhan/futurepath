@@ -1,6 +1,5 @@
 // components/mbtiComponents/mbtiAdvice.tsx
 
-import React from 'react';
 import { getMBTIAdvice } from '../../utils/mbtiUtils';
 import { Typography, Box } from '@mui/material';
 

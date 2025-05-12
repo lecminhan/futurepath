@@ -1,4 +1,5 @@
 // src/services/careerService.ts
+const API_URL = import.meta.env.VITE_AI_API_URL;
 
 export interface CareerRequest {
     mbti: string;
@@ -16,7 +17,7 @@ export interface CareerRequest {
     data: CareerRequest
   ): Promise<CareerResponse> => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/career-result', {
+      const response = await fetch(`${API_URL}/career-result`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

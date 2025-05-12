@@ -1,4 +1,3 @@
-import React from 'react';
 import { getHollandWeaknesses } from '../../utils/hollandUtils';
 
 interface Props {

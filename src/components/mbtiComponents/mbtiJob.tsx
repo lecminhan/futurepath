@@ -1,5 +1,4 @@
 // components/mbtiComponents/MBTIJobs.tsx
-import React from 'react';
 import { getMBTIJobs } from '../../utils/mbtiUtils';
 import { Typography, Box } from '@mui/material';
 

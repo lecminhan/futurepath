@@ -1,4 +1,5 @@
 // src/services/authService.ts
+const API_URL = import.meta.env.VITE_AN_API_URL;
 
 export interface LoginResponse {
   success?: boolean;
@@ -15,7 +16,7 @@ export interface LoginResponse {
 
 export const login = async (email: string, password: string): Promise<LoginResponse> => {
   try {
-    const response = await fetch('http://localhost:3004/api/auth/login', {
+    const response = await fetch(`${API_URL}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

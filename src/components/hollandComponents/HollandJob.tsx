@@ -1,4 +1,3 @@
-import React from 'react';
 import { getHollandJobs } from '../../utils/hollandUtils';
 
 interface Props {

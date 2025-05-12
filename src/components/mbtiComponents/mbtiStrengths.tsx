@@ -1,4 +1,3 @@
-import React from 'react';
 import { getMBTIStrengths } from '../../utils/mbtiUtils';
 import { Typography, Box } from '@mui/material';
 

@@ -1,5 +1,4 @@
 // components/mbtiComponents/MBTITypeSlider.tsx
-import React from 'react';
 import { getMBTIName, getMBTIIntro, getMBTIGradient } from '../../utils/mbtiUtils';
 import { Box, Typography } from '@mui/material';
 import '../styles/mbtiSlider.css'; // Đảm bảo bạn đã import CSS

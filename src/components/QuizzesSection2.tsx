@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import MbtiQuiz from '../components/mbtiComponents/MBTICard';
 import HollandQuiz from '../components/hollandComponents/HollandCard';

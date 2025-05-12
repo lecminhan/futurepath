@@ -5,6 +5,7 @@ import { getUserId } from '../utils/useridUtils';
 export async function sendResultsToAPI(scores: MBTIScores) {
   const userId = getUserId();
   const quizId = 1;
+const API_URL = import.meta.env.VITE_AN_API_URL;
 
   if (!userId) throw new Error('User ID không tồn tại');
 
@@ -14,7 +15,7 @@ export async function sendResultsToAPI(scores: MBTIScores) {
     ...scores
   };
   console.log('[📤 POST] Holland Payload:', requestData);
-  const response = await fetch('http://localhost:3004/api/quizzes/results', {
+  const response = await fetch(`${API_URL}/api/quizzes/results`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

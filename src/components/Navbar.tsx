@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container, Button, Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import MoreDropdown from './MoreDropdown';
 import SearchButton from './SeachButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';

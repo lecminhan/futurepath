@@ -1,4 +1,3 @@
-import React from 'react';
 import { getHollandPairOverview } from '../../utils/hollandUtils';
 
 interface Props {

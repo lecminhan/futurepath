@@ -1,5 +1,4 @@
 // src/components/OptionButton.tsx
-import React from 'react';
 
 interface OptionButtonProps {
   label: string;

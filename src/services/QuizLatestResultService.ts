@@ -1,5 +1,5 @@
 // src/services/quizLatestResultService.ts
-const API_URL = import.meta.env.VITE_AI_API_URL;
+const API_URL = import.meta.env.VITE_AN_API_URL;
 export interface QuizResult {
     mbti: string;
     holland: string;
@@ -12,7 +12,7 @@ export interface QuizResult {
     }
   
     try {
-      const response = await fetch(`http://localhost:3004/api/quizzes/quiz-result/latest/${userId}`);
+      const response = await fetch(`${API_URL}/api/quizzes/quiz-result/latest/${userId}`);
       const data = await response.json();
       if (data.success) {
         return {

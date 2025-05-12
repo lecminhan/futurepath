@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./styles/postitem.css";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import ChatIcon from "@mui/icons-material/Chat";
 import { getUserId } from "../../utils/useridUtils";
 import { useNotification } from "../../services/NotificationServices";

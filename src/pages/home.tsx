@@ -2,7 +2,6 @@ import '../styles/global.css';
 import MainLayout from '../layouts/MainLayout';
 import HeroSection from '../components/HeroSection';
 import HowItWorks from '../components/HowItWorks';
-import React from 'react';
 import PersonalitySection from '../components/PersonalitySection';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import MovingText from '../components/MovingText';

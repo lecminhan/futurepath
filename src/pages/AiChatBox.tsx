@@ -1,4 +1,3 @@
-import React  from 'react';
 import NavBar from '../components/Navbar';
 // import ChatArea from '../components/AiChatbox/chatArea';
 import Sidebar from '../components/AiChatbox/aiSidebar';

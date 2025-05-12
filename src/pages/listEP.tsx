@@ -14,8 +14,9 @@ const ListEP: React.FC = () => {
   };
 
   const handleBookNowClick = (id: number) => {
-    console.log(`Book now clicked for item ${id}`);
+    navigate(`/expert/${id}`);
   };
+  
 
   const handleViewMoreClick = (id: number) => {
     console.log(`View more clicked for item ${id}`);
@@ -76,8 +77,8 @@ const ListEP: React.FC = () => {
                   </div>
 
                   <div className="card-actions">
-                    <button onClick={() => handleBookNowClick(item.id)}>Đặt ngay</button>
-                    <button className="secondary" onClick={() => handleViewMoreClick(item.id)}>Xem thêm</button>
+                  <button onClick={() => handleBookNowClick(item.id)}>Đặt ngay</button>
+                  <button className="secondary" onClick={() => handleViewMoreClick(item.id)}>Xem thêm</button>
                   </div>
                 </div>
               </div>
