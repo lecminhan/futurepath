@@ -3,12 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "format:one-line": "prettier . --print-width 100000 --write",
-    "build:css": "tailwindcss build global.css -o output.css"
+  "start": "vite preview",
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "format:one-line": "prettier . --print-width 100000 --write",
+  "build:css": "tailwindcss build global.css -o output.css"
+}
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
