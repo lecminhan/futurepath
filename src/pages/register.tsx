@@ -5,7 +5,6 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import MailIcon from '@mui/icons-material/Mail';
 import '../styles/auth.css';
-
 interface RegisterResponse {
   user?: {
     id: string;
@@ -29,6 +28,7 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [apiResponse, setApiResponse] = useState<RegisterResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+   const API_URL = import.meta.env.VITE_AN_API_URL;
 
   const navigate = useNavigate();
 
@@ -60,7 +60,7 @@ export default function RegisterPage() {
     setApiResponse(null);
 
     try {
-      const response = await fetch('http://localhost:3004/api/auth/register', {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
