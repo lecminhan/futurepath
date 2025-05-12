@@ -14,7 +14,7 @@ interface RegisterResponse {
   error?: string;
   message?: string;
 }
-
+   const API_URL = import.meta.env.VITE_AN_API_URL;
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
     username: '',
@@ -28,8 +28,6 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [apiResponse, setApiResponse] = useState<RegisterResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-   const API_URL = import.meta.env.VITE_AN_API_URL;
-
   const navigate = useNavigate();
 
   // Animation effect
