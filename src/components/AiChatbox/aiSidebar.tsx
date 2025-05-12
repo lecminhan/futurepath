@@ -134,7 +134,7 @@ const Sidebar: React.FC = () => {
           onClick={handleNewChatClick}
         >
           <img
-            src='../../../public/cat.png'
+            src='/images/cat.png'
             alt="FuturePath Ai"
             style={{ width: '17%', height: 'auto', maxWidth: '100px', marginRight: '10px', marginLeft: '-20px' }}
           />
@@ -153,7 +153,7 @@ const Sidebar: React.FC = () => {
   onClick={() => navigate('/careerform')}
 >
   <img
-    src="../../../public/analyst.webp"
+    src="/images/analyst.webp"
     alt="FuturePath Ai"
     style={{
       width: '17%',

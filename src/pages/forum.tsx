@@ -33,7 +33,7 @@ const Forum: React.FC = () => {
       const data = snapshot.val();
       const loadedPosts: Post[] = [];
 
-      for (let id in data) {
+      for (const id in data) {
         if (data[id].title) {
           loadedPosts.push({
             id,
