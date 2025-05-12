@@ -53,43 +53,55 @@ export default function RegisterPage() {
     }));
   };
 
-  const handleRegister = async () => {
-    setIsLoading(true);
-    setApiResponse(null);
+const handleRegister = async () => {
+  setIsLoading(true);
+  setApiResponse(null);
 
-    try {
-      const response = await fetch(`${API_URL}/api/auth/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password
-        })
-      });
+  try {
+    const response = await fetch(`${API_URL}/api/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      })
+    });
 
-      const data: RegisterResponse = await response.json();
+    // ✅ Đọc response dưới dạng text trước
+    const rawText = await response.text();
 
-      if (!response.ok) {
-        throw new Error(data.error || data.message || 'Registration failed');
+    // ✅ Parse nếu có nội dung
+    let data: RegisterResponse = {};
+    if (rawText) {
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        throw new Error("Invalid response format from server.");
       }
-
-      setApiResponse(data);
-
-      // Redirect to login after 2 seconds
-      setTimeout(() => {
-        navigate('/login');
-      }, 2000);
-    } catch (err) {
-      setApiResponse({
-        error: err instanceof Error ? err.message : 'An error occurred'
-      });
-    } finally {
-      setIsLoading(false);
     }
-  };
+    if (!response.ok) {
+      throw new Error(data?.error || data?.message || 'Registration failed');
+    }
+
+    // ✅ Đăng ký thành công
+    setApiResponse(data);
+
+    // ✅ Điều hướng sau 2 giây
+    setTimeout(() => {
+      navigate('/login');
+    }, 2000);
+  } catch (err) {
+    setApiResponse({
+      error: err instanceof Error ? err.message : 'An error occurred'
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
