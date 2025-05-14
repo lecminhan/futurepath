@@ -1,6 +1,5 @@
 // src/services/authService.ts
 const API_URL = import.meta.env.VITE_AN_API_URL;
-
 export interface LoginResponse {
   success?: boolean;
   token?: string;

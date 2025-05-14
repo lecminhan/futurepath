@@ -6,7 +6,7 @@ import { useNotification } from '../../services/NotificationServices';
 import '../../styles/global.css';
 
 interface Quiz {
-  quiz_id: number;
+  id: number;
   content: string;
   option1: string;
   option2: string;
@@ -14,7 +14,7 @@ interface Quiz {
   category: string;
 }
 interface Question {
-  quiz_id: number;
+  id: number;
   option1: string;
   option2: string;
 }
@@ -108,12 +108,12 @@ const MBTIQuizForm: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    const unansweredQuestions = quizData.filter((quiz) => !answers[quiz.quiz_id]);
+    const unansweredQuestions = quizData.filter((quiz) => !answers[quiz.id]);
 
     if (unansweredQuestions.length > 0) {
       showNotification(`Bạn cần trả lời hết ${unansweredQuestions.length} câu hỏi trước khi nộp bài!`, 'error');
 
-      const firstUnansweredIndex = quizData.findIndex((quiz) => !answers[quiz.quiz_id]);
+      const firstUnansweredIndex = quizData.findIndex((quiz) => !answers[quiz.id]);
       setCurrentQuestionIndex(firstUnansweredIndex);
 
       return;
@@ -128,14 +128,14 @@ const MBTIQuizForm: React.FC = () => {
 
   const renderQuestion = (quiz: Quiz) => (
     <Question
-      key={quiz.quiz_id}
+      key={quiz.id}
       questionNumber={currentQuestionIndex + 1}
       totalQuestions={quizData.length}
       question={quiz.content}
       option1={quiz.option1}
       option2={quiz.option2}
-      selectedAnswer={answers[quiz.quiz_id]?.answer}
-      onAnswer={(answer) => handleAnswerSelect(quiz.quiz_id, answer, quiz.category, quiz.option1)} // Truyền thêm option1, option2
+      selectedAnswer={answers[quiz.id]?.answer}
+      onAnswer={(answer) => handleAnswerSelect(quiz.id, answer, quiz.category, quiz.option1)} // Truyền thêm option1, option2
     />
   );
 
@@ -260,12 +260,12 @@ const MBTIQuizForm: React.FC = () => {
             }}
           >
             {quizData.map((quiz, index) => {
-              const isAnswered = answers[quiz.quiz_id];
+              const isAnswered = answers[quiz.id];
               const isActive = currentQuestionIndex === index;
 
               return (
                 <div
-                  key={quiz.quiz_id}
+                  key={quiz.id}
                   onClick={() => handleGoBack(index)}
                   style={{
                     aspectRatio: '1/1',

@@ -3,7 +3,7 @@ import NavBar from '../components/Navbar';
 import Sidebar from '../components/AiChatbox/aiSidebar';
 const ChatPage: React.FC = () => {
   return (
-    <div style={{boxSizing:'border-box',overflowY:'hidden'}}>
+    <div style={{boxSizing:'border-box'}}>
     <NavBar/>
     {/* <ChatArea/> */}
     <Sidebar/>

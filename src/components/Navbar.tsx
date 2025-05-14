@@ -68,10 +68,14 @@ export default function NavBar() {
             <Nav.Link href="/community" className="text-white nav-link" style={style('community')} onMouseEnter={() => setHoveredLink('community')} onMouseLeave={() => setHoveredLink(null)}>
               Cộng đồng
             </Nav.Link>
-            <Nav.Link href="/chatpage" className="text-white nav-link" style={style('degrees')} onMouseEnter={() => setHoveredLink('degrees')} onMouseLeave={() => setHoveredLink(null)}>
-            Trò chuyện với AI
-            </Nav.Link>
-            <MoreDropdown />
+           {user && (
+  <>
+    <Nav.Link href="/chatpage" className="text-white nav-link" style={style('degrees')} onMouseEnter={() => setHoveredLink('degrees')} onMouseLeave={() => setHoveredLink(null)}>
+      Trò chuyện với AI
+    </Nav.Link>
+    <MoreDropdown />
+  </>
+)}
           </Nav>
 
           {/* Search & Buttons */}

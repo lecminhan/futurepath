@@ -216,7 +216,7 @@ const Sidebar: React.FC = () => {
 
       <div
         style={{
-          marginLeft: open ? '250px' : '0',
+          marginLeft: open ? '350px' : '0',
           transition: 'margin-left 0.3s ease-in-out',
           paddingLeft: '20px',
           width: open ? 'calc(100% - 550px)' : '100%',

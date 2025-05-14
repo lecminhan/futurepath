@@ -6,7 +6,7 @@ import { useNotification } from '../../services/NotificationServices';
 import '../../styles/global.css';
 
 interface Quiz {
-  quiz_id: number;
+  id: number;
   content: string;
   option1: string;
   option2: string;
@@ -105,12 +105,12 @@ const HollandQuizForm: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    const unansweredQuestions = quizData.filter((quiz) => !answers[quiz.quiz_id]);
+    const unansweredQuestions = quizData.filter((quiz) => !answers[quiz.id]);
 
     if (unansweredQuestions.length > 0) {
       showNotification(`Bạn cần trả lời hết ${unansweredQuestions.length} câu hỏi trước khi nộp bài!`, 'error');
 
-      const firstUnansweredIndex = quizData.findIndex((quiz) => !answers[quiz.quiz_id]);
+      const firstUnansweredIndex = quizData.findIndex((quiz) => !answers[quiz.id]);
       setCurrentQuestionIndex(firstUnansweredIndex);
 
       return;
@@ -126,14 +126,14 @@ const HollandQuizForm: React.FC = () => {
 
   const renderQuestion = (quiz: Quiz) => (
     <Question
-      key={quiz.quiz_id}
+      key={quiz.id}
       questionNumber={currentQuestionIndex + 1}
       totalQuestions={quizData.length}
       question={quiz.content}
       option1={quiz.option1}
       option2={quiz.option2}
-      selectedAnswer={answers[quiz.quiz_id]?.answer}
-      onAnswer={(answer) => handleAnswerSelect(quiz.quiz_id, answer, quiz.category, quiz.option1)} // Pass option1 and option2
+      selectedAnswer={answers[quiz.id]?.answer}
+      onAnswer={(answer) => handleAnswerSelect(quiz.id, answer, quiz.category, quiz.option1)} // Pass option1 and option2
     />
   );
 
@@ -256,7 +256,7 @@ const HollandQuizForm: React.FC = () => {
           >
             {quizData.map((quiz, index) => (
               <div
-                key={quiz.quiz_id}
+                key={quiz.id}
                 onClick={() => handleGoBack(index)}
                 style={{
                   position: 'relative',
@@ -265,11 +265,11 @@ const HollandQuizForm: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundColor: answers[quiz.quiz_id] ? '#F1C75F' : '#fff',
+                  backgroundColor: answers[quiz.id] ? '#F1C75F' : '#fff',
                   borderRadius: '40px',
                   cursor: 'pointer',
-                  border: currentQuestionIndex === index ? '2px solid #F1C75F' : answers[quiz.quiz_id] ? '2px solid transparent' : '1px solid #e0e0e0',
-                  boxShadow: answers[quiz.quiz_id] ? '0 2px 8px rgba(241, 199, 95, 0.3)' : '0 2px 4px rgba(0,0,0,0.05)',
+                  border: currentQuestionIndex === index ? '2px solid #F1C75F' : answers[quiz.id] ? '2px solid transparent' : '1px solid #e0e0e0',
+                  boxShadow: answers[quiz.id] ? '0 2px 8px rgba(241, 199, 95, 0.3)' : '0 2px 4px rgba(0,0,0,0.05)',
                   transition: 'all 0.2s ease'
                 }}
               >
@@ -277,13 +277,13 @@ const HollandQuizForm: React.FC = () => {
                   style={{
                     fontSize: '14px',
                     fontWeight: currentQuestionIndex === index ? '600' : '400',
-                    color: answers[quiz.quiz_id] ? '#fff' : currentQuestionIndex === index ? '#F1C75F' : '#555'
+                    color: answers[quiz.id] ? '#fff' : currentQuestionIndex === index ? '#F1C75F' : '#555'
                   }}
                 >
                   {index + 1}
                 </span>
 
-                {answers[quiz.quiz_id] && (
+                {answers[quiz.id] && (
                   <svg
                     width="16"
                     height="16"
