@@ -19,6 +19,7 @@ import AdminDashboard from './pages/admin';
 import ListEP from './pages/listEP';
 import Messages from './pages/messages';
 import ExpertDetail from './pages/ExpertDetail';
+import ExpertOverview from './pages/ExpertPage/Overviews';
 export default function App() {
   return (
     <NotificationProvider>
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/expert" element={<ListEP />} />
           <Route path="/messages" element={<Messages/>} />
           <Route path="/expert/:id" element={<ExpertDetail />} />
+          <Route path="/overview" element={<ExpertOverview/>} />
         </Routes>
       </Router>
     </NotificationProvider>

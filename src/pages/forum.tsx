@@ -56,7 +56,7 @@ const Forum: React.FC = () => {
 
   const filteredPosts = posts.filter(post => {
     if (activeButton === "Khám phá bài viết") return true;
-    if (activeButton === "Chi sẻ từ người dùng") return post.role === "Student";
+    if (activeButton === "Chia sẻ từ người dùng") return post.role === "Student";
     if (activeButton === "Lời khuyên từ chuyên gia") return post.role === "Expert";
     if (activeButton === "Câu hỏi của bạn") return post.user_id === Number(UserId);
     return true;

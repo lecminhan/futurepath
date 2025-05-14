@@ -1,10 +1,11 @@
 import { Navbar, Nav, Container, Button, Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MoreDropdown from './MoreDropdown';
-import SearchButton from './SeachButton';
+import SearchButton from '../components/SeachButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { IconButton } from '@mui/material';
+
 interface User {
   id: number;
   email: string;
@@ -21,9 +22,15 @@ export default function NavBar() {
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser)); // Lưu thông tin người dùng nếu có
+      const userData = JSON.parse(storedUser);
+      setUser(userData); // Lưu thông tin người dùng nếu có
+
+      // Chuyển hướng đến trang overview nếu người dùng có role là "Expert"
+      if (userData.role === 'Expert') {
+        navigate('/overview'); // Chuyển hướng đến trang Overview
+      }
     }
-  }, []);
+  }, [navigate]);
 
   // Xử lý đăng xuất
   const handleLogout = () => {
@@ -43,7 +50,7 @@ export default function NavBar() {
     fontWeight: 'normal',
     transition: 'all 0.3s ease-in-out',
     color: 'white',
-    transform: hoveredLink === link ? 'scale(1.1)' : 'scale(1)'
+    transform: hoveredLink === link ? 'scale(1.1)' : 'scale(1)',
   });
 
   return (
@@ -59,23 +66,101 @@ export default function NavBar() {
         {/* Navbar Links */}
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <Link to="/" className="text-white nav-link" style={style('homepage')} onMouseEnter={() => setHoveredLink('homepage')} onMouseLeave={() => setHoveredLink(null)}>
+            {/* Hiển thị các liên kết này cho tất cả người dùng (dù đã đăng nhập hay chưa) */}
+            <Link
+              to="/"
+              className="text-white nav-link"
+              style={style('homepage')}
+              onMouseEnter={() => setHoveredLink('homepage')}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
               Trang chủ
             </Link>
-            <Link to="/quizzes" className="text-white nav-link" style={style('quizzes')} onMouseEnter={() => setHoveredLink('quizzes')} onMouseLeave={() => setHoveredLink(null)}>
+            <Link
+              to="/quizzes"
+              className="text-white nav-link"
+              style={style('quizzes')}
+              onMouseEnter={() => setHoveredLink('quizzes')}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
               Bài Quizzes
             </Link>
-            <Nav.Link href="/community" className="text-white nav-link" style={style('community')} onMouseEnter={() => setHoveredLink('community')} onMouseLeave={() => setHoveredLink(null)}>
+            <Nav.Link
+              href="/community"
+              className="text-white nav-link"
+              style={style('community')}
+              onMouseEnter={() => setHoveredLink('community')}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
               Cộng đồng
             </Nav.Link>
-           {user && (
-  <>
-    <Nav.Link href="/chatpage" className="text-white nav-link" style={style('degrees')} onMouseEnter={() => setHoveredLink('degrees')} onMouseLeave={() => setHoveredLink(null)}>
-      Trò chuyện với AI
-    </Nav.Link>
-    <MoreDropdown />
-  </>
-)}
+
+            {/* Các liên kết chỉ hiển thị khi người dùng là Expert */}
+            {user && user.role === 'Expert' && (
+              <>
+                <Link
+                  to="/overview"
+                  className="text-white nav-link"
+                  style={style('overview')}
+                  onMouseEnter={() => setHoveredLink('overview')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Tổng quan
+                </Link>
+                <Link
+                  to="/revenue"
+                  className="text-white nav-link"
+                  style={style('revenue')}
+                  onMouseEnter={() => setHoveredLink('revenue')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Doanh thu
+                </Link>
+                <Link
+                  to="/schedule"
+                  className="text-white nav-link"
+                  style={style('schedule')}
+                  onMouseEnter={() => setHoveredLink('schedule')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Sắp xếp lịch
+                </Link>
+                <Link
+                  to="/messages"
+                  className="text-white nav-link"
+                  style={style('messages')}
+                  onMouseEnter={() => setHoveredLink('messages')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Tin nhắn
+                </Link>
+                <Link
+                  to="/forumpost"
+                  className="text-white nav-link"
+                  style={style('forum')}
+                  onMouseEnter={() => setHoveredLink('forum')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Diễn Đàn
+                </Link>
+              </>
+            )}
+
+            {/* Hiển thị phần "Trò chuyện với AI" và "Xem thêm" chỉ khi người dùng không phải là Expert */}
+            {user && user.role !== 'Expert' && (
+              <>
+                <Nav.Link
+                  href="/chatpage"
+                  className="text-white nav-link"
+                  style={style('chatpage')}
+                  onMouseEnter={() => setHoveredLink('chatpage')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Trò chuyện với AI
+                </Nav.Link>
+                <MoreDropdown />
+              </>
+            )}
           </Nav>
 
           {/* Search & Buttons */}
@@ -97,25 +182,22 @@ export default function NavBar() {
               </Dropdown>
             ) : (
               // Nếu chưa đăng nhập, hiển thị nút "Login"
-              <Nav.Link href="/login" className="text-white me-3 ms-auto" style={style('login')} onMouseEnter={() => setHoveredLink('login')} onMouseLeave={() => setHoveredLink(null)}>
+              <Nav.Link href="/login" className="text-white me-3 ms-auto" style={style('login')} onMouseEnter={() => setHoveredLink('login')} onMouseLeave={() => setHoveredLink(null)} >
                 Log in
               </Nav.Link>
             )}
 
-{user ? (
-  // Khi đã đăng nhập, thay thế nút "Take the free test" bằng biểu tượng chuông
-  <IconButton
-    sx={{ color: 'white', marginLeft: '10px' }}
-    onClick={() => navigate('/notifications')} // Chuyển hướng đến trang thông báo (có thể thay đổi)
-  >
-    <NotificationsIcon />
-  </IconButton>
-) : (
-  // Nếu chưa đăng nhập, hiển thị nút "Take the free test"
-  <Button variant="light" className="fw-bold">
-    Take the free test
-  </Button>
-)}
+            {/* Nếu đã đăng nhập, thay thế nút "Take the free test" bằng biểu tượng chuông */}
+            {user ? (
+              <IconButton sx={{ color: 'white', marginLeft: '10px' }} onClick={() => navigate('/notifications')}>
+                <NotificationsIcon />
+              </IconButton>
+            ) : (
+              // Nếu chưa đăng nhập, hiển thị nút "Take the free test"
+              <Button variant="light" className="fw-bold">
+                Take the free test
+              </Button>
+            )}
           </div>
         </Navbar.Collapse>
       </Container>
