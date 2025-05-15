@@ -40,8 +40,24 @@
   
   .post-item__content {
     color: #555;
+    white-space: pre-line; /* Giữ nguyên dấu xuống dòng trong nội dung */
+    word-wrap: break-word; /* Cho phép từ dài bị cắt và xuống dòng */
+    text-align: justify;
+    margin: 10px 0;
+    line-height: 1.5;
   }
-  
+  .show-more-btn {
+  background: none;
+  border: none;
+  color: #0d6efd;
+  cursor: pointer;
+  padding: 0 5px;
+  font-size: 14px;
+}
+.show-more-btn:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
   .post-item__comment-input {
     width: 100%;
     padding: 10px;

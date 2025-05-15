@@ -21,7 +21,8 @@ export default function LoginPage() {
   const [apiResponse, setApiResponse] = useState<LoginResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { showNotification } = useNotification(); // Dùng notification context
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Navigate hook
+
   useEffect(() => {
     setIsCardVisible(true);
   }, []);
@@ -43,16 +44,21 @@ export default function LoginPage() {
 
       if (data.success && data.token && data.expiresIn) {
         saveUserData(data);
+        showNotification('Đăng nhập thành công!', 'success'); // Success notification
+        
+        // Navigate to appropriate page based on role
+        if (data.user?.role === 'Expert') {
+          navigate('/overview');  // Navigate to Expert Overview
+        } else {
+          navigate('/');  // Navigate to homepage or another page for students
+        }
       }
-      showNotification('Đăng nhập thành công!', 'success'); // Success notification
-      navigate('/');
     } catch (err) {
       setApiResponse({
         success: false,
         error: err instanceof Error ? err.message : 'An error occurred'
-        
       });
-      showNotification('Đăng nhập thất bại!', 'error'); // Success notification
+      showNotification('Đăng nhập thất bại!', 'error'); // Failure notification
     } finally {
       setIsLoading(false);
     }
@@ -65,102 +71,102 @@ export default function LoginPage() {
 
   return (
     <div className="auth-container">
-<div className="video-container">
-  <video width="100%" height="auto" autoPlay muted loop>
-    <source src="/intro.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  </div>
-        <div
-          className="auth-card"
-          style={{
-            opacity: isCardVisible ? 1 : 0,
-            transform: isCardVisible ? 'translateY(0)' : 'translateY(20px)'
-          }}
-        >
-          <h1 className="auth-title">Chào mừng trở lại</h1>
+      <div className="video-container">
+        <video width="100%" height="auto" autoPlay muted loop>
+          <source src="/intro.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div
+        className="auth-card"
+        style={{
+          opacity: isCardVisible ? 1 : 0,
+          transform: isCardVisible ? 'translateY(0)' : 'translateY(20px)'
+        }}
+      >
+        <h1 className="auth-title">Chào mừng trở lại</h1>
 
-          {apiResponse?.error && (
-            <div className="auth-error" style={{ color: '#FFFF' }}>
-              {apiResponse.error}
-            </div>
-          )}
-
-          <form className="auth-form" onSubmit={onSubmit}>
-            <div className="input-wrapper">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <div className="input-icon">
-                <MailIcon style={{ fontSize: '18px' }} />
-              </div>
-            </div>
-
-            <div className="input-wrapper">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-              />
-              <div
-                className="input-icon"
-                onClick={() => setShowPassword(!showPassword)}
-                style={{ cursor: 'pointer' }}
-              >
-                {showPassword ? <LockOpenIcon style={{ fontSize: '18px' }} /> : <LockIcon style={{ fontSize: '18px' }} />}
-              </div>
-            </div>
-
-            <div className="remember-forgot">
-              <label className="remember-me">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                />
-                <span>Nhớ mật khẩu</span>
-              </label>
-              <Link to="/forgot-password" className="forgot-link">
-                Quên mật khẩu
-              </Link>
-            </div>
-
-            <button type="submit" className="auth-button" disabled={isLoading}>
-              {isLoading ? 'Đang xử lý....' : 'Đăng nhập'}
-            </button>
-
-            <div className="auth-footer">
-              Bạn chưa có tài khoản?
-              <Link to="/register" className="auth-link">
-                Đăng ký
-              </Link>
-            </div>
-          </form>
-
-          {/* Additional Login Options */}
-          <div className="social-login">
-            <button className="social-button google-button">
-              <GoogleIcon style={{ fontSize: '18px' }} />
-              Đăng nhập với Google
-            </button>
-            <button className=" microsoft-button" >
-              <MicrosoftIcon style={{ fontSize: '18px' }} />
-              Đăng nhập với Microsoft
-            </button>
-            <button className=" phone-button">
-              <PhoneIcon style={{ fontSize: '18px' }} />
-              Đăng nhập với Điện thoại
-            </button>
+        {apiResponse?.error && (
+          <div className="auth-error" style={{ color: '#FFFF' }}>
+            {apiResponse.error}
           </div>
+        )}
+
+        <form className="auth-form" onSubmit={onSubmit}>
+          <div className="input-wrapper">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+            <div className="input-icon">
+              <MailIcon style={{ fontSize: '18px' }} />
+            </div>
+          </div>
+
+          <div className="input-wrapper">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+            <div
+              className="input-icon"
+              onClick={() => setShowPassword(!showPassword)}
+              style={{ cursor: 'pointer' }}
+            >
+              {showPassword ? <LockOpenIcon style={{ fontSize: '18px' }} /> : <LockIcon style={{ fontSize: '18px' }} />}
+            </div>
+          </div>
+
+          <div className="remember-forgot">
+            <label className="remember-me">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
+              <span>Nhớ mật khẩu</span>
+            </label>
+            <Link to="/forgot-password" className="forgot-link">
+              Quên mật khẩu
+            </Link>
+          </div>
+
+          <button type="submit" className="auth-button" disabled={isLoading}>
+            {isLoading ? 'Đang xử lý....' : 'Đăng nhập'}
+          </button>
+
+          <div className="auth-footer">
+            Bạn chưa có tài khoản?
+            <Link to="/register" className="auth-link">
+              Đăng ký
+            </Link>
+          </div>
+        </form>
+
+        {/* Additional Login Options */}
+        <div className="social-login">
+          <button className="social-button google-button">
+            <GoogleIcon style={{ fontSize: '18px' }} />
+            Đăng nhập với Google
+          </button>
+          <button className=" microsoft-button" >
+            <MicrosoftIcon style={{ fontSize: '18px' }} />
+            Đăng nhập với Microsoft
+          </button>
+          <button className=" phone-button">
+            <PhoneIcon style={{ fontSize: '18px' }} />
+            Đăng nhập với Điện thoại
+          </button>
         </div>
       </div>
+    </div>
   );
 }

@@ -26,10 +26,15 @@ const PostItem: React.FC<Props> = ({ posts }) => {
   const [showAllComments, setShowAllComments] = useState<{ [postId: number]: boolean }>({});
   const [fadingComments, setFadingComments] = useState<{ [commentId: string]: boolean }>({});
   const [openPostOptions, setOpenPostOptions] = useState<string | null>(null);
-
+  const [expandedPosts, setExpandedPosts] = useState<{ [postId: number]: boolean }>({}); 
   const UserId = getUserId();
   const { showNotification } = useNotification();
-
+const togglePostContent = (postId: number) => {
+  setExpandedPosts(prev => ({
+    ...prev,
+    [postId]: !prev[postId]
+  }));
+};
   useEffect(() => {
     const unsubscribe = listenComments(setComments);
     return () => unsubscribe();
@@ -109,7 +114,20 @@ const PostItem: React.FC<Props> = ({ posts }) => {
               </div>
 
               <h4 className="post-item__title">{post.title}</h4>
-              <p className="post-item__content">{post.content}</p>
+            <p className="post-item__content">
+  {expandedPosts[post.post_id] || post.content.length <= 200 
+    ? post.content 
+    : `${post.content.substring(0, 200)}...`}
+  
+  {post.content.length > 200 && (
+    <button 
+      onClick={() => togglePostContent(post.post_id)}
+      className="show-more-btn"
+    >
+      {expandedPosts[post.post_id] ? 'Ẩn bớt' : 'Xem thêm'}
+    </button>
+  )}
+</p>
 
               <div className="post-item__comments">
                 <h5>Bình luận</h5>

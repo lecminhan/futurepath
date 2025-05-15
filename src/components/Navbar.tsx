@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Navbar, Nav, Container, Button, Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import MoreDropdown from './MoreDropdown';
 import SearchButton from '../components/SeachButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -14,35 +14,28 @@ interface User {
 }
 
 export default function NavBar() {
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null); // Trạng thái theo dõi liên kết nào đang hover
-  const [user, setUser] = useState<User | null>(null); // Trạng thái lưu thông tin người dùng
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null); // Track hovered links
+  const [user, setUser] = useState<User | null>(null); // Store user data
   const navigate = useNavigate();
 
-  // Kiểm tra xem người dùng đã đăng nhập chưa và lấy thông tin người dùng từ localStorage
+  // Check if user is logged in and handle redirection based on role
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const userData = JSON.parse(storedUser);
-      setUser(userData); // Lưu thông tin người dùng nếu có
-
-      // Chuyển hướng đến trang overview nếu người dùng có role là "Expert"
-      if (userData.role === 'Expert') {
-        navigate('/overview'); // Chuyển hướng đến trang Overview
-      }
+      setUser(userData); // Save user data
     }
-  }, [navigate]);
+  }, []);
 
-  // Xử lý đăng xuất
+  // Logout handler
   const handleLogout = () => {
-    // Xóa thông tin người dùng và token khỏi localStorage
+    // Remove user data and token from localStorage
     localStorage.removeItem('authToken');
     localStorage.removeItem('expiresAt');
     localStorage.removeItem('user');
 
-    setUser(null); // Xóa thông tin người dùng trong state
-
-    // Chuyển hướng về trang login
-    navigate('/login');
+    setUser(null); // Clear user data from state
+    navigate('/login'); // Redirect to homepage after logout
   };
 
   const style = (link: string) => ({
@@ -66,36 +59,40 @@ export default function NavBar() {
         {/* Navbar Links */}
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            {/* Hiển thị các liên kết này cho tất cả người dùng (dù đã đăng nhập hay chưa) */}
-            <Link
-              to="/"
-              className="text-white nav-link"
-              style={style('homepage')}
-              onMouseEnter={() => setHoveredLink('homepage')}
-              onMouseLeave={() => setHoveredLink(null)}
-            >
-              Trang chủ
-            </Link>
-            <Link
-              to="/quizzes"
-              className="text-white nav-link"
-              style={style('quizzes')}
-              onMouseEnter={() => setHoveredLink('quizzes')}
-              onMouseLeave={() => setHoveredLink(null)}
-            >
-              Bài Quizzes
-            </Link>
-            <Nav.Link
-              href="/community"
-              className="text-white nav-link"
-              style={style('community')}
-              onMouseEnter={() => setHoveredLink('community')}
-              onMouseLeave={() => setHoveredLink(null)}
-            >
-              Cộng đồng
-            </Nav.Link>
+            {/* Display these links only if user is not "Expert" */}
+            {(!user || user.role !== 'Expert') && (
+              <>
+                <Link
+                  to="/"
+                  className="text-white nav-link"
+                  style={style('homepage')}
+                  onMouseEnter={() => setHoveredLink('homepage')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Trang chủ
+                </Link>
+                <Link
+                  to="/quizzes"
+                  className="text-white nav-link"
+                  style={style('quizzes')}
+                  onMouseEnter={() => setHoveredLink('quizzes')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Bài Quizzes
+                </Link>
+                <Nav.Link
+                  href="/community"
+                  className="text-white nav-link"
+                  style={style('community')}
+                  onMouseEnter={() => setHoveredLink('community')}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  Cộng đồng
+                </Nav.Link>
+              </>
+            )}
 
-            {/* Các liên kết chỉ hiển thị khi người dùng là Expert */}
+            {/* Display these links if the user is "Expert" */}
             {user && user.role === 'Expert' && (
               <>
                 <Link
@@ -146,7 +143,7 @@ export default function NavBar() {
               </>
             )}
 
-            {/* Hiển thị phần "Trò chuyện với AI" và "Xem thêm" chỉ khi người dùng không phải là Expert */}
+            {/* For non-Expert users, show AI Chat and MoreDropdown */}
             {user && user.role !== 'Expert' && (
               <>
                 <Nav.Link
@@ -169,7 +166,7 @@ export default function NavBar() {
               <SearchButton />
             </Nav.Link>
 
-            {/* Nếu người dùng đã đăng nhập, hiển thị dropdown với tên người dùng */}
+            {/* Display dropdown with username if logged in */}
             {user ? (
               <Dropdown>
                 <Dropdown.Toggle variant="link" className="text-white nav-link" style={{ marginRight: '20px' }}>
@@ -181,19 +178,19 @@ export default function NavBar() {
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-              // Nếu chưa đăng nhập, hiển thị nút "Login"
-              <Nav.Link href="/login" className="text-white me-3 ms-auto" style={style('login')} onMouseEnter={() => setHoveredLink('login')} onMouseLeave={() => setHoveredLink(null)} >
+              // If not logged in, show "Login" button
+              <Nav.Link href="/login" className="text-white me-3 ms-auto" style={style('login')} onMouseEnter={() => setHoveredLink('login')} onMouseLeave={() => setHoveredLink(null)}>
                 Log in
               </Nav.Link>
             )}
 
-            {/* Nếu đã đăng nhập, thay thế nút "Take the free test" bằng biểu tượng chuông */}
+            {/* If logged in, show notifications icon instead of "Take the free test" */}
             {user ? (
               <IconButton sx={{ color: 'white', marginLeft: '10px' }} onClick={() => navigate('/notifications')}>
                 <NotificationsIcon />
               </IconButton>
             ) : (
-              // Nếu chưa đăng nhập, hiển thị nút "Take the free test"
+              // If not logged in, show "Take the free test" button
               <Button variant="light" className="fw-bold">
                 Take the free test
               </Button>
