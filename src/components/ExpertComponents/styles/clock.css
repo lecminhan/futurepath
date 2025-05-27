@@ -1,0 +1,69 @@
+/* Add these styles to your Overview.css */
+.clock-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.clock {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 8px solid #333;
+  border-radius: 50%;
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-origin: 50% 50%;
+  font-size: 12px;
+}
+
+.number span {
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+}
+
+.hour {
+  width: 5px;
+  height: 40px;
+  background: #333;
+  margin-left: -2.5px;
+}
+
+.minute {
+  width: 3px;
+  height: 60px;
+  background: #666;
+  margin-left: -1.5px;
+}
+
+.second {
+  width: 2px;
+  height: 70px;
+  background: red;
+  margin-left: -1px;
+}
+
+.clock-controls {
+  gap: 5px;
+}
