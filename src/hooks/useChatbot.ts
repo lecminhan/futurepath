@@ -23,6 +23,7 @@ const useChatbot = (initialConversationId: number = 1) => {
   const showLoading = () => {
     addMessage("I'm thinking, please wait a moment...", "bot");
   };
+const API_URL = import.meta.env.VITE_AN_API_URL;
 
   const hideLoading = () => {
     setMessages((prevMessages) =>
@@ -58,7 +59,7 @@ const useChatbot = (initialConversationId: number = 1) => {
 
   const saveChatHistory = async (message: string, response: string) => {
     try {
-      await fetch("http://localhost:3004/api/conversation/chat", {
+      await fetch(`${API_URL}/api/conversation/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
