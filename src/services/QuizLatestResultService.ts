@@ -1,5 +1,7 @@
 // src/services/quizLatestResultService.ts
 const API_URL = import.meta.env.VITE_AN_API_URL;
+const AI_API_URL = import.meta.env.VITE_AI_API_URL;
+
 export interface QuizResult {
     mbti: string;
     holland: string;
@@ -65,7 +67,7 @@ export interface QuizResult {
         interests: formData.interests.trim(),
       };
   
-      const response = await fetch(`${API_URL}/career-result`, {
+      const response = await fetch(`${AI_API_URL}/career-result`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

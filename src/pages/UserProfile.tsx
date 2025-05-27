@@ -1,588 +1,193 @@
-import { useState, useEffect, FormEvent } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import NavBar from "../components/Navbar";
-import {
-  User, DollarSign, Wallet, Edit, ChevronRight,
-  Shield, Bell, Settings, CreditCard, ArrowUpRight, ArrowDownRight,
-  X, Check, Lock, AlignJustify
-} from "lucide-react";
+import { Container, Row, Col, Image, ListGroup, Spinner, Alert } from "react-bootstrap";
 import "../styles/user-profile.css";
 
-type UserProfile = {
+type ExpertProfile = {
+  id: string;
+  expertise: string;
+  experience_years: number;
+  user_id: string;
+  certifications: string;
+  date_of_birth: string;
+  description: string;
+  gender: string;
+  major: string;
+  workplace: string;
+  account_balance: string;
+  username: string;
+};
+
+type StudentProfile = {
   id: string;
   full_name: string;
   age: number;
   dob: string;
-  phone: string;
-  account_balance: number;
-  email: string;
-  avatar?: string;
-  address?: string;
-  transactions?: {
-    id: string;
-    date: string;
-    description: string;
-    amount: number;
-    type: 'credit' | 'debit';
-  }[];
+  phone_number: string;
+  account_balance: string;
+  user_id: string;
 };
 
-export default function UserProfile() {
-  const { userId } = useParams<{ userId: string }>();
-  const [user, setUser] = useState<UserProfile | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+type UserRole = "Expert" | "Student" | null;
+
+export default function UserProfileFacebook() {
+  const [role, setRole] = useState<UserRole>(null);
+  const [id, setId] = useState<string | null>(null);
+  const [expertData, setExpertData] = useState<ExpertProfile | null>(null);
+  const [studentData, setStudentData] = useState<StudentProfile | null>(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isCurrentUser, setIsCurrentUser] = useState(false);
-  const [activeSidebarItem, setActiveSidebarItem] = useState('profile');
+const API_URL = import.meta.env.VITE_AN_API_URL;
 
-  // Edit mode states
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [editFormData, setEditFormData] = useState<Partial<UserProfile> | null>(null);
-  const [isSaving, setIsSaving] = useState(false);
-  const [saveError, setSaveError] = useState<string | null>(null);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-
-  // Placeholder image URL
-  const placeholderImage =
-   "https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg";
   useEffect(() => {
-    const fetchUserData = async () => {
-      setIsLoading(true);
+    const userDataString = localStorage.getItem("user");
+    if (userDataString) {
       try {
-        // In a real app, replace this with an actual API call
-        // Example: const response = await fetch(`/api/users/${userId}`);
+        const userData = JSON.parse(userDataString);
+        if (userData.role === "Expert" || userData.role === "Student") {
+          setRole(userData.role);
+          setId(userData.id.toString());
+        } else {
+          setError("Vai trò không hợp lệ.");
+          setLoading(false);
+        }
+      } catch {
+        setError("Lỗi đọc dữ liệu người dùng.");
+        setLoading(false);
+      }
+    } else {
+      setError("Chưa đăng nhập.");
+      setLoading(false);
+    }
+  }, []);
 
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 800));
+  useEffect(() => {
+    if (!role || !id) return;
 
-        // Mock data for demonstration
-        const mockUser: UserProfile = {
-          id: userId || "USR12345",
-          full_name: "Alexander Johnson",
-          age: 32,
-          dob: "1991-05-15",
-          phone: "+1 (555) 123-4567",
-          account_balance: 24850.75,
-          email: "alexander.johnson@example.com",
-          avatar: placeholderImage,
-          address: "123 Financial District, New York, NY 10004",
-          transactions: [
-            {
-              id: "TRX001",
-              date: "2023-11-15",
-              description: "Salary Deposit",
-              amount: 3500.00,
-              type: 'credit'
-            },
-            {
-              id: "TRX002",
-              date: "2023-11-14",
-              description: "Grocery Shopping",
-              amount: 125.30,
-              type: 'debit'
-            },
-            {
-              id: "TRX003",
-              date: "2023-11-10",
-              description: "Investment Return",
-              amount: 780.50,
-              type: 'credit'
-            },
-            {
-              id: "TRX004",
-              date: "2023-11-08",
-              description: "Monthly Rent",
-              amount: 1800.00,
-              type: 'debit'
-            },
-            {
-              id: "TRX005",
-              date: "2023-11-05",
-              description: "Freelance Payment",
-              amount: 950.00,
-              type: 'credit'
-            }
-          ]
-        };
-
-        setUser(mockUser);
-
-        // Check if this is the current logged-in user
-        // In a real app, you would compare with the authenticated user's ID
-        setIsCurrentUser(userId === "USR12345");
-      } catch (err) {
-        setError("Failed to load user profile");
-        console.error(err);
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        if (role === "Expert") {
+          const res = await fetch(`${API_URL}/api/data/Expert/${id}`);
+          const json = await res.json();
+          if (json.data && json.data.length > 0) {
+            setExpertData(json.data[0]);
+          } else {
+            setError("Không tìm thấy dữ liệu chuyên gia.");
+          }
+        } else if (role === "Student") {
+          const res = await fetch(`${API_URL}/api/data/Student/${id}`);
+          const json = await res.json();
+          if (json.data && json.data.length > 0) {
+            setStudentData(json.data[0]);
+          } else {
+            setError("Không tìm thấy dữ liệu học sinh.");
+          }
+        }
+      } catch {
+        setError("Lỗi khi lấy dữ liệu từ server.");
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
 
-    fetchUserData();
-  }, [userId]);
-
-  const openEditModal = () => {
-    if (!user) return;
-    setEditFormData({...user});
-    setIsEditModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeEditModal = () => {
-    setIsEditModalOpen(false);
-    setEditFormData(null);
-    setSaveError(null);
-    document.body.style.overflow = 'auto';
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setEditFormData(prev => prev ? {...prev, [name]: value} : null);
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    if (!editFormData) return;
-
-    setIsSaving(true);
-    setSaveError(null);
-
-    try {
-      // In a real app, make an API call to update the user profile
-      // Example: await fetch(`/api/users/${userId}`, { method: 'PUT', body: JSON.stringify(editFormData) });
-
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Update the local state with the edited data
-      setUser(editFormData as UserProfile);
-      closeEditModal();
-    } catch (err) {
-      console.error("Failed to save profile:", err);
-      setSaveError("Failed to save changes. Please try again.");
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(amount);
-  };
+    fetchData();
+  }, [role, id]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    }).format(date);
+    return date.toLocaleDateString("vi-VN");
   };
 
-  const toggleMobileSidebar = () => {
-    setIsMobileSidebarOpen(!isMobileSidebarOpen);
+  const formatCurrency = (amount: number | string) => {
+    const num = typeof amount === "string" ? parseFloat(amount) : amount;
+    return num.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
   };
 
-  if (isLoading) {
-    return (
-      <div className="profile-page">
-        <NavBar />
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <p>Loading profile data...</p>
-        </div>
-      </div>
-    );
-  }
+  const avatarPlaceholder = "https://i.pravatar.cc/150?img=65";
+  const coverPlaceholder = "https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=80";
 
-  if (error || !user) {
+  if (loading)
     return (
-      <div className="profile-page">
+      <div className="fb_profile-page">
         <NavBar />
-        <div className="error-container">
-          <h2>Oops! Something went wrong</h2>
-          <p>{error || "User not found"}</p>
-          <button className="retry-button" onClick={() => window.location.reload()}>
-            Retry
-          </button>
-        </div>
+        <Container className="d-flex justify-content-center align-items-center" style={{ height: "70vh" }}>
+          <Spinner animation="border" role="status" variant="primary" />
+          <span className="ms-3 fs-5 fw-semibold text-primary">Đang tải dữ liệu...</span>
+        </Container>
       </div>
     );
-  }
+
+  if (error)
+    return (
+      <div className="fb_profile-page">
+        <NavBar />
+        <Container className="mt-5">
+          <Alert variant="danger" className="text-center shadow-sm p-4 rounded">
+            <h4>Lỗi</h4>
+            <p>{error}</p>
+          </Alert>
+        </Container>
+      </div>
+    );
+
+  const expertInfoCard = expertData && (
+    <>
+      <h2 className="mb-3">{expertData.username}</h2>
+      <p className="text-muted fst-italic">{expertData.description}</p>
+      <ListGroup variant="flush" className="mb-4">
+        <ListGroup.Item><strong>Chuyên môn:</strong> {expertData.expertise}</ListGroup.Item>
+        <ListGroup.Item><strong>Kinh nghiệm:</strong> {expertData.experience_years} năm</ListGroup.Item>
+        <ListGroup.Item><strong>Chứng chỉ:</strong> {expertData.certifications}</ListGroup.Item>
+        <ListGroup.Item><strong>Ngày sinh:</strong> {formatDate(expertData.date_of_birth)}</ListGroup.Item>
+        <ListGroup.Item><strong>Giới tính:</strong> {expertData.gender}</ListGroup.Item>
+        <ListGroup.Item><strong>Ngành học:</strong> {expertData.major}</ListGroup.Item>
+        <ListGroup.Item><strong>Nơi làm việc:</strong> {expertData.workplace}</ListGroup.Item>
+        <ListGroup.Item><strong>Số dư tài khoản:</strong> {formatCurrency(expertData.account_balance)}</ListGroup.Item>
+      </ListGroup>
+    </>
+  );
+
+  const studentInfoCard = studentData && (
+    <>
+      <h2 className="mb-3">{studentData.full_name}</h2>
+      <ListGroup variant="flush" className="mb-4">
+        <ListGroup.Item><strong>Tuổi:</strong> {studentData.age} tuổi</ListGroup.Item>
+        <ListGroup.Item><strong>Ngày sinh:</strong> {formatDate(studentData.dob)}</ListGroup.Item>
+        <ListGroup.Item><strong>Số điện thoại:</strong> {studentData.phone_number}</ListGroup.Item>
+        <ListGroup.Item><strong>Số dư tài khoản:</strong> {formatCurrency(studentData.account_balance)}</ListGroup.Item>
+      </ListGroup>
+    </>
+  );
 
   return (
-    <div className="profile-page">
+    <div className="fb_profile-page">
       <NavBar />
+      <Container className="fb_profile-container my-5 p-4 bg-white rounded shadow-sm">
+        <Row className="align-items-center">
+          {/* Avatar */}
+          <Col md={3} className="text-center">
+            <Image
+              src={avatarPlaceholder}
+              roundedCircle
+              alt="User Avatar"
+              style={{ width: "160px", height: "160px", objectFit: "cover", border: "5px solid white", boxShadow: "0 4px 12px rgb(0 0 0 / 0.15)" }}
+            />
+          </Col>
 
-      <div className="profile-dashboard">
-        {/* Mobile menu toggle */}
-        <button className="mobile-menu-toggle" onClick={toggleMobileSidebar}>
-          <AlignJustify size={24} />
-          <span>Menu</span>
-        </button>
-
-        {/* Sidebar */}
-        <div className={`profile-sidebar ${isMobileSidebarOpen ? 'mobile-open' : ''}`}>
-          <div className="sidebar-user-info">
-            <div className="sidebar-avatar-container">
-              <img
-                src={user.avatar || placeholderImage}
-                alt={user.full_name}
-                className="sidebar-avatar"
-              />
-            </div>
-            <h3 className="sidebar-username">{user.full_name}</h3>
-            <p className="sidebar-user-id">ID: {user.id}</p>
-          </div>
-
-          <div className="sidebar-menu">
-            <button
-              className={`sidebar-menu-item ${activeSidebarItem === 'profile' ? 'active' : ''}`}
-              onClick={() => setActiveSidebarItem('profile')}
-            >
-              <User size={20} />
-              <span>Profile</span>
-            </button>
-
-            <button
-              className={`sidebar-menu-item ${activeSidebarItem === 'financial' ? 'active' : ''}`}
-              onClick={() => setActiveSidebarItem('financial')}
-            >
-              <Wallet size={20} />
-              <span>Financial Overview</span>
-            </button>
-
-            <button
-              className={`sidebar-menu-item ${activeSidebarItem === 'security' ? 'active' : ''}`}
-              onClick={() => setActiveSidebarItem('security')}
-            >
-              <Shield size={20} />
-              <span>Security</span>
-            </button>
-
-            <button
-              className={`sidebar-menu-item ${activeSidebarItem === 'notifications' ? 'active' : ''}`}
-              onClick={() => setActiveSidebarItem('notifications')}
-            >
-              <Bell size={20} />
-              <span>Notifications</span>
-            </button>
-
-            <button
-              className={`sidebar-menu-item ${activeSidebarItem === 'settings' ? 'active' : ''}`}
-              onClick={() => setActiveSidebarItem('settings')}
-            >
-              <Settings size={20} />
-              <span>Settings</span>
-            </button>
-          </div>
-
-        </div>
-
-        {/* Main Content Area */}
-        <div className="profile-content">
-          {/* Profile Section */}
-          {activeSidebarItem === 'profile' && (
-            <div className="content-section">
-              <div className="section-header">
-                {isCurrentUser && (
-                  <button className="edit-button" onClick={openEditModal}>
-                    <Edit size={18} />
-                    <span>Edit</span>
-                  </button>
-                )}
-              </div>
-
-              <div className="profile-card">
-                <div className="profile-info-grid">
-                  <div className="info-item">
-                    <div className="info-label">Full Name</div>
-                    <div className="info-value">{user.full_name}</div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="info-label">User ID</div>
-                    <div className="info-value">{user.id}</div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="info-label">Age</div>
-                    <div className="info-value">{user.age} years</div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="info-label">Date of Birth</div>
-                    <div className="info-value">{formatDate(user.dob)}</div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="info-label">Phone Number</div>
-                    <div className="info-value">{user.phone}</div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="info-label">Email Address</div>
-                    <div className="info-value">{user.email}</div>
-                  </div>
-
-                  {user.address && (
-                    <div className="info-item full-width">
-                      <div className="info-label">Address</div>
-                      <div className="info-value">{user.address}</div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
- 
-
-              <div className="finance-summary-card">
-                <div className="balance-display">
-                  <div className="balance-label">Current Balance</div>
-                  <div className="balance-amount">{formatCurrency(user.account_balance)}</div>
-                </div>
-
-                <div className="account-actions">
-                  <button className="account-action-btn deposit">
-                    <DollarSign size={18} />
-                    Deposit
-                  </button>
-                  <button className="account-action-btn withdraw">
-                    <ArrowUpRight size={18} />
-                    Transfer
-                  </button>
-                  <button className="account-action-btn statements">
-                    <CreditCard size={18} />
-                    Statements
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Financial Section */}
-          {activeSidebarItem === 'financial' && (
-            <div className="content-section">
-              <div className="section-header">
-                <h2>Financial Overview</h2>
-              </div>
-
-              <div className="finance-summary-card highlight">
-                <div className="balance-display">
-                  <div className="balance-label">Available Balance</div>
-                  <div className="balance-amount">{formatCurrency(user.account_balance)}</div>
-                </div>
-              </div>
-
-              <div className="section-header">
-                <h2>Recent Transactions</h2>
-              </div>
-
-              <div className="transactions-card">
-                <div className="transactions-list">
-                  {user.transactions?.map((transaction) => (
-                    <div key={transaction.id} className="transaction-item">
-                      <div className="transaction-icon-container">
-                        {transaction.type === 'credit' ? (
-                          <ArrowDownRight size={20} className="transaction-icon credit" />
-                        ) : (
-                          <ArrowUpRight size={20} className="transaction-icon debit" />
-                        )}
-                      </div>
-
-                      <div className="transaction-details">
-                        <div className="transaction-description">{transaction.description}</div>
-                        <div className="transaction-date">{formatDate(transaction.date)}</div>
-                      </div>
-
-                      <div className={`transaction-amount ${transaction.type}`}>
-                        {transaction.type === 'credit' ? '+ ' : '- '}
-                        {formatCurrency(transaction.amount)}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="view-all-button">
-                  <span>View All Transactions</span>
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Other sections would be implemented similarly */}
-          {activeSidebarItem === 'security' && (
-            <div className="content-section">
-              <div className="section-header">
-                <h2>Security Settings</h2>
-              </div>
-
-              <div className="placeholder-content">
-                <Lock size={48} />
-                <p>Security settings would be displayed here</p>
-              </div>
-            </div>
-          )}
-
-          {activeSidebarItem === 'notifications' && (
-            <div className="content-section">
-              <div className="section-header">
-                <h2>Notification Preferences</h2>
-              </div>
-
-              <div className="placeholder-content">
-                <Bell size={48} />
-                <p>Notification settings would be displayed here</p>
-              </div>
-            </div>
-          )}
-
-          {activeSidebarItem === 'settings' && (
-            <div className="content-section">
-              <div className="section-header">
-                <h2>Account Settings</h2>
-              </div>
-
-              <div className="placeholder-content">
-                <Settings size={48} />
-                <p>Account settings would be displayed here</p>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Edit Profile Modal */}
-      {isEditModalOpen && editFormData && (
-        <div className="modal-overlay">
-          <div className="edit-profile-modal">
-            <div className="modal-header">
-              <h2>Edit Profile Information</h2>
-              <button className="close-modal-button" onClick={closeEditModal}>
-                <X size={24} />
-              </button>
-            </div>
-
-            <div className="modal-scrollable-content">
-              {saveError && (
-                <div className="error-message">
-                  <X size={18} />
-                  {saveError}
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="edit-profile-form">
-                <div className="form-group">
-                  <label htmlFor="full_name">Full Name</label>
-                  <input
-                    type="text"
-                    id="full_name"
-                    name="full_name"
-                    value={editFormData.full_name || ''}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="age">Age</label>
-                  <input
-                    type="number"
-                    id="age"
-                    name="age"
-                    value={editFormData.age || ''}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="dob">Date of Birth</label>
-                  <input
-                    type="date"
-                    id="dob"
-                    name="dob"
-                    value={editFormData.dob || ''}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={editFormData.phone || ''}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="email">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={editFormData.email || ''}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="address">Address</label>
-                  <input
-                    type="text"
-                    id="address"
-                    name="address"
-                    value={editFormData.address || ''}
-                    onChange={handleInputChange}
-                  />
-                </div>
-
-                <div className="form-note">
-                  <p>Note: User ID and account balance cannot be modified directly.</p>
-                </div>
-              </form>
-            </div>
-
-            <div className="form-actions">
-              <button
-                type="button"
-                className="cancel-button"
-                onClick={closeEditModal}
-                disabled={isSaving}
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                className="save-button"
-                onClick={handleSubmit}
-                disabled={isSaving}
-              >
-                {isSaving ? (
-                  <>
-                    <div className="button-spinner"></div>
-                    Saving...
-                  </>
-                ) : (
-                  <>
-                    <Check size={18} />
-                    Save Changes
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+          {/* Profile Info */}
+          <Col md={9}>
+            {role === "Expert" ? expertInfoCard : studentInfoCard}
+          </Col>
+        </Row>
+                {/* Cover Photo */}
+        <div
+          className="fb_cover-photo rounded mb-4"
+          style={{ backgroundImage: `url(${coverPlaceholder})`, height: "260px", backgroundSize: "cover", backgroundPosition: "center" }}
+          aria-label="Cover photo"
+        ></div>
+      </Container>
     </div>
   );
 }

@@ -190,7 +190,7 @@
     bottom:-100px;
     position: fixed;
     transition: all 0.03s ease;
-    background-color: #FFFFFF;
+    background-color: #F8F9FA;
     padding-bottom: 100px;
     z-index: 0;
   }  

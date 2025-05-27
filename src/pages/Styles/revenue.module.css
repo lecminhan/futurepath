@@ -1,0 +1,115 @@
+/* Spinner Styling */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #007bff;
+}
+.revenue-container{
+  margin-top: 100px;
+}
+/* Card Styling to highlight revenue numbers */
+.card-body .card-title {
+  font-size: 1.25rem; /* Slightly larger font size for the title */
+  font-weight: bold;
+  color: #333; /* Darker color for the title */
+}
+
+.card-body .card-text {
+  font-size: 2.5rem; /* Larger font size for the numbers */
+  font-weight: 700; /* Make the numbers bold */
+  color: #007bff; /* Blue color for emphasis */
+  margin-top: 10px;
+}
+
+/* Highlight Positive Revenue */
+ .positive-revenue {
+  color: #007bff; /* Green color for positive numbers */
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Highlight Negative Revenue (optional, if needed) */
+.card-body .negative-revenue {
+  color: #dc3545; /* Red color for negative numbers */
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #dc3545;
+}
+
+/* Hover Effect on Card */
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-body .card-title {
+  margin-bottom: 15px;
+}
+
+.card-body .card-text {
+  margin-top: 10px;
+}
+
+/* Pagination Styling */
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.custom-pagination li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.custom-pagination button,
+.custom-pagination a {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-pagination .active-page button {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.custom-pagination button:hover,
+.custom-pagination a:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.custom-pagination .disabled button,
+.custom-pagination .disabled a {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .custom-pagination button,
+  .custom-pagination a {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
