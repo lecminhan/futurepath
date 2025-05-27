@@ -156,9 +156,10 @@ const ExpertDetail: React.FC = () => {
       const user_id = UserId; // Thay bằng id người dùng thực tế nếu cần
       const expert_id = expert.id;
       const schedule_id = selectedSchedule.id;
+      const API_URL = import.meta.env.VITE_AN_API_URL;
 
       const response = await axios.post(
-        "http://localhost:3004/api/consultation/create-consultation",
+        `${API_URL}/api/consultation/create-consultation`,
         { user_id, expert_id, schedule_id, reason }
       );
 
