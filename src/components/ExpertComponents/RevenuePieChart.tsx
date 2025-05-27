@@ -8,9 +8,12 @@ interface RevenuePieChartProps {
 }
 
 const RevenuePieChart: React.FC<RevenuePieChartProps> = ({ data, colors, title }) => {
+  // Kiểm tra colors có phải mảng và không rỗng
+  const safeColors = Array.isArray(colors) && colors.length > 0 ? colors : ['#8884d8'];
+
   return (
     <>
-      <h5 style={{textAlign:'center'}}>{title}</h5>
+      <h5 style={{ textAlign: 'center', marginBottom: '1rem' }}>{title}</h5>
       <ResponsiveContainer width="100%" height={250}>
         <PieChart>
           <Pie
@@ -22,9 +25,13 @@ const RevenuePieChart: React.FC<RevenuePieChartProps> = ({ data, colors, title }
             outerRadius={80}
             fill="#8884d8"
             paddingAngle={5}
+            label
           >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+            {data.map((_, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={safeColors[index % safeColors.length]}
+              />
             ))}
           </Pie>
           <Tooltip />

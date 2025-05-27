@@ -131,7 +131,7 @@ export default function NavBar() {
 
             {/* Notification dropdown */}
             {user ? (
-              <NotificationDropdown userId={user.id} userRole={user.role}    toggleClassName="no-caret-toggle"/>
+              <NotificationDropdown userId={user.id} userRole={user.role}  />
             ) : (
               <Button variant="light" className="fw-bold">
                 Take the free test
